@@ -12,7 +12,7 @@
 %%
 %% These macros specify information about the presentation
 \title[AGLA1]{Analytical Geometry and Linear Algebra I, Lab 4} %% that will be typeset on the
-\subtitle{Inverse Matrix \\ Change of basis \\ \   
+\subtitle{Inverse Matrix \\ Matrix Rank \\ Change of basis   
          } %% title page.
 \author{Oleg Bulichev}
 %% These additional packages are used within the document:
@@ -105,6 +105,17 @@
 \end{frame}
 
 \begin{frame}[t]{Inverse Matrix}
+    \framesubtitle{What is it?}
+    \textbf{Inverse matrix} $A^{-1}$ is the matrix, the product of which to original matrix $A$ is equal to the \textit{identity matrix} $I$:
+
+    \begin{equation*}
+        A \cdot A^{-1} = A^{-1} \cdot A = I
+    \end{equation*}
+    \end{frame}
+
+\note{Доказать им, что это работает формула, тут \href{https://www.berdov.com/works/matrix/obratnaya-matrica/}{подсказка} (Лемма 2, 13 минута)}
+
+\begin{frame}[t]{Inverse Matrix}
 \framesubtitle{Why do we need it?}
 \vspace{-3ex}
     \begin{figure}[H]
@@ -130,7 +141,7 @@
     There are 2 ways:
     \begin{enumerate}
         \item Classical approach
-        \item Gauss-Jordan
+        \item Gauss-Jordan / Reduced Row Echelon Form (RREF)
     \end{enumerate}
 \end{frame}
 
@@ -169,11 +180,208 @@
 \end{frame}
 
 \begin{frame}[t]{Inverse Matrix: Gauss-Jordan}
-\framesubtitle{Core Idea \& Case study ($2 \times 2$)}
-    The 
+\framesubtitle{Core Idea for Inverse Matrices}
+\vspace{-0.4cm}
+$(A|I)\rightarrow \ldots \rightarrow (I|A^{-1})$
+        \begin{enumerate}
+            \item Using sequence of \textit{elementary row operations} to modify the matrix until the lower left-hand corner of the matrix is filled with zeros (\textbf{Row Echelon Form}/Upper Trianglular Matrix). $(A|I)\rightarrow \ldots \rightarrow (\lhd_{Upper} |B)$
+            \item Using \textit{elementary row operations} transform Upper Trianglular Matrix to Indentity Matrix. $(\lhd_{Upper} |B)\rightarrow \ldots \rightarrow (I|A^{-1})$
+        \end{enumerate}
+    \begin{exampleblock}{Elementary Row Operations}
+        \vspace{-0.5cm}
+        \begin{multicols}{2}
+            \begin{itemize}
+                \item Swapping two rows,
+                \item Multiplying a row by a nonzero number,
+                \item Adding a multiple of one row to another row. (subtraction can be achieved by multiplying one row with -1 and adding the result to another row)
+            \end{itemize}
+        \end{multicols} 
+    \end{exampleblock}
+
 \end{frame}
 
-\note{Не забудь, нужно подумать как оформить эту штуку честь по чести. А то вроде ее и понимают, но времени не много. Как это оформить нормально.}
+\note{Объяснить надо, что такое чёрточка (там прячутся неизвестные). И подвести все к системам уравнений
+
+Спросить про уникальность верхнего треугольника и редьюсед формы}
+
+\begin{frame}[t]{Inverse Matrix: Gauss-Jordan}
+\framesubtitle{Case study ($2 \times 2$)}
+\vspace{-0.6cm}
+\begin{figure}[H]
+    \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{Gauss2x2.png}
+    % \caption{caption_name}
+    \label{fig:Gauss2x2.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}[t]{Inverse Matrix: Gauss-Jordan}
+    \framesubtitle{Case study ($4 \times 4$)}
+    \vspace{-0.6cm}
+        \begin{figure}[H]
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{Gauss4x4.png}
+            % \caption{caption_name}
+            \label{fig:Gauss4x4.png}
+        \end{figure}
+    \end{frame}
+
+\begin{frame}[t]{Inverse Matrix}
+\framesubtitle{Task 1}
+Find inverse matrices for the following matrices:
+\begin{enumerate}
+
+    \item $\begin{bmatrix}
+     3 & 5 \\
+     5 & 9 \\
+   \end{bmatrix}$;
+    \item $\begin{bmatrix}2&-1&0\\0&2&-1\\-1&-1&1\end{bmatrix}$;
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Inverse Matrix}
+    \framesubtitle{Task 2}
+    Solve matrix equations:
+    \begin{enumerate}
+        \item $\begin{bmatrix}2&5\\1&3\end{bmatrix}X=\begin{bmatrix}2&1\\1&1\end{bmatrix}$;
+        \item  $X\begin{bmatrix}2&5\\1&3\end{bmatrix}=\begin{bmatrix}2&1\\1&1\end{bmatrix}$;
+    \end{enumerate}
+    \end{frame}
+
+\begin{frame}[t]{}
+\framesubtitle{}
+    \begin{figure}[H]
+        \centering\includegraphics[height=7cm,width=1\textwidth,keepaspectratio]{agla_manga.jpeg}
+        % \caption{caption_name}
+        \label{fig:agla_manga.jpeg}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Matrix Rank}
+\framesubtitle{Definition}
+    \textbf{$N_r(A)$} --- max number of \textbf{lineary independent} rows of matrix $A$.
+
+    \textbf{$N_c(A)$} --- max number of \textbf{lineary independent} columns of matrix $A$.
+
+    \begin{equation*}
+        Rank(A) = N_r(A) = N_c(A)
+    \end{equation*}
+\bigskip
+
+    \centering
+    The rank of the matrix is how many of the rows (columns) are <<unique>>: not formed out by other rows (columns).
+\end{frame}
+
+\begin{frame}[t]{Matrix Rank}
+\framesubtitle{Motivation}
+    \begin{itemize}
+        \item Computation of the number of solutions of a system of linear equations.
+        \item Analysis of the linear dependency of rows and columns.
+        \item Applications in Control Theory (next year): observability and controllability.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Matrix Rank}
+\framesubtitle{How to find}
+    There are 3 ways:
+    \begin{enumerate}
+        \item \textbf{Look at matrix} and find linear dependencies.
+        \item \textbf{Reduced form} (transform matrix to upper triangular form (The first part of the algorithm for finding inverse matrix).
+        \item \textbf{Minor method} (метод окаймляющих миноров) \textit{not popular in western education}.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Matrix Rank}
+\framesubtitle{Case Study (on whiteboard)}
+Calculate the rank of the following matrix: $\begin{bmatrix}1&2&3\\2&3&4\\1&1&1\end{bmatrix}$. \medskip
+
+\alert{\Large Answer: 2}
+\end{frame}
+
+\begin{frame}[t]{Matrix Rank}
+\framesubtitle{Task 1}
+Determine the ranks of the following matrices for all real values of parameter $\alpha$:
+\begin{enumerate}
+
+    \item $\begin{bmatrix}1&\alpha&-1&2\\2&-1&\alpha&5\\1&10&-6&1\end{bmatrix}$;
+    \item $\begin{bmatrix}1&1&1\\1&\alpha&\alpha^2\\1&\alpha^2&\alpha\end{bmatrix}$;
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Preparation to Exam / Test}
+\framesubtitle{Strategy for efficient exam solving}
+\begin{exampleblock}{Problem Statement}
+    During an exam, I \textit{spend too much time} on finding the solution
+\end{exampleblock}
+\begin{alertblock}{Solution}
+    To find the right strategy for \textit{preparation} and \textit{behavior} during an exam.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[t]{Preparation to Exam / Test}
+    \framesubtitle{My own guide and thoughts}
+   \textbf{ I should pay attention on this parts:}
+        \begin{enumerate}
+            \item Preparation before a test
+            \item Preparation in a day of a test
+            \item Behavior on exam
+        \end{enumerate}
+
+      \textbf{Approx time consument:}
+\begin{itemize}
+    \item Preparation: 3-8 hours in overall
+    \item Exam: \begin{itemize}
+        \item Find the idea how to solve a particular task --- 10 sec - 2 min
+        \item Implement the idea — 10-20 min
+    \end{itemize}
+\end{itemize}
+    \end{frame}
+    
+\begin{frame}[t]{Preparation to Exam / Test}
+\framesubtitle{Preparation strategy}
+\vspace{-0.7cm}
+\begin{columns}[T,onlytextwidth]
+    \begin{column}{0.59\textwidth}
+        \begin{enumerate}
+            \item Understand the concept of a new topic \\ (\underline{Apply} or \underline{Analyze} in terms of Bloom's Taxonomy)
+            \begin{enumerate}
+                \item Look at slides and videos
+                \item Play with concept (suggest some ideas and prove it or disprove via computer or hand calculations)
+            \end{enumerate}
+            \item Take a book (material) with exercises and solutions for it. \begin{enumerate}
+                \item Look at the task, imagine how to solve it.
+                \item Check it from solutions. If you sure that your solution is also applicable – check it.
+            \end{enumerate} 
+        \end{enumerate}
+        \alert{Important}: For some tasks \textit{practical skills} are crutial (find not only an idea, but implement it)!
+    \end{column}
+    \begin{column}{0.39\textwidth}
+        \begin{figure}[H]
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{bloom_taxonomy.png}
+            % \caption{caption_name}
+            \label{fig:bloom_taxonomy.png}
+        \end{figure}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[t]{Preparation to Exam / Test}
+    \vspace{-0.5cm}
+\framesubtitle{Behavior before and on exam}
+\textbf{Before}:
+
+Prepare your brain (skim the material) and mentality (by self hypnosis techniques) \\ (took from science russian book \href{https://yadi.sk/d/uZhNSQW637Q3v7}{"Преодолей себя! Психическая подготовка в спорте"}) \smallskip
+
+\textbf{During an exam}:
+\begin{enumerate}
+    \item Rank tasks by doing speed: \begin{itemize}
+        \item Can be solved on-a-fly (expect max grade)
+        \item Easy concept --- tough implementation (expect that some computational mistakes can be done)
+        \item Tough concept (cannot find the solution on-a-fly) (time consuming tasks)
+    \end{itemize}
+    \item Solve it in such order
+    \item Profit! You are awesome!
+\end{enumerate}
+
+\end{frame}
 
 \begin{frame}[t]{Reference material}
     % \framesubtitle{OnlineMschool}

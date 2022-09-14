@@ -57,6 +57,7 @@
   \definecolor{fibeamer@black}{HTML}{000000}
   \definecolor{fibeamer@white}{HTML}{FFFFFF}
   \definecolor{fibeamer@blue}{HTML}{0071B2}
+  \definecolor{fibeamer@green}{HTML}{008000}
   \colorlet{fibeamer@lightBlue}{fibeamer@blue!30!fibeamer@white}
   \colorlet{fibeamer@darkBlue}{fibeamer@blue!60!fibeamer@black}
   \definecolor{fibeamer@gray}{HTML}{999999}
@@ -105,7 +106,7 @@
   %% Text
   \setbeamercolor{normal text}{fg=fibeamer@black, bg=fibeamer@white}
   \setbeamercolor{structure}{fg=fibeamer@black, bg=fibeamer@white}
-  \setbeamercolor{alerted text}{fg=red}
+  \setbeamercolor{alerted text}{fg=fibeamer@green!90!fibeamer@white}
   \addtobeamertemplate{block begin}{%
     \iffibeamer@dark % alerted text in plain block at dark slides
       \setbeamercolor{alerted text}{fg=fibeamer@orange}%
@@ -120,7 +121,7 @@
   \setbeamercolor{block title example}{%
     fg=fibeamer@white, bg=fibeamer@blue}
   \setbeamercolor{block title alerted}{%
-    fg=fibeamer@white, bg=red}
+    fg=fibeamer@white, bg=fibeamer@green!80!fibeamer@white}
   \setbeamercolor{block body}{%
     fg=fibeamer@blue, bg=fibeamer@gray!20!fibeamer@white}
   %% Title
