@@ -373,7 +373,21 @@
 		],
 		"description": "Handwriting frame"
 	  },
-
+	  "One figure frame": {
+		"scope": "latex",
+		"prefix": "\\nonefigfr",
+		"body": [
+		  "\\begin{frame}[t]{$1}",
+		  "\\framesubtitle{$2}",
+		  "    \\vspace{-0.6cm}",
+		  "    \\begin{figure}[H]",
+		  "        \\centering\\includegraphics[height=6cm,width=1\\textwidth,keepaspectratio]{${3:file_name}}",
+		  "        \\label{fig:${3:file_name}}",
+		  "    \\end{figure}",
+		  "\\end{frame}"
+		],
+		"description": "One figure frame"
+	  },
 	  "Video frame": {
 		"scope": "latex",
 		"prefix": "\\nvideoframe",

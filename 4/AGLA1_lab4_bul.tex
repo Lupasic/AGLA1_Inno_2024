@@ -285,7 +285,7 @@ Find inverse matrices for the following matrices:
     \begin{enumerate}
         \item \textbf{Look at matrix} and find linear dependencies.
         \item \textbf{Reduced form} (transform matrix to upper triangular form (The first part of the algorithm for finding inverse matrix).
-        \item \textbf{Minor method} (метод окаймляющих миноров) \textit{not popular in western education}.
+        \item \textbf{Minor method} (\href{http://www.mathprofi.ru/rang_matricy.html}{Метод окаймляющих миноров} ) \textit{not popular in western education}.
     \end{enumerate}
 \end{frame}
 
@@ -347,8 +347,8 @@ Determine the ranks of the following matrices for all real values of parameter $
                 \item Play with concept (suggest some ideas and prove it or disprove via computer or hand calculations)
             \end{enumerate}
             \item Take a book (material) with exercises and solutions for it. \begin{enumerate}
-                \item Look at the task, imagine how to solve it.
-                \item Check it from solutions. If you sure that your solution is also applicable – check it.
+                \item Look at a task, imagine how to solve it.
+                \item Check a suggestion from solutions. If you sure that your solution is also applicable --- check it.
             \end{enumerate} 
         \end{enumerate}
         \alert{Important}: For some tasks \textit{practical skills} are crutial (find not only an idea, but implement it)!
@@ -380,7 +380,121 @@ Prepare your brain (skim the material) and mentality (by self hypnosis technique
     \item Solve it in such order
     \item Profit! You are awesome!
 \end{enumerate}
+\end{frame}
 
+\begin{frame}[t]{Changing Basis}
+\framesubtitle{Coordinate Frame}
+    
+\end{frame}
+\note{Добавить типо подводку к остальному}
+
+
+\begin{frame}[t]{Changing Basis}
+\framesubtitle{Case Study: Shoe Polishing Robot}
+\vspace{-0.6cm}
+    \begin{figure}[H]
+        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{change_basis_practice_2.png}
+        % \caption{caption_name}
+        \label{fig:change_basis_practice_2.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Changing Basis}
+\framesubtitle{Case Study: Shoe Polishing Robot, How it works}
+\vspace{-0.6cm}
+    \begin{figure}[H]
+        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{change_basis_practice_1.png}
+        % \caption{caption_name}
+        \label{fig:change_basis_practice_1.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Changing Basis}
+\framesubtitle{Two Bros in the World of Changing Basis}
+\LARGE \centering$E' = EA$ and $Ex=E'x'$.
+
+Extended Bro Equation: $Ex = Eb + E'x'$, where $E = [e_1\ e_2\ e_3] = \begin{bmatrix}e_{1x}\\e_{1y} \\ e_{1z}\end{bmatrix},\ \begin{bmatrix}e_{2x}\\e_{2y} \\ e_{2z}\end{bmatrix},\ \begin{bmatrix}e_{3x}\\e_{3y} \\ e_{3z}\end{bmatrix}$, $E' = [e'_1\ e'_2\ e'_3]$ \smallskip
+
+More info \autoref{change_of_basis_gorodetskii}+1
+\end{frame}
+
+\begin{frame}[t]{Changing Basis}
+\framesubtitle{Change the coordinate frame}
+\vspace{-0.6cm}
+    \begin{figure}[H]
+        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{change_klimchik_1.png}
+        % \caption{caption_name}
+        \label{fig:change_klimchik_1.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Changing Basis}
+    \framesubtitle{Homogeneous representation}
+    \vspace{-0.6cm}
+        \begin{figure}[H]
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{change_klimchik_2.png}
+            % \caption{caption_name}
+            \label{fig:change_klimchik_2.png}
+        \end{figure}
+    \end{frame}
+
+    \begin{frame}[t]{Changing Basis}
+        \framesubtitle{Special Cases of Homogeneous matrices in 3D}
+        \vspace{-0.6cm}
+            \begin{figure}[H]
+                \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{change_klimchik_3.png}
+                % \caption{caption_name}
+                \label{fig:change_klimchik_3.png}
+            \end{figure}
+        \end{frame}
+    
+        \begin{frame}[t]{Changing Basis}
+            \framesubtitle{Change the coordinate frame: Case Study}
+            \vspace{-0.6cm}
+                \begin{figure}[H]
+                    \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{change_klimchik_4.png}
+                    % \caption{caption_name}
+                    \label{fig:change_klimchik_4.png}
+                \end{figure}
+            \end{frame}
+
+\begin{frame}[t]{Changing Basis}
+\framesubtitle{Task 1}
+Two bases are given in the plane: $\textbf{e}_1$, $\textbf{e}_2$ and $\textbf{e}'_1$, $\textbf{e}'_2$. The vectors of the second basis have coordinates $(-1;\,3)$ and $(2;-7)$ in the second basis.
+
+(a) Compose transition matrices from the old basis to the new and vice versa.
+
+(b) Find the coordinates of a vector in the old basis given that it has coordinates $\alpha'_1$, $\alpha'_2$ in the new basis.
+
+(c) Find the coordinates of a vector in the new basis given that it has coordinates $\alpha_1$, $\alpha_2$ in the old basis.
+\end{frame}
+
+\begin{frame}[t]{Changing Basis}
+\framesubtitle{Task 2}
+Let us consider two coordinate systems in the plane: $O$, $\textbf{e}_1$, $\textbf{e}_2$ and $O'$, $\textbf{e}'_1$, $\textbf{e}'_2$. Point $O'$ has coordinates $(7;-2)$ in the old coordinate system, and vectors $\textbf{e}'_1$, $\textbf{e}'_2$ can be obtained from vectors $\textbf{e}_1$, $\textbf{e}_2$ by rotating them $60^{\circ}$ (a) clockwise; (b) counterclockwise. Find the old coordinates of a point $x$, $y$ given its new coordinates $x'$, $y'$.
+\end{frame}
+
+\begin{frame}[t]{Changing Basis}
+\framesubtitle{Task 3}
+If vectors \textbf{a} and \textbf{b} form a basis (you should check it), it is needed to find coordinates $\textbf{c}$ and $\textbf{d}$ in the basis.\medskip
+
+$\textbf{a}=\begin{bmatrix} -5 \\ -1 \end{bmatrix}$, $\textbf{b}=\begin{bmatrix} -1 \\ 3\end{bmatrix}$, 
+$\textbf{c}=\begin{bmatrix} -1 \\ 2 \end{bmatrix}$, 
+$\textbf{d}=\begin{bmatrix} 2 \\ -6\end{bmatrix}$.
+\end{frame}
+
+\begin{frame}[t]{Changing Basis}
+\framesubtitle{Task 4}
+There are to bases in $R^3$:
+
+$e_1=i,\ e_2=j,\ e_3=k$ and $e_1'=i+j+k,\ e_2'=i+j,\ e_3'=i$
+
+Find coordinates of $x=2i-3j+k$ in the basis $e_1',\ e_2',\ e_3'$.
+\end{frame}
+
+\begin{frame}[t]{Changing Basis}
+\framesubtitle{Task 5}
+There are 4 vectors $f_1,\ f_2,\ f_3,\ x$ and the basis \\ $e_1=\begin{bmatrix}1\\0\\0\end{bmatrix},\ e_2=\begin{bmatrix}0\\1\\0\end{bmatrix},\ e_3=\begin{bmatrix}0\\0\\1\end{bmatrix}$. Find the coordinates of $x$ in the basis $(f_1,\ f_2,\ f_3)$, if $f_1=\begin{bmatrix}1\\1\\1\end{bmatrix},\ f_2=\begin{bmatrix}1\\2\\1\end{bmatrix},\ f_3=\begin{bmatrix}1\\2\\2\end{bmatrix},\ x=\begin{bmatrix}1\\1\\0\end{bmatrix}$
 \end{frame}
 
 \begin{frame}[t]{Reference material}
@@ -390,10 +504,16 @@ Prepare your brain (skim the material) and mentality (by self hypnosis technique
         \item \href{https://onlinemschool.com/math/library/matrix/inverse/}{Inverse Matrix (OnlineMschool)}
         \item \href{https://en.wikipedia.org/wiki/Gaussian_elimination}{Gauss-Jordan (Wiki)}
         \item \href{https://onlinemschool.com/math/library/matrix/rank/}{Matrix Rank (OnlineMschool)}
+        \item \href{https://www.youtube.com/watch?v=P2LTAUO1TdA}{Changing Basis (3Blue1Brown)}
     \end{itemize}
 \end{frame}
 
 \fbckg{fibeamer/figs/last_page.png}
-\frame[plain]{}
+\frame[plain,label={change_of_basis_gorodetskii}]{}
+
+\usebackgroundtemplate{}
+\setbeamercolor{background canvas}{bg=}
+\includepdf[pages=-,fitpaper]{change_of_basis_gorodetskii.pdf}
+\fbckg{fibeamer/figs/common.png}
 
 \end{document}
