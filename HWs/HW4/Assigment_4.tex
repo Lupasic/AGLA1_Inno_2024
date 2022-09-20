@@ -1,0 +1,101 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % Cyrillics!
+\usepackage{cmap} % Copypastable cyrillics!
+\usepackage{amsmath} % Multiline equations
+\usepackage{amssymb} % Cool symbols (like |R)
+\usepackage{mathtools} % Disable numbering equations by default
+\mathtoolsset{showonlyrefs}
+\usepackage{indentfirst} % Indent first paragraph in chapter
+\usepackage{multicol}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\T}{\textrm{T}}
+\newcommand{\I}{{-1}}
+
+\title{Class \#4}
+\author{Oleg Bulichev}
+\date{}
+
+\usepackage{color}
+\newcommand{\adv}[0]{\textcolor{red}{*}}
+
+\makeatletter
+\pdfinfo{%some PDF metadate
+  /Title    (\@title)
+  /Author   (\@author)
+  /Subject  (Analytical Geometry and Linear Algebra I)
+}
+\makeatother
+
+\begin{document}
+
+\section*{Analytical Geometry and Linear Algebra~I, \\ HW \#4}
+\noindent\textbf{Innopolis University, September 2022}
+\\
+
+\section{Inverse Matrix}
+\begin{enumerate}
+\item Find inverse matrices for the following matrices:
+\begin{enumerate}
+    \item $\begin{bmatrix}2&2&-1\\2&-1&2\\-1&2&2\end{bmatrix}$;
+    \item $\begin{bmatrix}1&1&1\\1&2&2\\2&3&4\end{bmatrix}$;
+    \item $\begin{bmatrix}1&2&2&2\\2&1&2&2\\2&2&1&2\\2&2&2&1\end{bmatrix}$;
+\end{enumerate}
+
+\item Solve matrix equations:
+\begin{enumerate}
+    \item  $X\begin{bmatrix}2&2&-1\\2&-1&2\\-1&2&2\end{bmatrix}=\begin{bmatrix}5&5&2\\5&8&-1\end{bmatrix}$.
+\end{enumerate}
+
+\item It is known that $A^2+A+I=O$ ($O$ is a zero matrix) for a square matrix $A$. Is it true that matrix $A$ is invertible? If it is so, how can we find the inverse matrix?
+
+
+
+\end{enumerate}
+
+\section{Matrix Rank}
+\begin{enumerate}
+\item Calculate the ranks of the following matrices:
+\begin{enumerate}
+
+    \item  $\begin{bmatrix}13&16&16\\-5&-7&-6\\-6&-8&-7\end{bmatrix}$;
+
+\end{enumerate}
+
+% \item Determine the rank of $A-\lambda I$ for all values of $\lambda$ if
+% \begin{enumerate}
+
+%     \item  $A=\begin{bmatrix}3&0&0\\2&6&4\\-2&-3&-1\end{bmatrix}$;
+%     \item  $A=\begin{bmatrix}0&0&-1&0\\0&0&0&1\\1&0&0&0\\0&-1&0&0\end{bmatrix}$.
+
+% \end{enumerate}
+
+\end{enumerate}
+
+\section{Changing Basis and Coordinates}
+\begin{enumerate}
+\item
+There are two different coordinate systems in space: $O$, $\textbf{e}_1$, $\textbf{e}_2$, $\textbf{e}_3$ and $O'$, $\textbf{e}'_1$, $\textbf{e}'_2$, $\textbf{e}'_3$. It is known that the old coordinates $x$, $y$, $z$ are expressed through the new coordinates $x'$, $y'$, $z'$ with the following formulas: $$x=x'+y'+z'-1;\;y=-x'+z'+3;\;z=-x'-y'-2.$$
+
+(a) Find the transition matrix from the new basis to the old one and the transition matrix from the old basis to the new one.
+
+(b) Find the coordinates of $O$, $\textbf{e}_1$, $\textbf{e}_2$, $\textbf{e}_3$ in the new coordinate system.
+
+(c) Find the coordinates of $O'$, $\textbf{e}'_1$, $\textbf{e}'_2$, $\textbf{e}'_3$ in the old coordinate system.
+\item
+Let us consider two coordinate systems in the plane: $O$, $\textbf{e}_1$, $\textbf{e}_2$ and $O'$, $\textbf{e}'_1$, $\textbf{e}'_2$. Point $O'$ has coordinates $(7;-2)$ in the old coordinate system, and vectors $\textbf{e}'_1$, $\textbf{e}'_2$ can be obtained from vectors $\textbf{e}_1$, $\textbf{e}_2$ by rotating them $60^{\circ}$ (a) clockwise; (b) counterclockwise. Find the old coordinates of a point $x$, $y$ given its new coordinates $x'$, $y'$.
+
+
+\end{enumerate}
+
+\end{document}

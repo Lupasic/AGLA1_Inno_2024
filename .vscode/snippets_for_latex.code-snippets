@@ -411,7 +411,7 @@
 		"body": [
 		  "\\usebackgroundtemplate{}",
 		  "\\setbeamercolor{background canvas}{bg=}",
-		  "\\includepdf[pages=-,fitpaper]{$1.pdf}",
+		  "\\includepdf[pages=-,fitpaper, linktodoc=true, pagecommand={\\section{$1}\\label{pdf:$1}}]{$1.pdf}",
 		  "\\fbckg{fibeamer/figs/common.png}"
 		],
 		"description": "Insert pdf doc as slides"
