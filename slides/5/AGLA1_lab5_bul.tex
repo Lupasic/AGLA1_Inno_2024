@@ -1,5 +1,5 @@
-\documentclass[aspectratio=169,notes]{beamer}
-% \documentclass[aspectratio=169]{beamer}
+% \documentclass[aspectratio=169,notes]{beamer}
+\documentclass[aspectratio=169]{beamer}
 \usetheme[faculty=phil]{fibeamer}
 \usepackage{polyglossia}
 \setmainlanguage{english} %% main locale instead of `english`, you
@@ -11,7 +11,7 @@
 %%   \begin{otherlanguage}{slovak}  ... \end{otherlanguage}
 %%
 %% These macros specify information about the presentation
-\title[AGLA1]{Analytical Geometry and Linear Algebra I, Lab 4} %% that will be typeset on the
+\title[AGLA1]{Analytical Geometry and Linear Algebra I, Lab 5} %% that will be typeset on the
 \subtitle{Matrix Rank \\ Test 1 Solutions \\ Q/A session   
          } %% title page.
 \author{Oleg Bulichev}
@@ -239,23 +239,6 @@ Determine the ranks of the following matrices for all real values of parameter $
     \end{figure}
 \end{frame}
 
-\begin{frame}[t]{Projection (3)}
-    \framesubtitle{}
-    \begin{figure}[H]
-        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{AGLA2_for_slides_3.png}
-        % \caption{caption_name}
-        \label{fig:AGLA2_for_slides_3.png}
-    \end{figure}
-\end{frame}
-
-\begin{frame}[t]{Projection (4)}
-    \framesubtitle{}
-    \begin{figure}[H]
-        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{AGLA2_for_slides_4.png}
-        % \caption{caption_name}
-        \label{fig:AGLA2_for_slides_4.png}
-    \end{figure}
-\end{frame}
 
 \begin{frame}[t]{Projection}
     \framesubtitle{Case study: Reinforcement Learning fitness function}
@@ -299,12 +282,14 @@ Determine the ranks of the following matrices for all real values of parameter $
 (3 points)  Point $A$ has coordinates (5; -1; 8) in the old coordinate system. Find its coordinates in the new coordinate system obtained from the initial one by transferring the origin to point $N$ that has coordinates (33; -1; 2) in the old coordinate system.
 \end{frame}
 
+\note{Попросить решить задачу как классическим методом (через бро формулы), через homogeneous, а также интуитивным (просто разница векторов)}
+
 \begin{frame}[t]{Test 1, Solutions}
     \framesubtitle{Task 5}
     (3 points) Subspace $S$ of $\mathbb{R}^3$ is formed by linear combination of vectors $v_1$ and $v_2$. Find a vector $v$ that is orthogonal to $S$, if $v_1 = \begin{bmatrix}1 \\ 2\\ 3\end{bmatrix}$, $v_2 = \begin{bmatrix}4 \\ 5\\ 6\end{bmatrix}$
 \end{frame}
 
-\note{Обсудить когда будут линейно зависимые и линейно независимые результаты}
+\note{Обсудить когда будут линейно зависимые и линейно независимые результаты и размерность subspace}
 
 \begin{frame}[t]{Test 1, Solutions}
     \framesubtitle{Task 6}
@@ -317,6 +302,8 @@ Determine the ranks of the following matrices for all real values of parameter $
         \end{equation}
     Find All \textbf{Natural} numbers ($k\in \mathbb{N}$) where: $A^k=A^{-1}$ ( Also you need to check if $A$ is invertible), Note that $A^k=\underbrace{A.A \dots A}_{k \ times} $
 \end{frame}
+
+\note{Задача решается экспериментально, то есть пытаемся просто умножать и пробовать получить нужное значение (вначале нужно найти обратную матрицу)}
 
 
 
