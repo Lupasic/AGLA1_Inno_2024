@@ -1,0 +1,105 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % Cyrillics!
+\usepackage{cmap} % Copypastable cyrillics!
+\usepackage{amsmath} % Multiline equations
+\usepackage{amssymb} % Cool symbols (like |R)
+\usepackage{mathtools} % Disable numbering equations by default
+\mathtoolsset{showonlyrefs}
+\usepackage{indentfirst} % Indent first paragraph in chapter
+\usepackage{multicol}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\T}{\textrm{T}}
+\newcommand{\I}{{-1}}
+
+\title{Class \#7}
+\author{Anastasiya Puzankova}
+\date{}
+
+\usepackage{color}
+\newcommand{\adv}[0]{\textcolor{red}{*}}
+
+\begin{document}
+%\maketitle
+\section*{Analytical Geometry and Linear Algebra~I, \\ Class \#7}
+\noindent\textbf{Innopolis University, October 2021}
+\\
+
+\begin{enumerate}
+
+\item
+Find the centroid of the triangle formed by the lines given by the equations $12x^2 - 20xy + 7y^2 = 0$ and $2x - 3y + 4 = 0$. And draw the picture.
+
+\item %3.9
+Find the condition that one of the lines given by $ax^2 + 2hxy + by^2 = 0$ may be perpendicular to one of the lines given by $a_1x^2 + 2h_1xy + by^2 = 0$. And draw the picture.
+
+\item %12.4
+Find the equation of the plane passing through the point $(2, -3, 4)$ and parallel to the plane $2x - 5y - 7z + 15 = 0$. And draw the picture.
+
+\item %12.12
+Find the equation of the plane passing through the point $(-1, 3, 2)$ and perpendicular to the planes $x + 2y + 2z = 5$ and $3x + 3y + 2z = 8$. And draw the picture.
+
+\item %12.20
+Find the ratio in which the line joining the points $(2, -1, 4)$ and $(6, 2, 4)$ is divided by the plane $x + 2y + 3z + 5 = 0$. And draw the picture.
+
+\item %12.25
+Find the equation of the plane which passes through the intersection of the planes $2x + 3y + 10z - 8 = 0, 2x - 3y + 7z - 2 = 0$ and is perpendicular to the plane $3x - 2y + 4z - 5 = 0$. And draw the picture.
+
+\item %13.3
+Find the equations of the line passing through the point $(1, 2, 3)$ and perpendicular to the planes $x - 2y - z + 5 = 0$ and $x + y + 3z + 6 = 0$. And draw the picture.
+
+\item %13.5
+Find the perpendicular distance from the point $(1, 3, -1)$ to the line \\ $\frac{x-13}{5} = \frac{y+8}{-8} = \frac{z-31}{1}$. And draw the picture.
+
+\item %12.29
+Find the distance of the points $(2, 3, -5), (3, 4, 7)$ from the plane $x + 2y - 2z = 9$ and prove that these points lie on the opposite sides of the plane. And draw the picture.
+
+\item %13.11
+Find the distance of the point $(1, -2, 3)$ from the plane $x - y + z = 5$ measured parallel to the line $\frac{x}{2} = \frac{y}{3} = \frac{z}{-6}$. And draw the picture.
+
+\item
+Draw the following three cases and find how much solutions does the systems have.
+\begin{enumerate}
+\item
+$
+\begin{cases}
+2x + 3y - z = 1, \\
+x - 2y + z = 2, \\
+x + y + z = 1
+\end{cases}
+$
+
+\item
+$
+\begin{cases}
+2x - 3y + z = 3, \\
+x - 2y + 2z = 2, \\
+x - y - z = 1
+\end{cases}
+$
+
+\item
+$
+\begin{cases}
+2x - 3y + z = 3, \\
+x - 2y + 2z = 0, \\
+x - y - z = 1
+\end{cases}
+$
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
