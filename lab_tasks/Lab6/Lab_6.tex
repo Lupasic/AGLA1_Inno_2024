@@ -1,0 +1,100 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % Cyrillics!
+\usepackage{cmap} % Copypastable cyrillics!
+\usepackage{amsmath} % Multiline equations
+\usepackage{amssymb} % Cool symbols (like |R)
+\usepackage{mathtools} % Disable numbering equations by default
+\mathtoolsset{showonlyrefs}
+\usepackage{indentfirst} % Indent first paragraph in chapter
+\usepackage{multicol}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\T}{\textrm{T}}
+\newcommand{\I}{{-1}}
+
+\title{Class \#6}
+\author{Anastasiya Puzankova}
+\date{}
+
+\usepackage{color}
+\newcommand{\adv}[0]{\textcolor{red}{*}}
+
+
+\begin{document}
+%\maketitle
+\section*{Analytical Geometry and Linear Algebra~I, \\ Class \#6}
+\noindent\textbf{Innopolis University, October 2021}
+\\
+
+\section{Lines in plane}
+
+\begin{enumerate}
+
+\item
+Find the slope of the line joining the points $(2, 3)$ and $(4, -5)$.
+
+\item
+Find the slope of the line $2x - 3y + 7 = 0.$
+
+\item
+Find the equation of the straight line, the portion of which between the axes is bisected at the point $(2, -5)$.
+
+\item
+Find the equation of the straight line passing through the intersection of the lines $3x - y = 5$ and $2x + 3y = 7$ and making an angle of $45^{\circ}$ with the positive direction of x-axis.
+
+\item
+Find the equation of the straight line concurrent\footnote{Lines are said to be cuncurrent if they are intersect at a single point} with the lines $2x + 3y = 3$ and $x + 2y = 2$ and also concurrent with the lines $3x - y = 1$ and $x + 5y = 11$.
+
+\item
+$A(4, 1)$, $B(7, 4)$, and $C(5, -2)$ are the vertices of a triangle. Find the line equation which is goes from $A$ and perpendicular to $BC$.
+
+\end{enumerate}
+
+\newpage
+\section*{Analytical Geometry and Linear Algebra~I, \\ HW \#6}
+\noindent\textbf{Innopolis University, October 2021}
+\\
+
+\begin{enumerate}
+
+\item
+Find the equation of the straight line making an angle $135^{\circ}$ with the positive direction of x-axis and cutting of an intercept 5 on the y-axis.
+
+\item
+Find the equation of the straight line cutting off the intercepts 2 and −5 on the axes.
+
+\item
+Find the equation of the straight line passing through the points $(7, −3)$ and cutting off equal intercepts on the axes.
+
+\item
+Find the equation of the straight line of the portion of which between the axes is divided by the point $(4, 3)$ in the ratio 2:3.
+
+\item
+Find the equations to the straight lines each of which passes through the point $(3, 2)$ and intersect the $x$ and $y$ axes at $A$ and $B$ such that $OA - OB = 2$.
+
+\item
+Prove that the triangle whose vertices are $(−2, 5)$, $(3, −4)$, and $(7, 10)$ is a right angled isosceles triangle. Find the equation of the hypotenuse.
+
+\item
+Find the equation of the straight line passing through the intersection of the lines $7x + 3y = 7$ and $2x + y = 2$ and cutting off equal intercepts on the axes.
+
+\item
+Find the equation of the perpendicular bisector of the line joining the points $(−2, 6)$ and $(4, −6)$.
+
+\item
+Find the equation of the line through the intersection of $2x + y = 8$ and $3x + 7 = 2y$ and parallel to $4x + y = 11$.
+
+
+\end{enumerate}
+
+\end{document}
