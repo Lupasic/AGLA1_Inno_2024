@@ -1,0 +1,67 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % Cyrillics!
+\usepackage{cmap} % Copypastable cyrillics!
+\usepackage{amsmath} % Multiline equations
+\usepackage{amssymb} % Cool symbols (like |R)
+\usepackage{mathtools} % Disable numbering equations by default
+\mathtoolsset{showonlyrefs}
+\usepackage{indentfirst} % Indent first paragraph in chapter
+\usepackage{multicol}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\T}{\textrm{T}}
+\newcommand{\I}{{-1}}
+
+\title{Class \#6}
+\author{Anastasiya Puzankova}
+\date{}
+
+\usepackage{color}
+\newcommand{\adv}[0]{\textcolor{red}{*}}
+
+
+\begin{document}
+%\maketitle
+\section*{Analytical Geometry and Linear Algebra~I, \\ HW \#6}
+\noindent\textbf{Innopolis University, October 2022}
+\\
+
+\begin{enumerate}
+\item
+Find the equation of the straight line cutting off the intercepts 2 and −5 on the axes.
+
+\item
+Find the equation of the straight line passing through the points $(7, −3)$ and cutting off equal intercepts on the axes.
+
+\item
+Find the equation of the straight line of the portion of which between the axes is divided by the point $(4, 3)$ in the ratio 2:3.
+
+\item
+Find the equations to the straight lines each of which passes through the point $(3, 2)$ and intersect the $x$ and $y$ axes at $A$ and $B$ such that $OA - OB = 2$.
+
+\item
+Prove that the triangle whose vertices are $(−2, 5)$, $(3, −4)$, and $(7, 10)$ is a right angled isosceles triangle. Find the equation of the hypotenuse.
+
+\item
+Find the equation of the straight line passing through the intersection of the lines $7x + 3y = 7$ and $2x + y = 2$ and cutting off equal intercepts on the axes.
+
+\item
+Find the equation of the perpendicular bisector of the line joining the points $(−2, 6)$ and $(4, −6)$.
+
+\item
+Find the equation of the line through the intersection of $2x + y = 8$ and $3x + 7 = 2y$ and parallel to $4x + y = 11$.
+
+
+\end{enumerate}
+
+\end{document}
