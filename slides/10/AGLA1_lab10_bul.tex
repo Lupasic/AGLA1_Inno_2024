@@ -332,12 +332,12 @@
         \begin{enumerate}
             \item Find angle of rotation, using $(C-A)sin(2\alpha) + Bcos(2\alpha)=0$
             \item Using roration matrix, write down a transformation from $\begin{bmatrix}x\\y\end{bmatrix} \rightarrow \begin{bmatrix}x'\\y'\end{bmatrix}$; $\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}
-            x'cos(\alpha) & -y'sin(\alpha)\\ 
-            x'sin(\alpha) & y'cos(\alpha) 
+            x'cos(\alpha) - y'sin(\alpha)\\ 
+            x'sin(\alpha) + y'cos(\alpha) 
             \end{bmatrix}$
-            \item Substitute it to original equation and simplify to a canoncial equation with shifting \\ (for instance, $\dfrac{x'+x_{shift}}{2}+\dfrac{y'+y_{shift}}{8}=1$)
-            \item Change the variables again ($\begin{bmatrix}x'\\y'\end{bmatrix} \rightarrow \begin{bmatrix}x''\\y''\end{bmatrix}$; $\begin{bmatrix}x''\\y''\end{bmatrix} = \begin{bmatrix}x' + x_{shift}\\y'+y_{shift}\end{bmatrix}$). It gives you a pure canoncical form.
-            \item Write a system which shows $\begin{bmatrix}x\\y\end{bmatrix} \rightarrow \begin{bmatrix}x''\\y''\end{bmatrix}$.
+            \item Substitute it to original equation and simplify to a canonical equation with shifting \\ (for instance, $\dfrac{x'+x_{shift}}{2}+\dfrac{y'+y_{shift}}{8}=1$)
+            \item Change the variables again ($\begin{bmatrix}x'\\y'\end{bmatrix} \rightarrow \begin{bmatrix}x''\\y''\end{bmatrix}$; $\begin{bmatrix}x''\\y''\end{bmatrix} = \begin{bmatrix}x' + x_{shift}\\y'+y_{shift}\end{bmatrix}$). It gives you a canonical form.
+            \item Write a system which shows $\begin{bmatrix}x''\\y''\end{bmatrix} = \begin{bmatrix}f(x,y)\\g(x,y)\end{bmatrix}$. You need to agregate (2) and (4) to (5)
         \end{enumerate}
 \end{frame}
 
@@ -445,7 +445,7 @@ cos(-\alpha) & -sin(-\alpha) & x_c \\ sin(-\alpha) & cos(-\alpha) & y_c \\ 0 & 0
 
 \begin{frame}[t]{Task 2}
     \framesubtitle{}
-    \only<1>{Transform $x^2-xy+y^2+x+y=0$ into pure canoncial form}
+    \only<1>{Transform $x^2-xy+y^2+x+y=0$ into canonical form}
     \only<2>{
         \alert{\Large Answer}
         \begin{figure}[H]
@@ -466,6 +466,8 @@ cos(-\alpha) & -sin(-\alpha) & x_c \\ sin(-\alpha) & cos(-\alpha) & y_c \\ 0 & 0
     }
 \end{frame}
 
+\note{Эта задача не имеет красивых чисел и поэтому 2ой способ предпочтительнее.}
+
 \begin{frame}[t]{Task 4}
     \framesubtitle{}
     \only<1>{
@@ -481,6 +483,10 @@ Find the equation to the hyperbola that passes through $(2;3)$ and has for its a
     }
 \end{frame}
 
+\note{Предложить зареверсить задачу, так как там есть combined equation of asymptotes. Намекнуть, что это можно загуглить и все такое.
+
+По факту тут появляется pair of straight lines. И можно объяснить еще раз, откуда оно тут (сечение в конусе и что из стрейт лайнс появляется гипербола, когда сдвиг проходит).}
+
 \begin{frame}[t]{Task 5}
     \framesubtitle{}
     \only<1>{
@@ -493,7 +499,7 @@ Find the equation to the hyperbola that passes through $(2;3)$ and has for its a
 (c) parallel to line $y=2$.
     }
     \only<2>{
-        \alert{\Large Answer}
+        \alert{\Large Answer (a)}
         \begin{figure}[H]
             \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{5ans.png}
             % \caption{caption_name}
