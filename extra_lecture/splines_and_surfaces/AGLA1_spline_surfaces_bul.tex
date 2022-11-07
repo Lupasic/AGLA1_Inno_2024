@@ -217,7 +217,7 @@
             \begin{itemize}
                 \item \textbf{Canonical} $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$
                 \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where $AC > 0$
-                \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = a\cos(\alpha)\\ y = b \sin(\alpha) \end{matrix*}\right.$
+                \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = a\  cos(\alpha)\\ y = b\ sin(\alpha) \end{matrix*}\right.$
             \end{itemize}
         \end{column}
         \begin{column}{0.39\textwidth}
@@ -261,7 +261,7 @@
                 \begin{itemize}
                     \item \textbf{Canonical} $\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$
                     \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where $AC < 0$
-                    \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = \dfrac{a}{\cos(\alpha)}\\ y = b\tan(\alpha) \end{matrix*}\right.$
+                    \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = \dfrac{a}{cos(\alpha)}\\ y = b\ tg(\alpha) \end{matrix*}\right.$
                 \end{itemize}
             \end{column}
             \begin{column}{0.39\textwidth}
@@ -330,16 +330,12 @@
 \vspace{-0.2cm}
         \textbf{Algorithm}
         \begin{enumerate}
-            \item Find angle of rotation, using $(A-C)\sin(2\alpha) + B\cos(2\alpha)=0$. If bad angle, try to do the following: \medskip
-
-             $\cot(2\alpha)=\dfrac{A-C}{B}$; $\cos(2\alpha)=\cos(\operatorname{arccot}(2\alpha))=\dfrac{A-C}{\sqrt{(A-C)^2+B^2}}$ $\rightarrow$ $\left\{\begin{matrix*}[l] \cos(\alpha)=\frac{\sqrt{2}}{2}\sqrt{1+\cos(2\alpha)}
-            \\ \sin(\alpha)=\frac{\sqrt{2}}{2}\sqrt{1-\cos(2\alpha)}
-            \end{matrix*}\right.$
+            \item Find angle of rotation, using $(C-A)sin(2\alpha) + Bcos(2\alpha)=0$
             \item Using roration matrix, write down a transformation from $\begin{bmatrix}x\\y\end{bmatrix} \rightarrow \begin{bmatrix}x'\\y'\end{bmatrix}$; $\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}
-            x'\cos(\alpha) - y'\sin(\alpha)\\ 
-            x'\sin(\alpha) + y'\cos(\alpha) 
+            x'cos(\alpha) - y'sin(\alpha)\\ 
+            x'sin(\alpha) + y'cos(\alpha) 
             \end{bmatrix}$
-            \item Substitute it to original equation and simplify to a canonical equation with shifting \\ (for instance, $\dfrac{(x'+x_{shift})^2}{2}+\dfrac{(y'+y_{shift})^2}{8}=1$)
+            \item Substitute it to original equation and simplify to a canonical equation with shifting \\ (for instance, $\dfrac{x'+x_{shift}}{2}+\dfrac{y'+y_{shift}}{8}=1$)
             \item Change the variables again ($\begin{bmatrix}x'\\y'\end{bmatrix} \rightarrow \begin{bmatrix}x''\\y''\end{bmatrix}$; $\begin{bmatrix}x''\\y''\end{bmatrix} = \begin{bmatrix}x' + x_{shift}\\y'+y_{shift}\end{bmatrix}$). It gives you a canonical form.
             \item Write a system which shows $\begin{bmatrix}x''\\y''\end{bmatrix} = \begin{bmatrix}f(x,y)\\g(x,y)\end{bmatrix}$. You need to agregate (2) and (4) to (5)
         \end{enumerate}
@@ -364,9 +360,9 @@ In some cases it's quite tough to convert from general form to canonical using c
 \begin{columns}[onlytextwidth]
 \column{0.47\textwidth}
 $f = Ax^{2}+Bxy+Cy^{2}+Dx+Ey+F=0$ \\
-converts into canonical form in new variables ${x''}$, ${y''}$ by the equation:
+can be converted into canonical form in new variables $\tilde {x}$, $\tilde {y}$ by the equation:
 $
-    {\dfrac {{({x}'')}^{2}}{-S/(\lambda _{1}^{2}\lambda _{2})}}+{\dfrac {{({y}'')}^{2}}{-S/(\lambda _{1}\lambda _{2}^{2})}}=1
+    {\dfrac {{\tilde {x}}^{2}}{-S/(\lambda _{1}^{2}\lambda _{2})}}+{\dfrac {{\tilde {y}}^{2}}{-S/(\lambda _{1}\lambda _{2}^{2})}}=1
 $, where \\
 \begin{itemize}
     \item $S$ is determinant of $\left({\begin{matrix}A&B/2&D/2\\B/2&C&E/2\\D/2&E/2&F\end{matrix}}\right)$ matrix 
@@ -380,7 +376,7 @@ $
 Using \textit{canonical form}, we can find $a,\ b,\ c,\ ecc$ for the curve, but not \textit{coordinate dependent properties (like vertex, directrix eq.)}.
 
 For this purpose, we need to find \textbf{angle} and \textbf{shift}.\\
-\textbf{Angle}: $(A-C)\sin(2\alpha) + B\cos(2\alpha) = 0; \rightarrow \alpha = ...$
+\textbf{Angle}: $(C-A)sin(2\alpha) + Bcos(2\alpha) = 0; \rightarrow \alpha = ...$
 
 \textbf{Shift (center of the curve)}
 \begin{equation*}
@@ -392,9 +388,9 @@ Using this transformation, we can find original coordinates, knowing the new one
 x_A\\ y_A \\1
 \end{bmatrix} = 
 \begin{bmatrix}
-\cos(\alpha) & -\sin(\alpha) & x_c \\ \sin(\alpha) & \cos(\alpha) & y_c \\ 0 & 0 & 1
+cos(-\alpha) & -sin(-\alpha) & x_c \\ sin(-\alpha) & cos(-\alpha) & y_c \\ 0 & 0 & 1
 \end{bmatrix} \begin{bmatrix}
-{x}_A''\\{y}_A''\\1
+\tilde{x}_A\\\tilde{y}_A\\1
 \end{bmatrix}
 \end{equation*}
 \end{columns}
@@ -422,15 +418,15 @@ x_A\\ y_A \\1
             node[above,black]{\small $y$};
 
             \draw[xshift=1.5cm, yshift=-1.705cm, rotate =45, -stealth, very thick,blue] (0,0) -- (1,0)
-            node[right,black]{\small ${x''}$};
+            node[right,black]{\small $\tilde{x}$};
 
             \draw[xshift=1.5cm, yshift=-1.705cm, rotate =45, -stealth, very thick,red] (0,0) -- (0,1)
-            node[above,black]{\small ${y''}$};
+            node[above,black]{\small $\tilde{y}$};
 
             \filldraw[black] (0.75,-2) circle (2pt) node[left]{\small $A$};
 
             \draw[-stealth, very thick,green] (1.5,-1.705) -- (0.75,-2)
-            node[midway,below right=-2pt, black]{\tiny $\begin{bmatrix}{x}_{A}''\\{y}_{A}''\end{bmatrix}$};
+            node[midway,below right=-2pt, black]{\tiny $\begin{bmatrix}\tilde{x}_{A}\\\tilde{y}_{A}\end{bmatrix}$};
 
             \draw[-stealth, very thick,green] (0,0) -- (0.75,-2)
             node[midway,below left=-2pt, black]{\tiny $\begin{bmatrix}x_{A}\\y_{A}\end{bmatrix}$};
@@ -541,7 +537,7 @@ Find the equation to the hyperbola that passes through $(2;3)$ and has for its a
 (h) $x^2+2xy+y^2-5x-5y+4=0$.
     }
     \only<2>{
-        \alert{\Large Answer (may contain typos, recommend to check by geogebra)}
+        \alert{\Large Answer}
         \begin{figure}[H]
             \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{6ans.png}
             % \caption{caption_name}
