@@ -100,7 +100,29 @@
 
 \begin{frame}[t]{Affine Transformation}
 \framesubtitle{Formal definition}
-    
+\textbf{Classical representation}:\smallskip
+    \begin{align*}
+        \begin{bmatrix}x^*\\y^*\end{bmatrix} = \begin{bmatrix}
+        a & b\\ 
+        c & d 
+        \end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix} + \begin{bmatrix}x_0\\y_0\end{bmatrix}
+    \end{align*} 
+
+    \textbf{System of equations representation}:\smallskip
+    \begin{align*}
+        \left\{\begin{matrix*}[l]
+        x^*=ax+by+x_0\\
+        y^*=cx+dy+y_0 
+        \end{matrix*}\right.
+    \end{align*}
+    \textbf{Homogeneous representation}:\smallskip
+    \begin{align*}
+        \begin{bmatrix}x^*\\y^*\\1\end{bmatrix}=\begin{bmatrix}
+        a & b & x_0 \\
+        c & d & y_0 \\ 
+        0 & 0  & 1 
+        \end{bmatrix}\begin{bmatrix}x\\y\\1\end{bmatrix}
+    \end{align*}
 \end{frame}
 
 \begin{frame}[t]{Affine Transformation}
@@ -114,6 +136,16 @@
     \end{figure}
 \end{frame}
 
+\begin{frame}[t]{Affine Transformation}
+    \framesubtitle{Porperties}
+        \begin{itemize}
+            \item \textit{Collinearity between points}: three or more points which lie on the same line (called collinear points) continue to be collinear after the transformation.
+            \item \textit{Parallelism}: two or more lines which are parallel, continue to be parallel after the transformation.
+            \item \textit{Convexity of sets}: a convex set continues to be convex after the transformation. Moreover, the extreme points of the original set are mapped to the extreme points of the transformed set.
+            \item \textit{Ratios of lengths} of parallel line segments are the same after the transformation.
+        \end{itemize}
+    \end{frame}
+
 \begin{frame}[t]{Task 1}
     \framesubtitle{}
     Linear transformation of a real axis is given by $f(x)=ax+b$. (a) Find all fixed points of this transformation. (b) Find the transformation that is inverse for $f$.
@@ -121,13 +153,13 @@
     \uncover<2->{
         \alert{\Large Answer}
 
-        (a) If $a\neq1$ then there is one fixed point $x=\frac b{1-a}$; if $a=1$ and $b=0$ then all points are fixed; if $a=1$ and $b\neq0$ then there are no fixed points. (b) It exists only if $a\neq0$: $f^{-1}(y)=\frac{y-b}a$.
+        (a) If $a\neq1$ then there is one fixed point $x=\dfrac b{1-a}$; if $a=1$ and $b=0$ then all points are fixed; if $a=1$ and $b\neq0$ then there are no fixed points. (b) It exists only if $a\neq0$: $f^{-1}(y)=\dfrac{y-b}a$.
     }
 \end{frame}
 
 \begin{frame}[t]{Task 2}
     \framesubtitle{}
-    An affine transformation is given by $x*=3x+2y-6$, $y*=4x-3y+1$. Find the images of (a) point $M(-1;\,5)$; (b) line $2x+3y=7$.
+    An affine transformation is given by $x^*=3x+2y-6$, $y^*=4x-3y+1$. Find the images of (a) point $M(-1;\,5)$; (b) line $2x+3y=7$.
 
     \uncover<2->{
         \alert{\Large Answer}
@@ -137,15 +169,7 @@
 \end{frame}
 
 
-\begin{frame}[t]{Affine Transformation}
-\framesubtitle{Porperties}
-    \begin{itemize}
-        \item collinearity between points: three or more points which lie on the same line (called collinear points) continue to be collinear after the transformation.
-        \item parallelism: two or more lines which are parallel, continue to be parallel after the transformation.
-        \item convexity of sets: a convex set continues to be convex after the transformation. Moreover, the extreme points of the original set are mapped to the extreme points of the transformed set.
-        \item ratios of lengths of parallel line segments
-    \end{itemize}
-\end{frame}
+
 
 \begin{frame}[t]{Task 3}
     \framesubtitle{}
@@ -158,69 +182,104 @@
     }
 \end{frame}
 
+% \begin{frame}[t]{Bijection, injection and surjection}
+% \framesubtitle{}
+%     \vspace{-0.6cm}
+%     \begin{figure}[H]
+%         \centering\includegraphics[height=6.5cm,width=1\textwidth,keepaspectratio]{bij_inj_surj_full.png}
+%         \label{fig:bij_inj_surj_full.png}
+%     \end{figure}
+% \end{frame}
+
 \begin{frame}[t]{Bijection, injection and surjection}
 \framesubtitle{}
-    \vspace{-0.6cm}
-    \begin{figure}[H]
-        \centering\includegraphics[height=6.5cm,width=1\textwidth,keepaspectratio]{bij_inj_surj_full.png}
-        \label{fig:bij_inj_surj_full.png}
-    \end{figure}
+\vspace{-0.5cm}
+\begin{columns}[T,onlytextwidth]
+    \begin{column}{0.49\textwidth}
+        \textbf{Injective and surjective (bijective)}\\
+$\mathbf {R} \to \mathbf {R} :x\mapsto x.$
+
+$\mathbf {R} ^{+}\to \mathbf {R} ^{+}:x\mapsto x^{2}$, and thus also its inverse $\mathbf {R} ^{+}\to \mathbf {R} ^{+}:x\mapsto {\sqrt {x}}.$.
+
+\textbf{Injective and non-surjective}\\
+$\mathbf {R} \to \mathbf {R} :x\mapsto \mathrm {e} ^{x}$.
+
+\textbf{Non-injective and surjective}\\
+$\mathbf {R} \to \mathbf {R} :x\mapsto (x-1)x(x+1)=x^{3}-x.$\\
+$\mathbf {R} \to [-1,1]:x\mapsto \sin(x).$
+
+\textbf{Non-injective and non-surjective}\\
+$\mathbf {R} \to \mathbf {R} :x\mapsto \sin(x).$
+    \end{column}
+    \begin{column}{0.49\textwidth}
+        \only<1>{
+        \vspace{-0.4cm}
+        \begin{figure}[H]
+            \centering\includegraphics[height=6.5cm,width=1\textwidth,keepaspectratio]{bij_inj_surj.png}
+            % \caption{caption_name}
+            \label{fig:bij_inj_surj.png}
+        \end{figure}
+        }
+    \only<2>{
+        \begin{figure}[H]
+            \begin{subfigure}{0.49\textwidth}
+                \centering
+                \resizebox{0.99\textwidth}{!}{
+                \begin{tikzpicture}
+                    \draw[->] (-1, 0) -- (3.2, 0) node[right] {$x$};
+                    \draw[->] (0, -1) -- (0, 3.2) node[above] {$y$};
+                    \draw[scale=1, domain=0:1.9, smooth, variable=\x, blue, ultra thick] plot ({\x}, {\x*\x}) node[right] {$f(x) =x^2$};
+                    \draw[scale=1, domain=-1:3, smooth, variable=\y, red, ultra thick] plot ({\y}, {\y}) node[right] {$f(x) = x$};
+                    \draw[scale=1, domain=0:3, smooth, variable=\z, green, ultra thick] plot ({\z}, {sqrt(\z)}) node[right] {$f(x) =\sqrt{x}$};
+                  \end{tikzpicture}
+                }
+                \caption*{Bijective}
+            \end{subfigure}
+            \begin{subfigure}{0.49\textwidth}
+                \centering
+                \resizebox{0.89\textwidth}{!}{
+                    \begin{tikzpicture}
+                        \draw[->] (-2, 0) -- (2.5, 0) node[right] {$x$};
+                        \draw[->] (0, -1) -- (0, 3.2) node[above] {$y$};
+                        \draw[scale=1, domain=-2:1.2, smooth, variable=\x, blue, ultra thick] plot (\x,{exp(\x)}) node[right] {$f(x) =e^x$};
+                    \end{tikzpicture}
+                    }
+                    \caption*{Injective-only}
+            \end{subfigure}
+
+            \begin{subfigure}{0.49\textwidth}
+                \centering
+                \resizebox{0.89\textwidth}{!}{
+                    \begin{tikzpicture}
+                        \draw[->] (-2, 0) -- (2.5, 0) node[right] {$x$};
+                        \draw[->] (0, -1) -- (0, 2.2) node[above] {$y$};
+                        \draw[scale=1, domain=-1.2:1.5, smooth, variable=\x, blue, ultra thick] plot (\x,{\x^3-\x}) node[right] {$f(x) =x^{3}-x$};
+                        \draw[scale=1, domain=-1:1, smooth, variable=\y, red, ultra thick] plot (\y,{sin(\y r)}) node[right] {$f(x) =\sin(x)$};
+                    \end{tikzpicture}
+                    }
+                    \caption*{Surjective-only}
+            \end{subfigure}
+            \begin{subfigure}{0.49\textwidth}
+                \centering
+                \resizebox{0.99\textwidth}{!}{
+                \begin{tikzpicture}
+                    \draw[->] (-3, 0) -- (3, 0) node[right] {$x$};
+                    \draw[->] (0, -2) -- (0, 2) node[above] {$y$};
+                    \draw[scale=1, domain=-2.8:2.8, smooth, variable=\x, blue, ultra thick] plot (\x,{sin(\x r)}) node[right] {$f(x) =\sin(x)$};
+                  \end{tikzpicture}
+                }
+                \caption*{General}
+            \end{subfigure}
+        \end{figure}
+    }
+    \end{column}
+\end{columns}
 \end{frame}
-
-% \begin{frame}[t]{Bijection, injection and surjection}
-% \framesubtitle{Definition}
-% \vspace{-0.5cm}
-%     \begin{columns}[T,onlytextwidth]
-%         \scriptsize
-%         \begin{column}{0.59\textwidth}
-%             \textbf{Injective}: \\
-%             A function is injective (one-to-one) if each possible element of the codomain is mapped to by at most one argument. Equivalently, a function is injective if it maps distinct arguments to distinct images.
-
-% The function {\displaystyle f\colon X\to Y}f \colon X \to Y is injective, if for all {\displaystyle x,x'\in X}{\displaystyle x,x'\in X}, {\displaystyle f(x)=f(x')\Rightarrow x=x'.}{\displaystyle f(x)=f(x')\Rightarrow x=x'.}
-
-% \textbf{Surjection}: \\ 
-% A function is surjective or onto if each element of the codomain is mapped to by at least one element of the domain. In other words, each element of the codomain has non-empty preimage. Equivalently, a function is surjective if its image is equal to its codomain.
-
-% The function {\displaystyle f\colon X\to Y}f \colon X \to Y is surjective, if for all {\displaystyle y\in Y}y\in Y, there is {\displaystyle x\in X}x\in X such that {\displaystyle f(x)=y.}{\displaystyle f(x)=y.}
-
-% \textbf{Bijection}: \\ 
-% A function is bijective if it is both injective and surjective. A bijective function is also called a bijection or a one-to-one correspondence. A function is bijective if and only if every possible image is mapped to by exactly one argument.
-
-% The function {\displaystyle f\colon X\to Y}f \colon X \to Y is bijective, if for all {\displaystyle y\in Y}y\in Y, there is a unique {\displaystyle x\in X}x\in X such that {\displaystyle f(x)=y.}{\displaystyle f(x)=y.}
-
-%         \end{column}
-%         \begin{column}{0.39\textwidth}
-%             \begin{figure}[H]
-%                 \centering\includegraphics[height=4cm,width=1\textwidth,keepaspectratio]{bij_inj_surj.png}
-%                 % \caption{caption_name}
-%                 \label{fig:bij_inj_surj.png}
-%             \end{figure}
-%         \end{column}
-%     \end{columns}
-% \end{frame}
-
-% \begin{frame}[t]{}
-% \framesubtitle{Examples}
-% \textbf{Injective and surjective (bijective)}
-% The identity function idX for every non-empty set X, and thus specifically {\displaystyle \mathbf {R} \to \mathbf {R} :x\mapsto x.}{\displaystyle \mathbf {R} \to \mathbf {R} :x\mapsto x.}
-% {\displaystyle \mathbf {R} ^{+}\to \mathbf {R} ^{+}:x\mapsto x^{2}}{\displaystyle \mathbf {R} ^{+}\to \mathbf {R} ^{+}:x\mapsto x^{2}}, and thus also its inverse {\displaystyle \mathbf {R} ^{+}\to \mathbf {R} ^{+}:x\mapsto {\sqrt {x}}.}{\displaystyle \mathbf {R} ^{+}\to \mathbf {R} ^{+}:x\mapsto {\sqrt {x}}.}
-% The exponential function {\displaystyle \exp \colon \mathbf {R} \to \mathbf {R} ^{+}:x\mapsto \mathrm {e} ^{x}}{\displaystyle \exp \colon \mathbf {R} \to \mathbf {R} ^{+}:x\mapsto \mathrm {e} ^{x}} (that is, the exponential function with its codomain restricted to its image), and thus also its inverse the natural logarithm {\displaystyle \ln \colon \mathbf {R} ^{+}\to \mathbf {R} :x\mapsto \ln {x}.}{\displaystyle \ln \colon \mathbf {R} ^{+}\to \mathbf {R} :x\mapsto \ln {x}.}
-
-% \textbf{Injective and non-surjective}
-% The exponential function {\displaystyle \exp \colon \mathbf {R} \to \mathbf {R} :x\mapsto \mathrm {e} ^{x}.}{\displaystyle \exp \colon \mathbf {R} \to \mathbf {R} :x\mapsto \mathrm {e} ^{x}.}
-
-% \textbf{Non-injective and surjective}
-% {\displaystyle \mathbf {R} \to \mathbf {R} :x\mapsto (x-1)x(x+1)=x^{3}-x.}{\displaystyle \mathbf {R} \to \mathbf {R} :x\mapsto (x-1)x(x+1)=x^{3}-x.}
-% {\displaystyle \mathbf {R} \to [-1,1]:x\mapsto \sin(x).}{\displaystyle \mathbf {R} \to [-1,1]:x\mapsto \sin(x).}
-
-% \textbf{Non-injective and non-surjective}
-% {\displaystyle \mathbf {R} \to \mathbf {R} :x\mapsto \sin(x).}{\displaystyle \mathbf {R} \to \mathbf {R} :x\mapsto \sin(x).}
-% \end{frame}
 
 \begin{frame}[t]{Task 4}
     \framesubtitle{}
     \only<1>{
-        Transformation of a plane is given by $x*=x^2-y^2$, $y*=2xy$. Is this transformation an (a) injection; (b) surjection; (c) bijection? (d) Find the preimage of point $(x*;y*)$ by this transformation.
+        Transformation of a plane is given by $x^*=x^2-y^2$, $y^*=2xy$. Is this transformation an (a) injection; (b) surjection; (c) bijection? (d) Find the preimage of point $(x^*;y^*)$ by this transformation.
         }
     \only<2>{
         \alert{\Large Answer}
@@ -309,17 +368,17 @@
     \only<2>{
         \alert{\Large Answer}
 
-        (a) $\textbf{r}*=\textbf{r}_0+\lambda(\textbf{r}-\textbf{r}_0)$; 
+        (a) $\textbf{r}^*=\textbf{r}_0+\lambda(\textbf{r}-\textbf{r}_0)$; 
         
-        (b) $\textbf{r}*=-\textbf{r}+2\textbf{r}_0$; 
+        (b) $\textbf{r}^*=-\textbf{r}+2\textbf{r}_0$; 
         
-        (c) $\textbf{r}*=\textbf{r}+\textbf{a}$;
+        (c) $\textbf{r}^*=\textbf{r}+\textbf{a}$;
         
-        (d) $\textbf{r}*=\textbf{r}_0+\frac{\left(\textbf{r}-\textbf{r}_0\right)\cdot\textbf{a}}{|\textbf{a}|^2}\textbf{a}$; 
+        (d) $\textbf{r}^*=\textbf{r}_0+\dfrac{\left(\textbf{r}-\textbf{r}_0\right)\cdot\textbf{a}}{|\textbf{a}|^2}\textbf{a}$; 
         
-        (e) $\textbf{r}*=2\textbf{r}_0-\textbf{r}+2\frac{\left(\textbf{r}-\textbf{r}_0\right)\cdot\textbf{a}}{|\textbf{a}|^2}\textbf{a}$;
+        (e) $\textbf{r}^*=2\textbf{r}_0-\textbf{r}+2\dfrac{\left(\textbf{r}-\textbf{r}_0\right)\cdot\textbf{a}}{|\textbf{a}|^2}\textbf{a}$;
         
-        (f) $\textbf{r}*=\lambda\textbf{r}+(1-\lambda)\textbf{r}_0+(1-\lambda) \frac{\left(\textbf{r}-\textbf{r}_0\right)\cdot\textbf{a}}{|\textbf{a}|^2}\textbf{a}$.
+        (f) $\textbf{r}^*=\lambda\textbf{r}+(1-\lambda)\textbf{r}_0+(1-\lambda) \dfrac{\left(\textbf{r}-\textbf{r}_0\right)\cdot\textbf{a}}{|\textbf{a}|^2}\textbf{a}$.
     }
 \end{frame}
 
@@ -332,20 +391,20 @@
         
         (b) reflection across line $3x+4y-1=0$;
         
-        (c) dilation from line $x+y-2=0$ of factor $\frac13$;
+        (c) dilation from line $x+y-2=0$ of factor $\dfrac13$;
         
         (d) dilation from line $2x-y+5=0$ of factor 2.  
     }
     \only<2>{
         \alert{\Large Answer}
 
-        (a) $x^*=\frac{9x+3y-1}{10}$, $y^*=\frac{3x+y+3}{10}$; 
+        (a) $x^*=\dfrac{9x+3y-1}{10}$, $y^*=\dfrac{3x+y+3}{10}$; 
         
-        (b) $x^*=\frac{7x-24y+6}{25}$, $y^*={-24x-7y+8}{25}$; 
+        (b) $x^*=\dfrac{7x-24y+6}{25}$, $y^*={-24x-7y+8}{25}$; 
         
-        (c) $x^*=\frac{2x-y+2}3$, $y^*=\frac{-x+2y+2}3$; 
+        (c) $x^*=\dfrac{2x-y+2}3$, $y^*=\dfrac{-x+2y+2}3$; 
         
-        (d) $x^*=\frac{9x-2y+10}5$, $y^*=\frac{-2x+6y-5}5$.
+        (d) $x^*=\dfrac{9x-2y+10}5$, $y^*=\dfrac{-2x+6y-5}5$.
     }
 \end{frame}
 
@@ -354,21 +413,21 @@
     \only<1>{
     Find formulas for an affine mapping that transforms
 
-(a) points $A(\frac37;\,1)$, $B(1;\frac14)$, $C(2;-1)$ into points $A*(-4;\,2)$, $B*(-1;\,6)$, $C*(4;\,13)$ respectively;
+(a) points $A(\dfrac37;\,1)$, $B(1;\dfrac14)$, $C(2;-1)$ into points $A^*(-4;\,2)$, $B^*(-1;\,6)$, $C^*(4;\,13)$ respectively;
 
-(b) points $A(0;\,0)$, $B(-1;\,2)$, $C(1;-2)$ into points $A*(-1;-1)$, $B*(0;\,0)$, $C*(1;\,1)$ respectively;
+(b) points $A(0;\,0)$, $B(-1;\,2)$, $C(1;-2)$ into points $A^*(-1;-1)$, $B^*(0;\,0)$, $C^*(1;\,1)$ respectively;
 
-(c) points $A(2;\,0)$, $B(3;-1)$, $C(4;-2)$ into points $A*(2;\,1)$, $B*(-2;-1)$, $C*(-6;-3)$ respectively;
+(c) points $A(2;\,0)$, $B(3;-1)$, $C(4;-2)$ into points $A^*(2;\,1)$, $B^*(-2;-1)$, $C^*(-6;-3)$ respectively;
 
-(d) points $A(-2;\,0)$, $B(2;-1)$, $C(0;\,4)$ into points $A*(-2;\,1)$, $B*(2;\,1)$, $C*(0;\,1)$ respectively.}
+(d) points $A(-2;\,0)$, $B(2;-1)$, $C(0;\,4)$ into points $A^*(-2;\,1)$, $B^*(2;\,1)$, $C^*(0;\,1)$ respectively.}
     \only<2>{
         \alert{\Large Answer}
 
-        (a) $x*=-4y$, $y*=7x-1$; 
+        (a) $x^*=-4y$, $y^*=7x-1$; 
         
         (b) no solutions; 
         
-        (c) $x*=px+(p+4)y+2-2p$, $y*=qx+(q+2)y+1-2q$, where $p$ and $q$ are any real numbers; 
+        (c) $x^*=px+(p+4)y+2-2p$, $y^*=qx+(q+2)y+1-2q$, where $p$ and $q$ are any real numbers; 
         
         (d) no solutions (there exists a linear transformation that is not affine).
     }
@@ -378,11 +437,11 @@
     \framesubtitle{}
     Find all invariant lines of an affine transformation given by
 
-(a) $x*=y$, $y*=1-x$;
+(a) $x^*=y$, $y^*=1-x$;
 
-(b) $x*=2x+y-3$, $y*=-3x-y$;
+(b) $x^*=2x+y-3$, $y^*=-3x-y$;
 
-(c) $x*=5x+3y+1$, $y*=-3x-y$.
+(c) $x^*=5x+3y+1$, $y^*=-3x-y$.
 
     \uncover<2->{
         \alert{\Large Answer}
