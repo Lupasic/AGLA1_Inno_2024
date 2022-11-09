@@ -88,15 +88,17 @@
 
 \fbckg{fibeamer/figs/common.png}
 
-\note{Решения к ответам лежат в отдельной папке}
-% \begin{frame}[t]{Questions for today}
-%     \framesubtitle{}
-%     \begin{itemize}
-%         \item How can I work with general form of 2nd order curve equation?
-%         \item How it relates with cone?
-%         \item What forms of equation do we have?
-%     \end{itemize}
-% \end{frame}
+\note{\scriptsize \begin{itemize}
+    \item Решения к ответам лежат в отдельной папке
+    \item До 2ого слайда просишь студентов самим напистаь все формы на доске, потом показываешь
+    \item Projection transformation у них не будет, но чтобы научились головой думать
+    \item Показать что разница между аффиным и сменой базиса только в концепте, что базис мы меняем обычно только повротом у ортогональной истории. А так по факту это одно и тоже
+    \item Таска 2, б. может быть решена либо в лоб, через матрицу или найдя две точки.
+    \item Таск 4 посмотреть в ответах
+    \item Таск 5 нарисовать картинку самому 1ого, есть в ответах https://en.wikipedia.org/wiki/Homothety 
+    \item 7 сделать референс к первому видео про 6 степеней свободы
+    \item 8 такска смотреть в ответах
+\end{itemize}}
 
 \begin{frame}[t]{Affine Transformation}
 \framesubtitle{Formal definition}
@@ -136,8 +138,19 @@
     \end{figure}
 \end{frame}
 
+\begin{frame}[t]{Projective Transformation}
+    \framesubtitle{Video: formal definition}
+    \vspace{-0.6cm}
+    \begin{figure}[H]
+        \href{https://www.youtube.com/watch?v=uyYKPUZg3og}{
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{proj_def.jpg}}
+        % \caption{Click on a picture for a video}
+        \label{fig:proj_def.jpg}
+    \end{figure}
+\end{frame}
+
 \begin{frame}[t]{Affine Transformation}
-    \framesubtitle{Porperties}
+    \framesubtitle{Properties}
         \begin{itemize}
             \item \textit{Collinearity between points}: three or more points which lie on the same line (called collinear points) continue to be collinear after the transformation.
             \item \textit{Parallelism}: two or more lines which are parallel, continue to be parallel after the transformation.
@@ -153,7 +166,7 @@
     \uncover<2->{
         \alert{\Large Answer}
 
-        (a) If $a\neq1$ then there is one fixed point $x=\dfrac b{1-a}$; if $a=1$ and $b=0$ then all points are fixed; if $a=1$ and $b\neq0$ then there are no fixed points. (b) It exists only if $a\neq0$: $f^{-1}(y)=\dfrac{y-b}a$.
+        (a) If $a\neq1$ then there is one fixed point $x=\dfrac b{1-a}$; if $a=1$ and $b=0$ then all points are fixed; if $a=1$ and $b\neq0$ then there are no fixed points. (b) It exists only if $a\neq0$: $f(x^*)=\dfrac{x^*-b}{a}$.
     }
 \end{frame}
 
@@ -182,14 +195,6 @@
     }
 \end{frame}
 
-% \begin{frame}[t]{Bijection, injection and surjection}
-% \framesubtitle{}
-%     \vspace{-0.6cm}
-%     \begin{figure}[H]
-%         \centering\includegraphics[height=6.5cm,width=1\textwidth,keepaspectratio]{bij_inj_surj_full.png}
-%         \label{fig:bij_inj_surj_full.png}
-%     \end{figure}
-% \end{frame}
 
 \begin{frame}[t]{Bijection, injection and surjection}
 \framesubtitle{}
@@ -197,19 +202,19 @@
 \begin{columns}[T,onlytextwidth]
     \begin{column}{0.49\textwidth}
         \textbf{Injective and surjective (bijective)}\\
-$\mathbf {R} \to \mathbf {R} :x\mapsto x.$
+$\mathbb {R} \to \mathbb {R} :x\mapsto x.$
 
-$\mathbf {R} ^{+}\to \mathbf {R} ^{+}:x\mapsto x^{2}$, and thus also its inverse $\mathbf {R} ^{+}\to \mathbf {R} ^{+}:x\mapsto {\sqrt {x}}.$.
+$\mathbb {R} ^{+}\to \mathbb {R} ^{+}:x\mapsto x^{2}$, and thus also its inverse $\mathbb {R} ^{+}\to \mathbb {R} ^{+}:x\mapsto {\sqrt {x}}.$.
 
 \textbf{Injective and non-surjective}\\
-$\mathbf {R} \to \mathbf {R} :x\mapsto \mathrm {e} ^{x}$.
+$\mathbb {R} \to \mathbb {R} :x\mapsto \mathrm {e} ^{x}$.
 
 \textbf{Non-injective and surjective}\\
-$\mathbf {R} \to \mathbf {R} :x\mapsto (x-1)x(x+1)=x^{3}-x.$\\
-$\mathbf {R} \to [-1,1]:x\mapsto \sin(x).$
+$\mathbb {R} \to \mathbb {R} :x\mapsto x^{3}-x.$\\
+$\mathbb {R} \to [-1,1]:x\mapsto \sin(x).$
 
 \textbf{Non-injective and non-surjective}\\
-$\mathbf {R} \to \mathbf {R} :x\mapsto \sin(x).$
+$\mathbb {R} \to \mathbb {R} :x\mapsto \sin(x).$
     \end{column}
     \begin{column}{0.49\textwidth}
         \only<1>{
@@ -279,14 +284,14 @@ $\mathbf {R} \to \mathbf {R} :x\mapsto \sin(x).$
 \begin{frame}[t]{Task 4}
     \framesubtitle{}
     \only<1>{
-        Transformation of a plane is given by $x^*=x^2-y^2$, $y^*=2xy$. Is this transformation an (a) injection; (b) surjection; (c) bijection? (d) Find the preimage of point $(x^*;y^*)$ by this transformation.
+        Transformation of a plane is given by $x^*=x^2-y^2$, $y^*=2xy$. Is this transformation an (a) injection; (b) surjection; (c) bijection?
         }
     \only<2>{
         \alert{\Large Answer}
         
-        (a): Not Injection \\ 
-        (b): Is surjection \\ 
-        (c): Not Bijection
+        (a): Not Injection. We can take 2 pairs $(a,b),\ (-a,-b)$, which provides the same result \\ 
+        (b): Surjection. Need to proof that it is a continuous function ()\\ 
+        (c): Not Bijection. Because of (a)
     }
 \end{frame}
 
