@@ -89,7 +89,7 @@
 \fbckg{fibeamer/figs/common.png}
 
 \note{\scriptsize \begin{itemize}
-    \item Решения к ответам лежат в отдельной папке
+    \item Решение к 3ей задаче есть на странице пдф 593 (там уравнение хорды выводится). По факту я его сам вывел, когда картинку нарисовал и еще пару мест посмотрел
 \end{itemize}}
 
 
@@ -146,7 +146,6 @@
     \uncover<2->{
         \alert{\Large Algorithm}
         \begin{enumerate}
-            \item Task looks similar to lab 9, task 2. Or lab 10, task 5.
             \item Take a derivative $\frac{d y}{d x}$ --- slope ($k$).
             \item Knowing slope and the concrete coordinate, find $b$. Obtain needed equation.
             \item Either knowing the property $k_t k_n = -1$, find normal line. Or using the knowledge $A,\ B$ in general form is a normal vector.
@@ -155,7 +154,7 @@
 \end{frame}
 
 \begin{frame}[t]{Task 4, Var 1}
-    \framesubtitle{Similar to lab 12, tasks 1, 7}
+    \framesubtitle{Similar to lab 11, tasks 1, 7}
     \only<1>{
     In a triangle $ABC$ have vertices with coordinates $A(2,0); B(-1,2), C(-1,-2)$. 
 
@@ -181,27 +180,52 @@
 \end{frame}
 
 \begin{frame}[t]{Polar coordinates}
+\framesubtitle{Applications}
+\vspace{-0.6cm}
+\begin{figure}[H]
+    \begin{subfigure}{0.49\textwidth}
+        \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{latitude-longitude.png}
+        \caption*{Spherical coordinate system}
+        \label{fig:latitude-longitude.png}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{SCARA-robot.jpg}
+        \caption*{Cylindrical coordinate system}
+        \label{fig:SCARA-robot.jpg}
+    \end{subfigure}
+
+\end{figure}  
+\end{frame}
+
+\begin{frame}[t]{Polar coordinates}
 \framesubtitle{Straight Line}
-\footnotesize
+\scriptsize
 \begin{columns}[T,onlytextwidth]
     \begin{column}{0.49\textwidth}
-        \vspace{-0.8cm}
+        \vspace{-0.4cm}
         \begin{align}
             \label{eqn:p2c}
             \left\{\begin{matrix*}[l]
-            x = r \cos(\phi)\\ 
-            y = r \sin(\phi)
-            \end{matrix*}\right. ,\ \text{where } \\
+            x = r \cos(\varphi)\\ 
+            y = r \sin(\varphi)
+            \end{matrix*}\right. ,\ \text{where }
                 r = \sqrt{x^2+y^2};
-        \end{align}
-    The general equation in polar coordinates ((\ref{eqn:p2c}) to $Ax+By+C=0$).
+        \end{align} \smallskip
+
+    The general equation in polar coordinates ((\ref{eqn:p2c}) to $Ax+By+C=0$). $A,\ B,\ l$ --- constants.
     \begin{align}
         \label{eqn:str_l}
-        A\cos(\phi)+B\sin(\phi) + \frac{C}{r}=0
+        A\cos(\varphi)+B\sin(\varphi) = \frac{l}{r}
+    \end{align} 
+
+    Polar equation of a straight line, when you know angle to normal line
+    \begin{align}
+        \label{eqn:str_l_normal}
+        p=r\cos(\theta-\alpha)
     \end{align}
     Eqn. of the line joining the 2 points:
     \begin{align*}
-        \dfrac{1}{r}\sin(\phi_2-\phi_1)=\dfrac{1}{r_1}\sin({\phi_2-\phi}) + \dfrac{1}{r_2}\sin({\phi-\phi_1})
+        \dfrac{1}{r}\sin(\varphi_2-\varphi_1)=\dfrac{1}{r_1}\sin({\varphi_2-\varphi}) + \dfrac{1}{r_2}\sin({\varphi-\varphi_1})
     \end{align*}
     \end{column}
     \begin{column}{0.49\textwidth}
@@ -213,15 +237,25 @@
         \end{figure}
         \vspace{-0.5cm}
         Polar equation of the straight line perpendicular to (\ref{eqn:str_l})
-        \begin{align*}
-            A\cos(\phi+\frac{\pi}{2}) + B\sin(\phi+\frac{\pi}{2})=-k\frac{C}{r}
-        \end{align*}
+        \begin{align}
+            \label{eqn:str_l_perp}
+            A\cos(\varphi+\frac{\pi}{2}) + B\sin(\varphi+\frac{\pi}{2})=k\frac{l}{r}
+        \end{align}
         Polar equation of the straight line parallel to (\ref{eqn:str_l}):
-        \begin{align*}
-            A\cos(\phi) + B\sin(\phi)=-k\frac{C}{r}
-        \end{align*}
+        \begin{align}
+            A\cos(\varphi) + B\sin(\varphi)=k\frac{l}{r}
+        \end{align}
     \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Trigonometric formulaes}
+\framesubtitle{}
+    \vspace{-0.6cm}
+    \begin{figure}[H]
+        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{trigonometric.jpg}
+        \label{fig:trigonometric.jpg}
+    \end{figure}
 \end{frame}
 
 \begin{frame}[t]{Task 1}
@@ -243,9 +277,15 @@
     \only<1>{
         Find the equation of the line perpendicular to $\dfrac{l}{r}=\cos(\theta-\alpha)+e\ \cos(\theta) $ and passing through the point $\begin{bmatrix} r_1 \\ \theta_1\end{bmatrix}$.}
     \only<2>{
+        \alert{\Large Algorithm}
+        \begin{enumerate}
+            \item Transform given equation to general form
+            \item Apply equation of the line (\ref{eqn:str_l_perp})
+            \item Find k, using given point
+        \end{enumerate}
         \alert{\Large Answer} \medskip
 
-        $\dfrac{r_1 \sin(\theta_1 - \alpha) + e\ \sin(\theta_1)}{r}= \sin(\theta - \alpha) + e\ \sin(\theta)$
+        $\dfrac{r_1 \sin(\theta_1 - \alpha) + r_1\ e\ \sin(\theta_1)}{r}= \sin(\theta - \alpha) + e\ \sin(\theta)$
     }
 \end{frame}
 
@@ -254,12 +294,34 @@
     \only<1>{
         Show that the feet of the perpendiculars from the origin on the sides of the triangle formed by the points with vectorial angles $\alpha,\ \beta,\ \gamma$ and which lie on the circle $r = 2a \cos(\theta)$ lie on the straight line $2a\ \cos(\alpha) \cos(\beta) \cos (\gamma) = r\ \cos(\pi - \alpha - \beta - \gamma)$.}
     \only<2>{
-        \alert{\Large Answer}
+        \alert{\Large Answer (from book) ($\overline{\alpha+\beta}$ here is like brackets)}
         \begin{figure}[H]
             \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{3ans.png}
             % \caption{caption_name}
             \label{fig:3ans.png}
         \end{figure}
+    }
+    \only<3>{
+        \begin{columns}[T,onlytextwidth]
+            \begin{column}{0.49\textwidth}
+                \alert{\Large Algorithm}
+                \begin{enumerate}
+                    \item To understand how to draw the picture and how polar coordinates are working
+                    \item Find coordinates of $P,\ Q,\ R$
+                    \item Using (\ref{eqn:str_l_normal}) from cheat sheet, find coordinates of all needed points (2 unknowns, 2 equations) $\left\{\begin{matrix*}[l]
+                    2a\cos(\alpha)=\frac{n}{\cos(\alpha-\tau_n)}\\2a\cos(\beta)=\frac{n}{\cos(\beta-\tau_n)} 
+                    \end{matrix*}\right. $
+                    \item Substitute obtained points into given equation of the straight line.
+                \end{enumerate}
+            \end{column}
+            \begin{column}{0.49\textwidth}
+                \vspace{-0.5cm}
+                \begin{figure}[H]
+                    \href{https://www.geogebra.org/calculator/jcvzq4d6}{
+                        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{task_3.png}}
+                \end{figure}
+            \end{column}
+        \end{columns}
     }
 \end{frame}
 
@@ -310,6 +372,8 @@
     \Large
     \begin{itemize}
         \item \href{https://en.wikipedia.org/wiki/Polar_coordinate_system}{Polar coordinates (wiki)}
+        \item \href{https://youtu.be/ldoy_Md5N5E}{Some applications of Polar Coordinates (video, eng)}
+        \item \href{https://studfile.net/preview/3759220/page:12/}{Polar equation of straight line, when you know normal line (rus)}
         \item \href{https://youtu.be/IAb98ZgSJNw}{Polar coordinates (video, eng)}
         \item \href{https://youtu.be/me3cBMfysZs}{Conics in Polar Coordinates: Rotation (video, eng)}
         \item \href{https://www.maths.tcd.ie/~stalker/22S1/MA22S1_Chapter_1.pdf}{Multivariable Calculus, chapter 1.2 Polar Coordinates (book, eng)}
