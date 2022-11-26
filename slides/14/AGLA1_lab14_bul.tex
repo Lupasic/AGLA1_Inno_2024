@@ -1,0 +1,259 @@
+% \documentclass[aspectratio=169,notes]{beamer}
+\documentclass[aspectratio=169]{beamer}
+\usetheme[faculty=phil]{fibeamer}
+\usepackage{polyglossia}
+\setmainlanguage{english} %% main locale instead of `english`, you
+%% can typeset the presentation in either Czech or Slovak,
+%% respectively.
+\setotherlanguages{russian} %% The additional keys allow
+%%
+%%   \begin{otherlanguage}{czech}   ... \end{otherlanguage}
+%%   \begin{otherlanguage}{slovak}  ... \end{otherlanguage}
+%%
+%% These macros specify information about the presentation
+\title[AGLA1]{Analytical Geometry and Linear Algebra I, Lab 14} %% that will be typeset on the
+\subtitle{Quadric surfaces: Cone, Cylinder
+\\ \    \\ \  
+         } %% title page.
+\author{Oleg Bulichev}
+%% These additional packages are used within the document:
+\usepackage{ragged2e}  % `\justifying` text
+\usepackage{booktabs}  % Tables
+\usepackage{tabularx}
+\usepackage{tikz}      % Diagrams
+\usetikzlibrary{calc, shapes, backgrounds}
+\usepackage{amsmath, amssymb}
+\usepackage{url}       % `\url`s
+\usepackage{listings}  % Code listings
+% \usepackage{subfigure}
+\usepackage{floatrow}
+\usepackage{subcaption}
+\usepackage{mathtools}
+\usepackage{todonotes}
+\usepackage{fontspec}
+\usepackage{multicol}
+\usepackage{pdfpages}
+\usepackage{wrapfig}
+\usepackage{animate}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\graphicspath{{resources/}}
+\frenchspacing
+
+\setbeamertemplate{caption}[numbered]
+\usetikzlibrary{graphs}
+
+% \usepackage[backend=biber,style=ieee,autocite=footnote]{biblatex}
+% \addbibresource{biblio.bib}
+% \DefineBibliographyStrings{english}{%
+%   bibliography = {References},}
+
+\newcommand{\oleg}[2][] {\todo[color=red, #1] {OLEG:\\ #2}}
+\newcommand{\fbckg}[1]{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{#1}}}%frame background
+
+\usepackage[framemethod=TikZ]{mdframed}
+\newcommand{\dbox}[1]{
+\begin{mdframed}[roundcorner=3pt, backgroundcolor=yellow, linewidth=0]
+\vspace{1mm}
+{#1}
+\vspace{1mm}
+\end{mdframed}
+}
+
+\begin{document}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\fbckg{fibeamer/figs/title_page.png}
+\frame[c]{\setcounter{framenumber}{0}
+    \usebeamerfont{title}%
+    \usebeamercolor[fg]{title}%
+    \begin{minipage}[b][6.5\baselineskip][b]{\textwidth}%
+        \textcolor{black}{\raggedright\inserttitle}
+    \end{minipage}
+    % \vskip-1.5\baselineskip
+
+    \usebeamerfont{subtitle}%
+    \usebeamercolor[fg]{framesubtitle}%
+    \begin{minipage}[b][3\baselineskip][b]{\textwidth}
+        \raggedright%
+        \insertsubtitle%
+    \end{minipage}
+    \vskip.25\baselineskip
+}
+%   \frame[c]{\maketitle}
+
+\fbckg{fibeamer/figs/common.png}
+
+\note{\scriptsize \begin{itemize}
+    \item \ 
+\end{itemize}}
+
+
+\begin{frame}[t]{Case studies of 2nd order curve equation (ENG)}
+\framesubtitle{}
+    \vspace{-0.6cm}
+    \begin{figure}[H]
+        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{curve_eq_eng.png}
+        \label{fig:curve_eq_eng.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Case studies of 2nd order curve equation (RUS)}
+    \framesubtitle{}
+        \vspace{-0.6cm}
+        \begin{figure}[H]
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{curve_eq_rus.png}
+            \label{fig:curve_eq_rus.png}
+        \end{figure}
+    \end{frame}
+
+\begin{frame}[t]{Task 1}
+    \framesubtitle{}
+    \only<1>{
+        Find the equation of the cone with its vertex at $(1,1,1)$ and which passes through the curve $x^2+y^2=4, z =2$.}
+    \only<2>{
+        \alert{\Large Answer}
+        \begin{figure}[H]
+            \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{1ans.png}
+            % \caption{caption_name}
+            \label{fig:1ans.png}
+        \end{figure}
+    }
+\end{frame}
+
+\begin{frame}[t]{Task 2}
+    \framesubtitle{}
+    \only<1>{
+        Find the equation of the cone with its vertex at the origin an which passes through the curve $ax^2+by^2+cz^2-1=0= \alpha x^2 - \beta y^2 - 2z$.}
+    \only<2>{
+        \alert{\Large Answer}
+        \begin{figure}[H]
+            \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{2ans.png}
+            % \caption{caption_name}
+            \label{fig:2ans.png}
+        \end{figure}
+    }
+\end{frame}
+
+\begin{frame}[t]{Task 3}
+    \framesubtitle{}
+    \only<1>{
+        Find the equation of the cone of the second degree which passes through the axes.}
+    \only<2>{
+        \alert{\Large Answer}
+        \begin{figure}[H]
+            \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{3ans.png}
+            % \caption{caption_name}
+            \label{fig:3ans.png}
+        \end{figure}
+    }
+\end{frame}
+
+\begin{frame}[t]{Task 4}
+    \framesubtitle{}
+    \only<1>{
+        Fin the equation of the right circular cone whose vertex is at the origin, whose axis is the line $\dfrac{x}{1}=\dfrac{y}{2}=\dfrac{z}{3}$ and which has a vertical angle of $60^\circ$.}
+    \only<2>{
+        \alert{\Large Answer}
+        \begin{figure}[H]
+            \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{4ans.png}
+            % \caption{caption_name}
+            \label{fig:4ans.png}
+        \end{figure}
+    }
+\end{frame}
+
+\begin{frame}[t]{Task 5}
+    \framesubtitle{}
+    \only<1>{
+        Find the equation of the cylinder whose generators are parallel to the line $\dfrac{x}{-1}=\dfrac{y}{2}=\dfrac{z}{3}$ and whose guiding curve is $x^2+y^2=9, z=1$.}
+    \only<2>{
+        \alert{\Large Answer}
+        \begin{figure}[H]
+            \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{5ans.png}
+            % \caption{caption_name}
+            \label{fig:5ans.png}
+        \end{figure}
+    }
+\end{frame}
+
+\begin{frame}[t]{Task 6}
+    \framesubtitle{}
+    \only<1>{
+        Find the equations of the right circular cylinder of radius $3$ with equations of axis as  $\dfrac{x-1}{2}=\dfrac{y-3}{2}=\dfrac{z-5}{-1}$.}
+    \only<2>{
+        \alert{\Large Answer}
+        \begin{figure}[H]
+            \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{6ans.png}
+            % \caption{caption_name}
+            \label{fig:6ans.png}
+        \end{figure}
+    }
+\end{frame}
+
+\begin{frame}[t]{Task 7}
+    \framesubtitle{}
+    \only<1>{
+    Find the equation of the enveloping cylinder of the sphere $x^2+y^2+z^2-2x+4y=1$ having its generators parallel to the line $x=y=z$.
+    % \vspace{-0.5cm}
+    \begin{figure}[H]
+        \centering\includegraphics[height=4cm,width=1\textwidth,keepaspectratio]{7.png}
+        % \caption{caption_name}
+        \label{fig:7.png}
+    \end{figure} }
+    \only<2>{
+        \alert{\Large Answer}
+        \scriptsize
+        \begin{columns}[T,onlytextwidth]
+            \begin{column}{0.59\textwidth}
+                Let $P(x_1,\ y_1,\ z_1)$ be any point on a tangent, which is parallel to the line $x=y=z$.
+
+                Hence, the equation of the tangent lines are
+                \begin{align} \label{eq:t7_1}
+                    \dfrac{x-x_1}{1}=\dfrac{y-y_1}{1}=\dfrac{z-z_1}{1}
+                \end{align}
+                Any point on this line is $(x_1+\tau,\ y_1+\tau,\ z_1+\tau)$. This point lies in this sphere.
+                \begin{align}
+                    \label{eq:t7_2}
+                    x^2+y^2+z^2-2x+4y-1=0
+                \end{align}
+                \begin{align*}
+                    (x_1+\tau)^2+(y_1+\tau)^2+(z_1+\tau)^2-2(x_1+\tau)+4(y_1+\tau)-1=0 \Rightarrow \\ \Rightarrow  3\tau^2 + 2\tau(x_1+y_1+z_1+1) + (x_1^2+y_1^2+z_1^2-2x_1+4y_1-1)=0
+                \end{align*}
+                If (1) touches (2), $\tau$ is unique ($\mathcal{D} =0$).
+                \begin{align}
+                    \mathcal{D}= 4(x_1+y_1+z_1+1)^2-12(x_1^2+y_1^2+z_1^2-2x_1+4y_1-1)=0 
+                \end{align}
+                Solving (3) and change $P$ to general form, we are obtaining the answer
+                \begin{align*}
+                    x^2+y^2+5y +z^2 -4x -z -xy -xz -yz -2 =0 
+                \end{align*}
+                
+            \end{column}
+            \begin{column}{0.39\textwidth}
+                \vspace{-0.6cm}
+                \begin{figure}[H]
+                    \href{https://www.geogebra.org/calculator/uqzwjqu6}{
+                        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{7ans.png}}
+                    \label{fig:7ans.png}
+                \end{figure}
+            \end{column}
+        \end{columns}
+    }
+\end{frame}
+\begin{frame}[t]{Reference material}
+    \Large
+    \begin{itemize}
+        \item \href{https://onlinemschool.com/math/formula/cone/}{Cone, generatrix (OnlineMSchool)}
+        \item \href{https://onlinemschool.com/math/library/vector/cos/}{Direction cosines (OnlineMSchool)}
+    \end{itemize}
+\end{frame}
+
+\fbckg{fibeamer/figs/last_page.png}
+\frame[plain]{}
+
+\end{document}
