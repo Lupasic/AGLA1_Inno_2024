@@ -168,31 +168,48 @@
     }
 \end{frame}
 
-% \begin{frame}[t]{Task 2}
-%     \framesubtitle{}
-%     \only<1>{
-%         Find the equation of the cone with its vertex at the origin, which passes through the curve $ax^2+by^2+cz^2-1= 0 = \alpha x^2 - \beta y^2 - 2z$.}
-%     \only<2>{
-%         \alert{\Large Answer}
-%         \scriptsize
-%         \begin{columns}[T,onlytextwidth]
-%             \begin{column}{0.49\textwidth}
-%                 The idea is that we need to find a generator, equation and based on it obtain the surface equation.
+\begin{frame}[t]{Task 2}
+    \framesubtitle{}
+    \only<1>{
+        Find the equation of the cone with its vertex at the origin, which passes through the curve $ax^2+by^2+cz^2-1= 0 = \alpha x^2 - \beta y^2 - 2z$.}
+    \only<2>{
+        \alert{\Large Answer}
+        \scriptsize
+        \begin{multicols}{2}
+            This task is an upgraded version on the 1-st task.
 
-%                 Firstly, let's find a generator      
-%             \end{column}
-%             \begin{column}{0.49\textwidth}
-                
-%             \end{column}
-%         \end{columns}
+            Right now, we don't know neither the center of a given curve, nor the conic section passed through the center. Let's find it
 
-%         % \begin{figure}[H]
-%         %     \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{2ans.png}
-%         %     % \caption{caption_name}
-%         %     \label{fig:2ans.png}
-%         % \end{figure}
-%     }
-% \end{frame}
+            \begin{align*}
+                ax^2 + by^2 + cz^2 - 1 - \alpha x^2 + \beta y^2 + 2 z = 0 \Rightarrow \\
+                \Rightarrow (a-\alpha)x^2+(b+\beta)y^2+(z+\frac{1}{c})^2=\frac{c+1}{c}
+            \end{align*}
+
+            The center of the curve is $(0,\ 0,\ =-\frac{1}{c})$. Let's find a conic section in a plane, paralel to $z$ axis (just simplificaton, can choose any).
+
+            \begin{align}
+                (a-\alpha)x^2+(b+\beta)y^2=\frac{c+1}{c}
+            \end{align}
+
+            Now, the task is the same as the first one. We know the vertex (origin) and a curve, which should be passed through.
+
+            \begin{align*}
+                \frac{x - 0}{l} = \frac{y - 0}{m} = \frac{-\frac{1}{c} - 0}{n}, \Rightarrow 
+                x = -\frac{l}{cn},~y = -\frac{m}{cn}
+            \end{align*}
+
+            Put $x,\ y$ into (3):
+            \begin{align}
+                (a-\alpha)\frac{l^2}{c^2n^2} + (b+\beta)\frac{m^2}{c^2n^2}=\frac{c+1}{c}
+            \end{align}
+            Based on equation of generator we will receive $\frac{l}{n}=\frac{x}{z};\ \frac{m}{n}=\frac{y}{z}$. Put it into (4)
+            \begin{align*} 
+                (a-\alpha)\frac{x^2}{z^2} + (b+\beta)\frac{y^2}{z^2}=c^2+c \Rightarrow \\
+                (a-\alpha)x^2+(b+\beta)y^2 - (c^2+c)z^2=0
+            \end{align*}
+        \end{multicols}
+    }
+\end{frame}
 
 \begin{frame}[t]{Task 3}
     \framesubtitle{}
@@ -211,7 +228,7 @@
 \begin{frame}[t]{Task 4}
     \framesubtitle{}
     \only<1>{
-        Fin the equation of the right circular cone whose vertex is at the origin, whose axis is the line $\dfrac{x}{1}=\dfrac{y}{2}=\dfrac{z}{3}$ and which has a vertical angle of $60^\circ$.}
+        Find the equation of the right circular cone whose vertex is at the origin, whose axis is the line $\dfrac{x}{1}=\dfrac{y}{2}=\dfrac{z}{3}$ and which has a vertical angle of $60^\circ$.}
     \only<2>{
         \alert{\Large Answer}
         \begin{figure}[H]
@@ -279,11 +296,11 @@
                 \begin{align*}
                     (x_1+\tau)^2+(y_1+\tau)^2+(z_1+\tau)^2-2(x_1+\tau)+4(y_1+\tau)-1=0 \Rightarrow \\ \Rightarrow  3\tau^2 + 2\tau(x_1+y_1+z_1+1) + (x_1^2+y_1^2+z_1^2-2x_1+4y_1-1)=0
                 \end{align*}
-                If (1) touches (2), $\tau$ is unique ($\mathcal{D} =0$).
+                If (5) touches (6), $\tau$ is unique ($\mathcal{D} =0$).
                 \begin{align}
                     \mathcal{D}= 4(x_1+y_1+z_1+1)^2-12(x_1^2+y_1^2+z_1^2-2x_1+4y_1-1)=0 
                 \end{align}
-                Solving (3) and change $P$ to general form, we are obtaining the answer
+                Solving (7) and change $P$ to general form, we are obtaining the answer
                 \begin{align*}
                     x^2+y^2+5y +z^2 -4x -z -xy -xz -yz -2 =0 
                 \end{align*}
