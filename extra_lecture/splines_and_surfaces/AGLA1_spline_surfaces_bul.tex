@@ -12,8 +12,8 @@
 %%
 %% These macros specify information about the presentation
 \title[AGLA1]{Analytical Geometry and Linear Algebra I, Visiting Lecture} %% that will be typeset on the
-\subtitle{Splines: What is it, B-Spline, NURBS, point modification
-\\ Surfaces: Linear, B-Spline  \\ \ 
+\subtitle{Parametric form of segment line, polyline
+\\ Splines: Cubic, Bezier \\ Surfaces: made by extruding, sweeping, revolving 
          } %% title page.
 \author{Oleg Bulichev}
 %% These additional packages are used within the document:
@@ -62,23 +62,6 @@
 \end{mdframed}
 }
 
-\lstset{language=Matlab,%
-    %basicstyle=\color{red},
-    breaklines=true,%
-    morekeywords={matlab2tikz},
-    keywordstyle=\color{blue},%
-    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
-    identifierstyle=\color{black},%
-    stringstyle=\color{mylilas},
-    commentstyle=\color{mygreen},%
-    showstringspaces=false,%without this there will be a symbol in the places where there is a space
-    numbers=left,%
-    numberstyle={\tiny \color{black}},% size of the numbers
-    numbersep=9pt, % this defines how far the numbers are from the text
-    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
-    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
-}
-
 \begin{document}
 \setlength{\abovedisplayskip}{0pt}
 \setlength{\belowdisplayskip}{0pt}
@@ -120,14 +103,14 @@
 \begin{frame}[t]{Disclaimer}
 \framesubtitle{}
 \begin{block}{Goal}
-    The goal of this lecture is to get aquatinted with splines, surfaces, their applications. Obtain some basic intuition. 
+    The goal of this lecture is to get acquainted with splines, surfaces, their applications. Obtain some basic intuition. 
 \end{block}
-
+\vspace{-0.2cm}
 \begin{alertblock}{Constraints}
     \begin{enumerate}
         \item Only really necessary proofs (others can be found in reference material).
         \item I show today topics only from practical perspective (how to use it as a user and a programmer, not as a creator of new algorithms).
-        \item I am using Matlab code snippets.
+        \item I used Matlab code (link in the references).
         \item I have to make a small recap of some topics due to the reason of your misunderstanding of some concepts. 
     \end{enumerate}
 \end{alertblock}
@@ -316,10 +299,10 @@
 Ну приходят тебе дискретные сигналы с датчика, ты восстанавливаешь функцию, вот чтобы эта функция была похожа на реальность надо юзать сплайн
 }
 
-\begin{frame}[t]{Cubic spline}
+\begin{frame}[t]{Cubic spline (proof in (1) p. 33-35)}
 \framesubtitle{}
 \begin{align*}
-    \vec{r}(t) = (1-w)\vec{p}_0 + w\vec{p}_{i+1} + ((-2w+3w^2-w^3)\vec{s}_i+(-w+w^3)\vec{s}_{i+1})\dfrac{(t_{i+1}-t_i)^2}{6},
+    \vec{r}(t) = (1-w)\vec{p}_0 + w\vec{p}_{i+1} + \left((-2w+3w^2-w^3)\vec{s}_i+(-w+w^3)\vec{s}_{i+1}\right)\dfrac{(t_{i+1}-t_i)^2}{6},
 \end{align*}
     \begin{columns}[T,onlytextwidth]
         \begin{column}{0.49\textwidth}
@@ -330,6 +313,7 @@
             \end{align*}
         \end{column}
         \begin{column}{0.49\textwidth}
+            \vspace{-0.3cm}
             \begin{figure}[H]
                 \centering\includegraphics[height=4cm,width=1\textwidth,keepaspectratio]{cubic_spline_book.png}
                 % \caption{caption_name}
@@ -349,7 +333,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}[t]{Bezier spline}
+\begin{frame}[t]{Bezier spline (proof in (1) p. 38-42)}
 \framesubtitle{}
     \begin{columns}[T,onlytextwidth]
         \begin{column}{0.59\textwidth}
@@ -366,7 +350,7 @@
                 \vec{r}(t) = \sum_{i=0}^{n} B_i^n(t)\vec{p}_i
             \end{align*}
             \begin{align*}
-                B_i^n(t) = \frac{n!}{i!(n-i)!}t^i(1-t)^{n-i} \text{Bernstein polynomials}
+                B_i^n(t) = \frac{n!}{i!(n-i)!}t^i(1-t)^{n-i} \text{ Bernstein polynomials}
             \end{align*}
         \end{column}
         \begin{column}{0.39\textwidth}
@@ -379,7 +363,7 @@
             \begin{figure}[H]
                 \href{run:./videos/bezier_big.gif}{
                     \centering\includegraphics[height=2.5cm,width=1\textwidth,keepaspectratio]{bezier_big.png}}
-                % \caption{Click on a picture for a video}
+                \caption*{Click on the figure for a video}
             \end{figure}
         \end{column}
     \end{columns}
@@ -395,7 +379,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}[t]{Relationship between splines and conic sections (1)}
+\begin{frame}[t]{Bezier splines \& conic sections (proof in (1) p. 42-48) (1)}
 \framesubtitle{}
 \vspace{-0.5cm}
             \begin{figure}[H]
@@ -405,7 +389,7 @@
             \end{figure}
 \end{frame}
 
-\begin{frame}[t]{Relationship between splines and conic sections (2)}
+\begin{frame}[t]{Bezier splines \& conic sections (proof in (1) p. 42-48) (2)}
     \framesubtitle{}
     \vspace{-0.5cm}
         \begin{figure}[H]
@@ -415,22 +399,23 @@
         \end{figure}
     \end{frame}
 
-\begin{frame}[t]{Surface made by extruding and sweeping}
+\begin{frame}[t]{Extrude and shear surfaces (proof in (1) p. 114-118)}
 \framesubtitle{}
     \begin{columns}[T,onlytextwidth]
         \begin{column}{0.49\textwidth}
             When a generating curve moves along a guiding curve, the orientation of the generating curve may remain unchanged related to guiding line. 
             
-            If the guiding line is a straight line --- \textbf{extruding surface}, otherwise --- \textbf{sweeping surface}
+            If the guiding line is a straight line --- \textbf{extrude surface}, otherwise --- \textbf{shear surface}
             \begin{align*}
                 \vec{r}(u,v) = \vec{c}(u) + \vec{d}v
             \end{align*}
         \end{column}
         \begin{column}{0.49\textwidth}
+            \vspace{-0.5cm}
             \begin{figure}[H]
-                \centering\includegraphics[height=6.5cm,width=1\textwidth,keepaspectratio]{extruding_surface.png}
-                % \caption{caption_name}
-                \label{fig:extruding_surface.png}
+                \centering\includegraphics[height=6.5cm,width=1\textwidth,keepaspectratio]{extruded_surface_book.png}
+                \caption*{Extrude surface}
+                \label{fig:extruded_surface_book.png}
             \end{figure}
         \end{column}
     \end{columns}
@@ -446,7 +431,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}[t]{Surface made by sweeping}
+\begin{frame}[t]{Shear Surface}
 \framesubtitle{}
     \begin{columns}[T,onlytextwidth]
         \begin{column}{0.49\textwidth}
@@ -455,16 +440,17 @@
             \end{align*}
         \end{column}
         \begin{column}{0.49\textwidth}
+            \vspace{-0.5cm}
             \begin{figure}[H]
-                \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{sweeping_surface.png}
+                \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{shear_surface_book.png}
                 % \caption{caption_name}
-                \label{fig:sweeping_surface.png}
+                \label{fig:shear_surface_book.png}
             \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}[t]{Surface made by sweeping in Fusion 360}
+\begin{frame}[t]{Surface made by shearing in Fusion 360}
     \framesubtitle{Video}
     \vspace{-0.6cm}
     \begin{figure}[H]
@@ -474,19 +460,56 @@
     \end{figure}
 \end{frame}
 
+\begin{frame}[t]{Revolve surface}
+    \framesubtitle{}
+        \begin{columns}[T,onlytextwidth]
+            \begin{column}{0.69\textwidth}
+                \begin{align*}
+                    \vec{r}(u,v) = \vec{p} + M(v)(\vec{c}(u) - \vec{p}), \\ u \in [u_{min},\ u_{max}],\ v \in [0,\ \alpha] \\ 
+                    M(v) = A \begin{bmatrix}
+                    \cos(v) & -\sin(v) & 0 \\
+                    \sin(v) & \cos(v) & 0 \\ 
+                    0 & 0  & 1 
+                    \end{bmatrix} A^{-1}, \text{ --- rotation matrix}\\ 
+                    A = [i_1 \quad i_2 \quad i_3] \text{ --- transformation from local to global CS}
+                \end{align*}
+            \end{column}
+            \begin{column}{0.29\textwidth}
+                \vspace{-0.5cm}
+                \begin{figure}[H]
+                    \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{revolve_surface_book.png}
+                    % \caption{caption_name}
+                    \label{fig:revolve_surface_book.png}
+                \end{figure}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+\begin{frame}[t]{Surface made by revolving in Fusion 360}
+    \framesubtitle{Video}
+    \vspace{-0.6cm}
+    \begin{figure}[H]
+        \href{run:./videos/sweep_surface_video.mp4}{
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{sweep_surface_video_preview.jpg}}
+        % \caption{Click on a picture for a video}
+    \end{figure}
+\end{frame}
+    
+
+
 \begin{frame}[t]{Summary}
 \framesubtitle{}
 \begin{enumerate}
-    \item We touched the benefits of a parametric form
+    \item We touched the benefits of a parametric form.
     \pause
-    \item We know the equation of the line and polyline
+    \item We know the equation of the line and polyline.
     \pause
-    \item We heard about spline applications
+    \item We heard about spline applications.
     \pause
-    \item We know 2 types of splines and the difference between them
+    \item We know 2 types of splines and the difference between them.
     \pause
-    \item We got acquainted with a proof how correlates conic sections and bezier splines
-    \item We know 3 methods of obtaining surfaces
+    \item We got acquainted with a proof how correlates conic sections and Bezier splines.
+    \item We know 3 methods of obtaining surfaces.
 \end{enumerate}
 
 \end{frame}
