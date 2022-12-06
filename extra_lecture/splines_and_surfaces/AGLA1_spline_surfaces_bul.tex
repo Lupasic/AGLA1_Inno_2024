@@ -1,5 +1,5 @@
-\documentclass[aspectratio=169,notes]{beamer}
-% \documentclass[aspectratio=169]{beamer}
+% \documentclass[aspectratio=169,notes]{beamer}
+\documentclass[aspectratio=169]{beamer}
 \usetheme[faculty=phil]{fibeamer}
 \usepackage{polyglossia}
 \setmainlanguage{english} %% main locale instead of `english`, you
@@ -315,6 +315,181 @@
 
 Ну приходят тебе дискретные сигналы с датчика, ты восстанавливаешь функцию, вот чтобы эта функция была похожа на реальность надо юзать сплайн
 }
+
+\begin{frame}[t]{Cubic spline}
+\framesubtitle{}
+\begin{align*}
+    \vec{r}(t) = (1-w)\vec{p}_0 + w\vec{p}_{i+1} + ((-2w+3w^2-w^3)\vec{s}_i+(-w+w^3)\vec{s}_{i+1})\dfrac{(t_{i+1}-t_i)^2}{6},
+\end{align*}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.49\textwidth}
+            \begin{align*}
+                w=\dfrac{t-t_i}{t_{t+1}-t_i},\ t_i \leq t \leq t_{i+1} \\
+                s_i \text{ --- second derivative in control points} \\ 
+                s_0 = s_n = 0
+            \end{align*}
+        \end{column}
+        \begin{column}{0.49\textwidth}
+            \begin{figure}[H]
+                \centering\includegraphics[height=4cm,width=1\textwidth,keepaspectratio]{cubic_spline_book.png}
+                % \caption{caption_name}
+                \label{fig:cubic_spline_book.png}
+            \end{figure} 
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Cubic spline in Fusion 360}
+    \framesubtitle{Video}
+    \vspace{-0.6cm}
+    \begin{figure}[H]
+        \href{run:./videos/cubic_spline_video.mp4}{
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{cubic_spline_video_preview.jpg}}
+        % \caption{Click on a picture for a video}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Bezier spline}
+\framesubtitle{}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.59\textwidth}
+            1-st order curve
+            \begin{align*}
+                \vec{r}(t)=(1-t)\vec{p}_{0}+t\vec{p}_{1}
+            \end{align*}
+            2-nd order curve
+            \begin{align*}
+                \vec{r}(t)=(1-t)^{2}\vec{p}_{0}+2t(1-t)\vec{p}_{1}+t^{2}\vec{p}_{2}
+            \end{align*}
+            General form
+            \begin{align*}
+                \vec{r}(t) = \sum_{i=0}^{n} B_i^n(t)\vec{p}_i
+            \end{align*}
+            \begin{align*}
+                B_i^n(t) = \frac{n!}{i!(n-i)!}t^i(1-t)^{n-i} \text{Bernstein polynomials}
+            \end{align*}
+        \end{column}
+        \begin{column}{0.39\textwidth}
+            \vspace{-1cm}
+            \begin{figure}[H]
+                \centering\includegraphics[height=2.5cm,width=1\textwidth,keepaspectratio]{bezier_spline_book.png}
+                % \caption{caption_name}
+                \label{fig:bezier_spline_book.png}
+            \end{figure}
+            \begin{figure}[H]
+                \href{run:./videos/bezier_big.gif}{
+                    \centering\includegraphics[height=2.5cm,width=1\textwidth,keepaspectratio]{bezier_big.png}}
+                % \caption{Click on a picture for a video}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Bezier spline in Fusion 360}
+    \framesubtitle{Video}
+    \vspace{-0.6cm}
+    \begin{figure}[H]
+        \href{run:./videos/bezier_spline_video.mp4}{
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{bezier_spline_video_preview.jpg}}
+        % \caption{Click on a picture for a video}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Relationship between splines and conic sections (1)}
+\framesubtitle{}
+\vspace{-0.5cm}
+            \begin{figure}[H]
+                \centering\includegraphics[height=6.5cm,width=1\textwidth,keepaspectratio]{bezier_to_conic_intro.png}
+                % \caption{caption_name}
+                \label{fig:bezier_to_conic_intro.png}
+            \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Relationship between splines and conic sections (2)}
+    \framesubtitle{}
+    \vspace{-0.5cm}
+        \begin{figure}[H]
+            \centering\includegraphics[height=6.5cm,width=1\textwidth,keepaspectratio]{bezier_to_conic.png}
+            % \caption{caption_name}
+            \label{fig:bezier_to_conic.png}
+        \end{figure}
+    \end{frame}
+
+\begin{frame}[t]{Surface made by extruding and sweeping}
+\framesubtitle{}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.49\textwidth}
+            When a generating curve moves along a guiding curve, the orientation of the generating curve may remain unchanged related to guiding line. 
+            
+            If the guiding line is a straight line --- \textbf{extruding surface}, otherwise --- \textbf{sweeping surface}
+            \begin{align*}
+                \vec{r}(u,v) = \vec{c}(u) + \vec{d}v
+            \end{align*}
+        \end{column}
+        \begin{column}{0.49\textwidth}
+            \begin{figure}[H]
+                \centering\includegraphics[height=6.5cm,width=1\textwidth,keepaspectratio]{extruding_surface.png}
+                % \caption{caption_name}
+                \label{fig:extruding_surface.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Surface made by extruding in Fusion 360}
+    \framesubtitle{Video}
+    \vspace{-0.6cm}
+    \begin{figure}[H]
+        \href{run:./videos/extruding_surface_video.mp4}{
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{extruding_surface_video_preview.jpg}}
+        % \caption{Click on a picture for a video}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Surface made by sweeping}
+\framesubtitle{}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.49\textwidth}
+            \begin{align*}
+                \vec{r}(u,v) = \vec{g}(v) + \vec{c}(u) - \vec{g}(v_{min})
+            \end{align*}
+        \end{column}
+        \begin{column}{0.49\textwidth}
+            \begin{figure}[H]
+                \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{sweeping_surface.png}
+                % \caption{caption_name}
+                \label{fig:sweeping_surface.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Surface made by sweeping in Fusion 360}
+    \framesubtitle{Video}
+    \vspace{-0.6cm}
+    \begin{figure}[H]
+        \href{run:./videos/sweep_surface_video.mp4}{
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{sweep_surface_video_preview.jpg}}
+        % \caption{Click on a picture for a video}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Summary}
+\framesubtitle{}
+\begin{enumerate}
+    \item We touched the benefits of a parametric form
+    \pause
+    \item We know the equation of the line and polyline
+    \pause
+    \item We heard about spline applications
+    \pause
+    \item We know 2 types of splines and the difference between them
+    \pause
+    \item We got acquainted with a proof how correlates conic sections and bezier splines
+    \item We know 3 methods of obtaining surfaces
+\end{enumerate}
+
+\end{frame}
 
 \begin{frame}[t]{Reference material}
     % \framesubtitle{OnlineMschool}
