@@ -1,0 +1,102 @@
+\documentclass[]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{soul}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{graphicx}
+% \title{Innopolis University \\ Essentials of Analytical Geometry and Linear Algebra~I
+% \\ Midterm.}
+% \date{October 30, 2020.}
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+\begin{document}
+
+\centering 
+
+AGLA 1. 2022. Retake of MIDTERM. 35 points, 120 minutes
+\bigskip
+
+% \begin{tabular}{cc}
+  \begin{tabular}[b]{|p{11cm}|c|}
+  \hline
+  Full name: & Group: \\ \hline
+   &  \\ 
+   & \\
+   \hline
+  \end{tabular}
+\bigskip
+
+\begin{tabular}[b]{|c|c|c|c|c|c|c|c|}
+    \hline
+    Task: & 1 & 2 & 3 & 4 & 5 & Extra & Total \\ \hline
+    Score: &  &  &  &  &  & & \_\_\_\_ of 30 pts. \_\_  extra \\ \hline
+\end{tabular}
+
+\begin{flushleft}
+    % \textbf{\Large{Rules:}}
+    % \begin{enumerate}
+    \textbf{In each sheet}, you \textbf{should} write your last name, first name, variant number, and group number in the \textbf{upper right} corner. Unsigned sheets or sheets without the information above will NOT BE graded.
+    % \end{enumerate}
+% I agree with 
+\end{flushleft}
+
+\begin{enumerate}
+
+\item (6 points) 
+Find the equation of the straight line concurrent with the lines $2x + 3y = 3$ and $x + 2y = 2$ and also concurrent with the lines $3x - y = 1$ and $x + 5y = 11$.
+
+\item (6 points)  
+There are three points $A(2\textbf{i} + 4\textbf{j} + 2\textbf{k}), B(3\textbf{i}), C(-2\textbf{i} + 1\textbf{j} - 5\textbf{k}))$. Find the equation of the triangle's altitude passing through the point $B$.
+
+\item (6 points) Solve the system 
+\begin{enumerate}
+    \item \textbf{Aw} = \textbf{b}, 
+    
+    where 
+    $\textbf{w} =\begin{bmatrix}
+    x \\ y \\ z
+    \end{bmatrix}$
+    $
+\textbf{A}=\begin{bmatrix}
+1 & -3 & 1 \\
+1 & -1 & -1 \\
+5 & -13 & 13
+\end{bmatrix}$, 
+$
+\textbf{b}=
+\begin{bmatrix}
+4 \\
+2 \\
+8
+\end{bmatrix}$
+.
+
+\item Find rank of the matrix $A$.
+\item Explain relative positions of the planes that correspond to equations.
+\end{enumerate} 
+
+
+\item (6 points)   
+Points $P$ and $Q$ belong to sides $AB$ and $AC$ of a triangle $ABC$ respectively, and $AP : PB = 2 : 3 $, $AQ : QC =1 : 2$.
+\begin{enumerate}
+  \item Find the transition matrix from basis $\overrightarrow{AC},\ \overrightarrow{BC}$ to basis $\overrightarrow{BQ},\ \overrightarrow{PC}$.
+  \item Find coordinates $(x'; y')$ of point $M$ in coordinate system $\overrightarrow{BQ},\ \overrightarrow{PC}$ given its coordinates $(x; y)$ in CS $\overrightarrow{AC},\overrightarrow{BC}$.
+\end{enumerate}
+
+
+\item (6 points) Diagonals of a rhombus intersect at point $M(2; 1)$, the longest of them being
+parallel to a horizontal axis. The side of the rhombus equals 2 and its obtuse angle is $120^\circ$. Compose the equations of the sides of this rhombus in general form.
+
+
+% % Amer , maybe as Extra? 
+\item (Extra, 5 points) Find the condition that one of the lines given by $ax^2 + 2hxy + by^2 = 0$ may be perpendicular to one of the lines given by $a_1x^2 + 2h_1xy + by^2 = 0$. And draw the picture.
+
+
+\end{enumerate}
+
+\end{document}

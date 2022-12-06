@@ -1,0 +1,132 @@
+\documentclass[]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}      % Diagrams
+\usetikzlibrary{calc, shapes, backgrounds}
+\graphicspath{{/}}
+% \title{Innopolis University \\ Analytical Geometry and Linear Algebra~I
+% \\ Test I. }
+% (DRAFT COPIED FROM 2020) }
+\date{}
+
+\begin{document}
+ 
+%\maketitle
+
+\addpoints
+%\gradetable[h][questions]
+\
+\centering
+AGLA 1. Retake of TEST 1. 15 points, 60 minutes
+\bigskip
+
+\begin{tabular}{cc}
+    \begin{tabular}[b]{|p{11cm}|c|}
+    \hline
+    Full name: & Group: \\ \hline
+     &  \\ 
+     & \\
+     \hline
+    \end{tabular}
+\\
+
+    \begin{tabular}[b]{|c|c|c|c|c|c|c|c|}
+    \hline
+    Task: & 1 & 2 & 3 & 4 & 5 & 6 & Total \\ \hline
+
+    Score: & &  & &  &  & & \\ \hline
+    \end{tabular}
+\end{tabular}
+
+\begin{flushleft}
+    % \textbf{\Large{Rules:}}
+    % \begin{enumerate}
+    \textbf{In each sheet}, you \textbf{should} write your last name, first name, variant number, and group number in the \textbf{upper right} corner. Unsigned sheets or sheets without the information above will NOT BE graded.
+    % \end{enumerate}
+% I agree with 
+\end{flushleft}
+
+\begin{enumerate}
+
+\item (2 points) For each of the following statements mark it as True or False. Justify each answer.
+\smallskip
+% \vskip
+
+
+\begin{tabular}[b]{p{11cm}|p{2cm}}
+\vspace{-0.8cm}
+
+   1)  det$\begin{bmatrix}
+   1 & 2 \\
+   2 & 4 \\ 
+   3 & 6 
+   \end{bmatrix} = 0$ &    \\ 
+  \hline
+    2) The result of Scalar triple product operation is a vector. & \\
+    \hline
+    3) Any subset of vectors form a subspace & \\
+    \hline
+    4) Rank can be greater than a number of rows of a matrix. & \\
+    \hline
+    \end{tabular}
+
+\item (2 points) Decompose the vector $\textbf{p} = (1, 2, 3)$ into components parallel and perpendicular to the vector $\textbf{q} = (1, -2, 2)$.
+
+\item (2 points)
+\vspace{-0.7cm} 
+\begin{enumerate}
+    \item Find the matrix product $AB$ if $A=\begin{bmatrix}2 & x & 5 \\ 4 & 3 & -2 \end{bmatrix}$, $B=\begin{bmatrix} 1 & x \\ -3 & 2 \\ -1 & 2 \end{bmatrix}$
+    \item Find the largest possible value of determinant $(AB)$.
+\end{enumerate}
+
+\item (3 points) Find a transformation matrix from $X0Y$ to $X'0'Y'$ (length of vectors is important).
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+        % Include the image in a node
+        \node [above right, inner sep=0] (image) at (0,0)
+        {\centering\includegraphics[height=5cm,width=1\textwidth,keepaspectratio]{white.png}};
+        % Create scope with normalized axes
+        \begin{scope}[
+                x={($ 0.1*(image.south east)$)},
+                y={($ 0.1*(image.north west)$)}]
+            % Grid and axes' labels
+            \draw[lightgray,step=1] (image.south west) grid (image.north east);
+            \foreach \x in {0,1,...,10} { \node [below] at (\x,0) {\x}; }
+            \foreach \y in {0,1,...,10} { \node [left] at (0,\y) {\y};}
+
+            % Labels
+            \draw[latex-, very thick,black] (6,1) -- (6,3)
+            node[above right,black]{$0$};
+            \node[below, black] at (6,1) {$X$};
+
+            \draw[latex-, very thick,black] (4,3) -- (6,3);
+            \node[below, black] at (4,3) {$Y$};
+
+            \draw[latex-, very thick,black] (5,7) -- (3,9)
+            node[above right,black]{$0'$};
+            \node[below, black] at (5,7) {$X'$};
+
+            \draw[latex-, very thick,black] (1,7) -- (3,9);
+            \node[below, black] at (1,7) {$Y'$};
+
+            \node[circle,fill=black,scale=0.5] at (6,3){};
+            \node[circle,fill=black,scale=0.5] at (3,9){};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{Task 4}
+    \label{fig:file_name}
+\end{figure}
+
+\item (3 points) Prove that the result of a cross product will not changes if to one of the vectors add vector $\vec{x}$ such that $\vec{x}$ is a collinear to another vector.
+
+\item (3 points) It is known that $A^2+A+I=O$ ($O$ is a zero matrix) for a square matrix $A$. Is it true that matrix $A$ is invertible? If it is so, how can we find the inverse matrix?
+
+\end{enumerate}
+
+
+\end{document}

@@ -263,10 +263,7 @@
 		"scope": "latex",
 		"prefix": "\\v2",
 		"body": [
-		  "\\begin{bmatrix}",
-		  "$1\\\\\\",
-		  "$2",
-		  "\\end{bmatrix}"
+		  "\\begin{bmatrix} $1\\\\\\ $2 \\end{bmatrix}"
 		],
 		"description": "Vector2"
 	  },

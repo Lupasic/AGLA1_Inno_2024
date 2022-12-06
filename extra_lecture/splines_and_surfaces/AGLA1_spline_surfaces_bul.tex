@@ -35,6 +35,7 @@
 \usepackage{pdfpages}
 \usepackage{wrapfig}
 \usepackage{animate}
+% \usepackage[numbered,framed]{matlab-prettifier}
 \usepackage{booktabs}
 \usepackage{multirow}
 
@@ -59,6 +60,23 @@
 {#1}
 \vspace{1mm}
 \end{mdframed}
+}
+
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
 }
 
 \begin{document}
@@ -94,78 +112,220 @@
 
 \fbckg{fibeamer/figs/common.png}
 
-% \begin{frame}[t]{О себе}
-%     \framesubtitle{}
-%         \begin{exampleblock}{Образование}
-%             \small
-%             \vspace{-0.2cm}
-%             \begin{itemize}
-%                 \item Бакалавриат --- МГТУ им. Н.Э. Баумана, РК6 (красный диплом) \\ \textbf{Тема:} Разработка системы управления наведением МРК <<Пластун>>
-%                 \item Магистратура --- Университет Иннополис, Робототехника \\ \textbf{Тема:} Development of biomimetic centipede robot <<StriRus>>
-%                 \item Аспирантура --- Университет Иннополис, Робототехника \\
-% \textbf{Тема:} Разработка метода тактильного очувствления для мобильного шагающего робота
-%             \end{itemize}
-%         \end{exampleblock}
-%         \vspace{-0.2cm}
-%         \begin{alertblock}{Текущие должности}
-%             \small
-%             \vspace{-0.2cm}
-%             \begin{itemize}
-%             \item Старший преподаватель (Лин. Алг., Теор. Мех., МиМ)
-%             \item Тренер-преподаватель по туризму
-%         \end{itemize}
-%         \end{alertblock}
-% \end{frame}
+
+\note{План
+\footnotesize
+}
+
+\begin{frame}[t]{Disclaimer}
+\framesubtitle{}
+\begin{block}{Goal}
+    The goal of this lecture is to get aquatinted with splines, surfaces, their applications. Obtain some basic intuition. 
+\end{block}
+
+\begin{alertblock}{Constraints}
+    \begin{enumerate}
+        \item Only really necessary proofs (others can be found in reference material).
+        \item I show today topics only from practical perspective (how to use it as a user and a programmer, not as a creator of new algorithms).
+        \item I am using Matlab code snippets.
+        \item I have to make a small recap of some topics due to the reason of your misunderstanding of some concepts. 
+    \end{enumerate}
+\end{alertblock}
+\end{frame}
 
 \begin{frame}[t]{Lecture Objectives}
     \framesubtitle{}
     \begin{itemize}
-        \item To get, what the spline is.
-        \item To have an intuition where it can be used.
-        \item How to make a surfaces using splines.
+        \item To get the main benefit of parametric form.
+        \item To have an intuition where and how splines can be used.
+        \item To understand a relationship between splines and conic sections.
+        \item How to make a surfaces using curves.
     \end{itemize}
 \end{frame}
 
-\note{План
-\footnotesize
-\begin{multicols}{2}
-    \begin{enumerate}
-        \item Нафиг вам это нужно (добавить цитату от Богдана (как от эксперта по гейдеву))
-        \item Когда и где появились сплайны, зачем (кораблестроение)
-        \item Кто развивал эту тему (применение самолеты и ко)
-        \item Типы форм (явная, неявная, параметрик). Плюс параметрик (минус остальных - неоднозначность)
-        \item Демонстрация сплайнов в CAD
-        \item  Демонстрация в [[GameDev]] (видео)
-        \item B-spline 
-        \item Nurbs -spline
-        \item модификацию точек показать
-        \item Поверхности - демонстрация в CAD
-        \item Поверхности - демонстрация в Blender
-        \item Линейные поверхности
-        \item на основе сплайнов
-        \item Квиз на понимание
-        \item Подведение итогов
-    \end{enumerate}
-\end{multicols}
-
-}
-
-\begin{frame}[t]{Why can I talk about the topic}
+\begin{frame}[t]{}
 \framesubtitle{}
+    % \vspace{-0.6cm}
+    \begin{figure}[H]
+        \centering\includegraphics[height=7.1cm,width=1\textwidth,keepaspectratio]{adidasaurus.png}
+        \label{fig:adidasaurus.png}
+    \end{figure}
 \end{frame}
 
-\note{Учился в бауманке на САПР, друзья из геймдева и ко}
+\begin{frame}[t]{Computer Aided Design}
+    \framesubtitle{Form types}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{llll}
+        \textbf{Type} & \textbf{Form} & \textbf{Example} & \textbf{Description} \\ 
+        \hline
+        \textit{Explicit} & $y=f(x)\,\!$ & $y=mx+b\,\!$ & Line \\
+        \textit{Implicit} & $f(x,y)=0\,\!$ & $\left(x-a\right)^{2}+\left(y-b\right)^{2}=r^{2}$ & Circle \\
+        \multirow{2}{*}{\textit{\textbf{Parametric}}} & \multirow{2}{*}{${\displaystyle x={\frac {g(t)}{w(t)}};\,\!} {\displaystyle y={\frac {h(t)}{w(t)}}}$} & $x=a_{0}+a_{1}t;\,\! {\displaystyle y=b_{0}+b_{1}t\,\!}$ & Line \\
+         &  & $x=a+r\,\cos t;\,\! {\displaystyle y=b+r\,\sin t\,\!}$ & Circle
+        \end{tabular}
+        \end{table}
+    \end{frame}
 
+\begin{frame}[t]{Benefits of parametric form}
+\framesubtitle{}
+    \begin{definition}
+        A parametric description of a curve is called such if the coordinates of the curve point are \textbf{continuous} and \textbf{unambiguous} functions of the parameter $t$.
+    \end{definition}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.59\textwidth}
+            \begin{itemize}
+                \item The result is a point cloud, which can be easily discretized.
+                \item It can be easily controlled.
+                \item We can work with our parametric curves as with coordinates (change basis, apply affine transformation).
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.39\textwidth}
+            \vspace{-0.9cm}
+            \begin{figure}[H]
+                \centering\includegraphics[height=4.6cm,width=1\textwidth,keepaspectratio]{line_example.png}
+                % \caption*{\footnotesize $r(t)=\begin{bmatrix}\frac{3}{4}\\0\end{bmatrix}+\begin{bmatrix}2\\3\end{bmatrix}t$}
+                \label{fig:line_example.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
 
+\end{frame}
+
+\begin{frame}[t]{Segment line in parametric form}
+\framesubtitle{}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.49\textwidth}
+            AGLA (6th lab) --- $\vec{r}(t)=\vec{p}_0+a(t)$ or \\ $\left\{\begin{matrix*}[l]
+            x = p_{0x} + a_x t\\ 
+            y = p_{0y} + a_y t\\
+            z = p_{0z} + a_z t
+            \end{matrix*}\right.$
+
+        {Not easy to make a segment line (we have only one clear point and a direction)}
+        \end{column}
+        \begin{column}{0.49\textwidth}
+            $\vec{r}(t)=\vec{p}_0(1-t)+\vec{p}_1 t$ or $\left\{\begin{matrix*}[l]
+                x = p_{0x}(1-t) + p_{1x} t\\ 
+                y = p_{0y}(1-t) + p_{1y} t\\
+                z = p_{0z}(1-t) + p_{1z} t
+                \end{matrix*}\right.$
+
+                {It is really convenient, if you know 2 points and want to make a segment line. We will meet this form a lof of times today}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Polyline (Polygonal chain)}
+\framesubtitle{}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.49\textwidth}
+            $\vec{r}(t)=\vec{p}_i(1-w)+\vec{p}_{i+1}w$, where $w$ is a local parameter $w=\dfrac{t-t_i}{t_{t+1}-t_i}$, $t_i \leq t \leq t_{i+1}$
+
+            Polyline passes through given control points $\vec{p}_0,\ \vec{p}_1, ..., \vec{p}_n$. $t_i \leq t_{i+1}$
+
+            \textbf{Example}
+            $\vec{p}_0 = \begin{bmatrix} 2\\ 0 \end{bmatrix},\ \vec{p}_1 = \begin{bmatrix} 4\\ 2 \end{bmatrix},\ \vec{p}_2 = \begin{bmatrix} 7\\ 2 \end{bmatrix},\ \vec{p}_3 = \begin{bmatrix} 6\\ 0 \end{bmatrix}$
+        \end{column}
+        \begin{column}{0.49\textwidth}
+            If each knot will be the same and equal to 1, then  $\vec{r}(t)=\vec{p}_i(1-t)+\vec{p}_{i+1} t$, $i=0...n-1$
+                \begin{figure}[H]
+                    \centering\includegraphics[height=5cm,width=1\textwidth,keepaspectratio]{polyline_concrete.png}
+                    % \caption{caption_name}
+                    \label{fig:polyline_concrete.png}
+                \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Intro to splines}
+    \framesubtitle{Video}
+    \vspace{-0.6cm}
+    \begin{figure}[H]
+        \href{https://youtu.be/aVwxzDHniEw}{
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{beauty_of_bezier_video.jpg}}
+        % \caption{Click on a picture for a video}
+        \label{fig:beauty_of_bezier_video.jpg}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Splines}
+\framesubtitle{Informal Definition}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.39\textwidth}
+            \textbf{Splines} (\textit{piecewise polynomial} functions) are awesome tool to construct \textit{smooth} and flexible shapes in computer graphics.
+        \end{column}
+        \begin{column}{0.59\textwidth}
+            \vspace{-1cm}
+            \begin{figure}[H]
+                \begin{subfigure}[b]{0.49\textwidth}
+                    \centering\includegraphics[height=5cm,width=1\textwidth,keepaspectratio]{spline_ship.png}
+                    \caption*{Starting 15th century, ship hull designers used splines for making a smooth shape}
+                    \label{fig:spline_ship.png}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.49\textwidth}
+                    \centering\includegraphics[height=5cm,width=1\textwidth,keepaspectratio]{lekalo.jpg}
+                    \caption*{French curve (Лекало)}
+                    \label{fig:lekalo.jpg}
+                \end{subfigure}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Splines: Applications}
+% \framesubtitle{Applications}
+\vspace{-0.6cm}
+    \begin{figure}[H]
+        \begin{subfigure}[t]{0.32\textwidth}
+            \centering\includegraphics[height=2.4cm,width=1\textwidth,keepaspectratio]{lopatka.png}
+            \caption*{User: Car shape design, aircrafting}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.32\textwidth}
+            \centering\includegraphics[height=2.4cm,width=1\textwidth,keepaspectratio]{font_creation.png}
+            \caption*{User: Make fonts}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.32\textwidth}
+            \centering\includegraphics[height=2.4cm,width=1\textwidth,keepaspectratio]{pen_tool.jpg}
+            \caption*{User: Pen tool in PhotoShop}
+        \end{subfigure}
+
+        \begin{subfigure}[t]{0.32\textwidth}
+            \centering\includegraphics[height=2.5cm,width=1\textwidth,keepaspectratio]{multi_splines_interpolation.jpg}
+            \caption*{Math: Interpolation --- advanced data analysis }
+        \end{subfigure}
+        \begin{subfigure}[t]{0.32\textwidth}
+            \centering\includegraphics[height=2.5cm,width=1\textwidth,keepaspectratio]{spline_noise_reduction.png}
+            \caption*{Math: Approximation --- signal post processing (reduce noise)}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.32\textwidth}
+            \centering\includegraphics[height=2.5cm,width=1\textwidth,keepaspectratio]{stonks.jpg}
+            \caption*{Math: Extrapolation --- revenue prediction during the covid}
+        \end{subfigure}
+    
+    \end{figure}
+\end{frame}
+
+\note{
+    \footnotesize
+    Использовал сплайны при прогнозировании выручки во время ковида: был бейзлайн прогноз, на который я умножал на кривую (сигмоиду), которую рассчитывал в соответствии с последними точками факта. Часть параметров кривой была зафиксирована, а часть обновлялась каждый день.
+Так мы получили более-менее точный прогноз во время кризиса.
+
+Ну вот тут интерполяция, да. У тебя есть набор точек, но для красивого графика ты рассчитываешь промежуточные точки.
+
+Ну приходят тебе дискретные сигналы с датчика, ты восстанавливаешь функцию, вот чтобы эта функция была похожа на реальность надо юзать сплайн
+}
 
 \begin{frame}[t]{Reference material}
     % \framesubtitle{OnlineMschool}
     \Large
     \begin{itemize}
-        \item \href{https://ppt-online.org/842240}{Conic sections (slides, rus)}
-        \item \href{https://www.youtube.com/watch?v=GaSrBIUGdWs}{How to find centre of conic (video, eng)}
-        \item \href{https://math.stackexchange.com/questions/2235355/find-major-and-minor-axis-of-given-conic}{Find the equation of major and minor axis of the given conic}
-        \item \href{http://mathprofi.ru/kak_privesti_uravnenie_linii_2_poryadka_k_kanonicheskomu_vidu.html}{How to go from general to canonical form (mathprofi, rus)}
+        \item \href{https://libgen.is/book/index.php?md5=D650EF9E78CBCD3367240A00B610C383}{Geometrical Modeling, Golovanov N.N. (book, rus)}
+        \item \href{https://youtu.be/aVwxzDHniEw}{The Beauty of Bézier Curves (video, eng)}
+        \item \href{http://wp.doc.ic.ac.uk/bkainz/teaching/60005-co317-computer-graphics/}{Computer Graphics course, lectures notes 12 and 13 (Imperial College London)}
+        \item \href{https://www.youtube.com/watch?v=lk3uObcVnN0}{12 Spline Curves (video, eng)}
+        \item \href{https://youtu.be/rtwOrZL02M0}{Data Fitting: Polynomial Fitting and Splines, Part 4 (video, eng)}
+        \item \href{https://habr.com/ru/post/323442/}{Qubic spline (habr, rus)}
     \end{itemize}
 \end{frame}
 
