@@ -13,7 +13,7 @@
 %% These macros specify information about the presentation
 \title[AGLA1]{Analytical Geometry and Linear Algebra I, Visiting Lecture} %% that will be typeset on the
 \subtitle{Parametric form of segment line, polyline
-\\ Splines: Cubic, Bezier \\ Surfaces: made by extruding, sweeping, revolving 
+\\ Splines: Cubic, Bezier \\ Surfaces: made by extruding, shearing, revolving 
          } %% title page.
 \author{Oleg Bulichev}
 %% These additional packages are used within the document:
@@ -110,7 +110,6 @@
     \begin{enumerate}
         \item Only really necessary proofs (others can be found in reference material).
         \item I show today topics only from practical perspective (how to use it as a user and a programmer, not as a creator of new algorithms).
-        \item I used Matlab code (link in the references).
         \item I have to make a small recap of some topics due to the reason of your misunderstanding of some concepts. 
     \end{enumerate}
 \end{alertblock}
@@ -143,9 +142,9 @@
         \textbf{Type} & \textbf{Form} & \textbf{Example} & \textbf{Description} \\ 
         \hline
         \textit{Explicit} & $y=f(x)\,\!$ & $y=mx+b\,\!$ & Line \\
-        \textit{Implicit} & $f(x,y)=0\,\!$ & $\left(x-a\right)^{2}+\left(y-b\right)^{2}=r^{2}$ & Circle \\
-        \multirow{2}{*}{\textit{\textbf{Parametric}}} & \multirow{2}{*}{${\displaystyle x={\frac {g(t)}{w(t)}};\,\!} {\displaystyle y={\frac {h(t)}{w(t)}}}$} & $x=a_{0}+a_{1}t;\,\! {\displaystyle y=b_{0}+b_{1}t\,\!}$ & Line \\
-         &  & $x=a+r\,\cos t;\,\! {\displaystyle y=b+r\,\sin t\,\!}$ & Circle
+        \textit{Implicit} & $f(x,y)=0\,\!$ & $\left(x-p_{x}\right)^{2}+\left(y-p_{y}\right)^{2}=r^{2}$ & Circle \\
+        \multirow{2}{*}{\textit{\textbf{Parametric}}} & \multirow{2}{*}{${\displaystyle x={{g(t)}};\,\!} {\displaystyle y={{h(t)}}}$} & $x=p_{0x}+a_{x}t;\,\! {\displaystyle y=p_{0y}+a_{y}t\,\!}$ & Line \\
+         &  & $x=p_{0x}+r\,\cos t;\,\! {\displaystyle y=p_{0y}+r\,\sin t\,\!}$ & Circle
         \end{tabular}
         \end{table}
     \end{frame}
@@ -236,7 +235,7 @@
 \framesubtitle{Informal Definition}
     \begin{columns}[T,onlytextwidth]
         \begin{column}{0.39\textwidth}
-            \textbf{Splines} (\textit{piecewise polynomial} functions) are awesome tool to construct \textit{smooth} and flexible shapes in computer graphics.
+            \textbf{Splines} (\textit{piecewise polynomial} functions) are awesome tool to construct \textit{smooth} and controllable shapes in computer graphics.
         \end{column}
         \begin{column}{0.59\textwidth}
             \vspace{-1cm}
@@ -300,7 +299,8 @@
 }
 
 \begin{frame}[t]{Cubic spline (proof in (1) p. 33-35)}
-\framesubtitle{}
+\framesubtitle{Definition}
+\vspace{-0.8cm}
 \begin{align*}
     \vec{r}(t) = (1-w)\vec{p}_0 + w\vec{p}_{i+1} + \left((-2w+3w^2-w^3)\vec{s}_i+(-w+w^3)\vec{s}_{i+1}\right)\dfrac{(t_{i+1}-t_i)^2}{6},
 \end{align*}
@@ -327,10 +327,27 @@
     \framesubtitle{Video}
     \vspace{-0.6cm}
     \begin{figure}[H]
-        \href{run:./videos/cubic_spline_video.mp4}{
+        % \href{run:./videos/cubic_spline_video.mp4}{
+        \href{https://disk.yandex.ru/i/zOF29cUwON7hsw}{
             \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{cubic_spline_video_preview.jpg}}
         % \caption{Click on a picture for a video}
     \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Cubic spline (proof in (1) p. 33-35)}
+    \framesubtitle{Proof concept}
+    \footnotesize
+    \vspace{-0.5cm}
+    \begin{enumerate}
+        \item We have several points, which we want to connect using cubic spline, which has a continuous first and second derivative radius-vectors. Second derivative equation for each segment $t_i \leq t \leq t_{i+1}$ : $\dfrac{d^2 \vec{r}}{d t^2} = \vec{s}_i(1-w)+\vec{s}_{i+1}w$, $w=\dfrac{t-t_i}{t_{t+1}-t_i}$ 
+        \pause
+        \item We are integrating it twice: $\vec{r}(t)=\vec{s}_i\dfrac{(t_{i+1}-t)^3}{6(t_{t+1}-t_i)} + \vec{s}_{i+1}\dfrac{(t-t_i)^3}{6(t_{t+1}-t_i)}+\vec{c}_1t+\vec{c}_2$. Integration constants can be found putting $\vec{r}(t_i)=\vec{p}_i,\ {r}(t_{i+1})=\vec{p}_{i+1}$.
+        \pause
+        \item We have two unknowns $\vec{s}_i,\ \vec{s}_{i+1}$. We equal the first derivative of the spline at the right end of the segment $t_{i-1} \leq t \leq t_{i}$ to the first derivative of the spline at the left end of the segment $t_i \leq t \leq t_{i+1}$ and substitute $t=t_i$ the answer is the equation from definition slide. \medskip
+
+        In such case there are $n-1$ equations for $n$ points. We have $n+1$ $\vec{s}_i$ unknowns. Other 2 equations can be taken from the 1st and last points of the curve. We can say that they are free, hence $\vec{s}_0=\vec{s}_n=0 $
+    \end{enumerate}
+    
 \end{frame}
 
 \begin{frame}[t]{Bezier spline (proof in (1) p. 38-42)}
@@ -361,7 +378,8 @@
                 \label{fig:bezier_spline_book.png}
             \end{figure}
             \begin{figure}[H]
-                \href{run:./videos/bezier_big.gif}{
+                % \href{run:./videos/bezier_big.gif}{
+                    \href{https://gifyu.com/image/Sk3uW}{
                     \centering\includegraphics[height=2.5cm,width=1\textwidth,keepaspectratio]{bezier_big.png}}
                 \caption*{Click on the figure for a video}
             \end{figure}
@@ -373,7 +391,8 @@
     \framesubtitle{Video}
     \vspace{-0.6cm}
     \begin{figure}[H]
-        \href{run:./videos/bezier_spline_video.mp4}{
+        % \href{run:./videos/bezier_spline_video.mp4}{
+            \href{https://disk.yandex.ru/i/n3g2fF4qWvhTcA}{
             \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{bezier_spline_video_preview.jpg}}
         % \caption{Click on a picture for a video}
     \end{figure}
@@ -387,6 +406,20 @@
                 % \caption{caption_name}
                 \label{fig:bezier_to_conic_intro.png}
             \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Bezier splines \& conic sections (proof in (1) p. 42-48)}
+\framesubtitle{Proof concept}
+    \footnotesize
+    \vspace{-0.5cm}
+    \begin{enumerate}
+        \item Firstly, we need to represent conic section somehow, knowing some points. We will do it making an equation, which connects two pair of straight lines. $l_i=a_i x + b_i y + c_i = 0$. For example $l_1 l_2 = 0$ is the pair of straight line equation. For simplicity, let's take $(1-\lambda)l_1 l_2 + \lambda l_3^2 = 0$. In such case $l_1$, and $l_2$ are tangent to conic section.
+        \pause
+        \item Point $G$ is $\vec{p}_1$, $D$ --- $\vec{p}_0$, $E$ --- $\vec{p}_2$. Let's represent the ark $DE$ in new CS, where $\vec{u}=\vec{p}_0 - \vec{p}_1$, $\vec{v}=\vec{p}_2 - \vec{p}_1$. Hence our curve will have such equation $\vec{r}(u,v) = \vec{p}_1 + (\vec{p}_0 - \vec{p}_1)u + (\vec{p}_2 - \vec{p}_1)v$. In such case our conics equation will be represented as $(1-\lambda)u v + \lambda (u+v-1)^2 = 0$ ($l_1 \rightarrow v = 0 $, $l_2 \rightarrow u = 0 $, $l_3 \rightarrow u+v-1=0$).
+        \pause
+        \item The problem of the previous equation --- it relates to 2 components ($u, v$). Our goal to make it relative only to one. In the end of it the equation appears $$\vec{r}(t) = \dfrac{(1-t)^2\vec{p}_0 + 2t(1-t)\omega \vec{p}_1 + t^2 \vec{p}_2}{(1-t)^2+2t(1-t)\omega + t^2},$$ where $\omega$ is a weight of the point $\vec{p}_1$.
+
+    \end{enumerate}
 \end{frame}
 
 \begin{frame}[t]{Bezier splines \& conic sections (proof in (1) p. 42-48) (2)}
@@ -413,8 +446,8 @@
         \begin{column}{0.49\textwidth}
             \vspace{-0.5cm}
             \begin{figure}[H]
-                \centering\includegraphics[height=6.5cm,width=1\textwidth,keepaspectratio]{extruded_surface_book.png}
-                \caption*{Extrude surface}
+                \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{extruded_surface_book.png}
+                % \caption*{Extrude surface}
                 \label{fig:extruded_surface_book.png}
             \end{figure}
         \end{column}
@@ -425,7 +458,8 @@
     \framesubtitle{Video}
     \vspace{-0.6cm}
     \begin{figure}[H]
-        \href{run:./videos/extruding_surface_video.mp4}{
+        % \href{run:./videos/extruding_surface_video.mp4}{
+        \href{https://disk.yandex.ru/i/38GNopwtFl9wKQ}{
             \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{extruding_surface_video_preview.jpg}}
         % \caption{Click on a picture for a video}
     \end{figure}
@@ -454,8 +488,9 @@
     \framesubtitle{Video}
     \vspace{-0.6cm}
     \begin{figure}[H]
-        \href{run:./videos/sweep_surface_video.mp4}{
-            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{sweep_surface_video_preview.jpg}}
+        % \href{run:./videos/shear_surface_video.mp4}{
+        \href{https://disk.yandex.ru/i/bKQBOf8JJm4DaA}{
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{shear_surface_video_preview.jpg}}
         % \caption{Click on a picture for a video}
     \end{figure}
 \end{frame}
@@ -489,8 +524,9 @@
     \framesubtitle{Video}
     \vspace{-0.6cm}
     \begin{figure}[H]
-        \href{run:./videos/sweep_surface_video.mp4}{
-            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{sweep_surface_video_preview.jpg}}
+        % \href{run:./videos/revolving_surface_video.mp4}{
+        \href{https://disk.yandex.ru/i/esBUsEV6GyFlKQ}{
+            \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{revolving_surface_video_preview.jpg}}
         % \caption{Click on a picture for a video}
     \end{figure}
 \end{frame}
@@ -507,8 +543,8 @@
     \item We heard about spline applications.
     \pause
     \item We know 2 types of splines and the difference between them.
-    \pause
     \item We got acquainted with a proof how correlates conic sections and Bezier splines.
+    \pause
     \item We know 3 methods of obtaining surfaces.
 \end{enumerate}
 
@@ -516,9 +552,10 @@
 
 \begin{frame}[t]{Reference material}
     % \framesubtitle{OnlineMschool}
-    \Large
+    % \Large
     \begin{itemize}
         \item \href{https://libgen.is/book/index.php?md5=D650EF9E78CBCD3367240A00B610C383}{Geometrical Modeling, Golovanov N.N. (book, rus)}
+        \item \href{https://www.youtube.com/watch?v=PSe47Q7QLmE}{Plotting parametric equations in Matlab (video, eng)}
         \item \href{https://youtu.be/aVwxzDHniEw}{The Beauty of Bézier Curves (video, eng)}
         \item \href{http://wp.doc.ic.ac.uk/bkainz/teaching/60005-co317-computer-graphics/}{Computer Graphics course, lectures notes 12 and 13 (Imperial College London)}
         \item \href{https://www.youtube.com/watch?v=lk3uObcVnN0}{12 Spline Curves (video, eng)}
