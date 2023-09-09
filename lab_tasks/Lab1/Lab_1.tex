@@ -1,0 +1,213 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % Cyrillics!
+\usepackage{cmap} % Copypastable cyrillics!
+\usepackage{amsmath} % Multiline equations
+\usepackage{amssymb} % Cool symbols (like |R)
+\usepackage{mathtools} % Disable numbering equations by default
+\mathtoolsset{showonlyrefs}
+\usepackage{indentfirst} % Indent first paragraph in chapter
+\usepackage{multicol}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\T}{\textrm{T}}
+\newcommand{\I}{{-1}}
+
+\title{Class \#1}
+\author{Anastasiia Puzankova}
+\date{}
+
+\usepackage{color}
+\newcommand{\adv}[0]{\textcolor{red}{*}}
+
+\makeatletter
+\pdfinfo{%some PDF metadate
+  /Title    (\@title)
+  /Author   (\@author)
+  /Subject  (Essentials of Analytical Geometry and Linear Algebra I)
+}
+\makeatother
+
+\begin{document}
+%\maketitle
+
+\section*{Essentials of Analytical Geometry and Linear Algebra~I, Class \#1}
+\noindent\textbf{Innopolis University, August 2022}
+\\
+
+\textbf{1.} Points $\mathbf{A}(3,-2)$ and $\mathbf{B}(1,4)$ are given. The $ \mathbf{M}$ point is on the line $\mathbf{AB}$ in the way that
+$|\mathbf{AM}| = 3|\mathbf{AB}|$. Find coordinates of the $ \mathbf{M}$ point, if: \\
+1. The points $ \mathbf{M}$ and $ \mathbf{B}$ are from the same side from A. \\
+2. The points $ \mathbf{M}$ and $ \mathbf{B}$ are from the different sides from A.\\
+
+\textbf{2.} Check if the result of each of the following operations is a vector or not. Explain your answer. \\
+1. $\mathbf{a} + \mathbf{b}$, if $\mathbf{a}$ and $\mathbf{b}$ are vectors \\
+2. $\mathbf{a} - \mathbf{a}$, if $\mathbf{a}$ is a vector \\
+3.$\begin{bmatrix}
+  1 \\
+  0 
+ \end{bmatrix}
+ + 
+ \begin{bmatrix}
+  0 \\
+  2 
+ \end{bmatrix}$ \\
+4. $\begin{bmatrix}
+  2x + 15 - 4y \\
+  y - x 
+ \end{bmatrix}$, if $x$ and $y$ are integer numbers \\
+5. $\begin{bmatrix}
+  x + y \\
+  2y + 122 - 3x 
+ \end{bmatrix} - 
+ \begin{bmatrix}
+  x + y \\
+  2y + 122 - 3x 
+ \end{bmatrix}$, if $x$ and $y$ are real numbers \\
+
+\textbf{3.} Three vectors are given 
+$\mathbf{a}
+ \begin{bmatrix}
+  1 \\
+  2 
+ \end{bmatrix}, 
+ \mathbf{b}
+ \begin{bmatrix}
+  -5 \\
+  -1 
+ \end{bmatrix},
+ \mathbf{c}
+ \begin{bmatrix}
+  -1 \\
+  3 
+ \end{bmatrix}$. 
+Find the vectors $ 2 \mathbf{a} + 3\mathbf{b} - \mathbf{c} $ and 
+$ 16 \mathbf{a} + 5\mathbf{b} - 9\mathbf{c} $. \\
+
+\textbf{4.} Check for each case if the following set of vectors is a basis or not. Explain your answer. \\
+1. $\begin{bmatrix}
+  1 \\
+  0 
+ \end{bmatrix}
+ + 
+ \begin{bmatrix}
+  0 \\
+  2 
+ \end{bmatrix}$ \\
+2. $\begin{bmatrix}
+  1 \\
+  0 
+ \end{bmatrix}$ ,
+ $\begin{bmatrix}
+  0 \\
+  2 
+ \end{bmatrix}$ \\
+3. $\begin{bmatrix}
+  1 \\
+  2 \\
+  3
+ \end{bmatrix}$ \\
+4.  $\begin{bmatrix}
+  1 \\
+  0 \\
+  0
+ \end{bmatrix}$ ,
+  $\begin{bmatrix}
+  0 \\
+  2 \\
+  0
+ \end{bmatrix}$ ,
+  $\begin{bmatrix}
+  0 \\
+  0 \\
+  3
+ \end{bmatrix}$ \\
+5. $\begin{bmatrix}
+  1 \\
+  0 \\
+  0
+ \end{bmatrix}$ ,
+  $\begin{bmatrix}
+  0 \\
+  2 \\
+  0
+ \end{bmatrix}$ \\
+6. $\begin{bmatrix}
+  1 \\
+  0 
+ \end{bmatrix}$ ,
+ $\begin{bmatrix}
+  0 \\
+  0 
+ \end{bmatrix}$ \\
+ 
+ \textbf{5.} Check for each case if the following set of vectors is a subspace or not. Explain your answer. \\
+ 1. Part of the plane $x > 0$ \\
+ 2. Entire plane \\
+ 3. Part of the plane $y < 0$ \\
+ 4. Part of the plane $x > 0, \; y > 0$  \\
+ 5. Inner circle with the radius $r = 5$ \\
+ 
+\textbf{6.} Find the coordinates of the gravity center of a triangular plate $\mathbf{ABC}$ with vertices in points $\mathbf{A}(3,1), \mathbf{B}(6,3), \mathbf{C}(0,2)$. \\
+
+\textbf{7.} Check for each case if the following set of vectors is a coplanar or not. Explain your answer. \\
+1. $\begin{bmatrix}
+  1 \\
+  2 \\
+  3
+ \end{bmatrix}$,
+  $\begin{bmatrix}
+  4 \\
+  1 \\
+  5
+ \end{bmatrix}$, 
+  $\begin{bmatrix}
+  -1 \\
+  3 \\
+  2
+ \end{bmatrix}$ \\
+2. $\begin{bmatrix}
+  1 \\
+  1 \\
+  1
+ \end{bmatrix}$,
+  $\begin{bmatrix}
+  2 \\
+  2 \\
+  4
+ \end{bmatrix}$, 
+  $\begin{bmatrix}
+  1 \\
+  3 \\
+  3
+ \end{bmatrix}$ \\
+3. $\begin{bmatrix}
+  1 \\
+  1 \\
+  1
+ \end{bmatrix}$,
+  $\begin{bmatrix}
+  2 \\
+  2 \\
+  2
+ \end{bmatrix}$, 
+  $\begin{bmatrix}
+  3 \\
+  3 \\
+  3
+ \end{bmatrix}$ \\
+ 
+\textbf{8.} In the plane of the triangle $ \mathbf{ABC}$ find the point $ \mathbf{O}$ such that $\overrightarrow{OA} + \overrightarrow{OB} + \overrightarrow{OC} = \mathbf{0}$. Are there such points outside of the triangle? \\
+Note: $ \mathbf{0}$ is a zero-vector. \\
+
+
+\end{document}

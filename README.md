@@ -8,7 +8,7 @@ This repository contains regularly updated course materials. You can use lab sli
 # Lab slides
 
 * [Lab 1 (Introduction to AGLA; Vector; Basis and Subspace)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/1/AGLA1_lab1_bul.pdf)
-* [Lab 2 (Dot product; Cross product)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/1/AGLA1_lab1_bul.pdf)
+* [Lab 2 (Dot product; Cross product)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/2/AGLA1_lab2_bul.pdf)
 
 # For contributors
 
