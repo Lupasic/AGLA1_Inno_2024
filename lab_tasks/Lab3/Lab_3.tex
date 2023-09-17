@@ -1,0 +1,137 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % Cyrillics!
+\usepackage{cmap} % Copypastable cyrillics!
+\usepackage{amsmath} % Multiline equations
+\usepackage{amssymb} % Cool symbols (like |R)
+\usepackage{mathtools} % Disable numbering equations by default
+\mathtoolsset{showonlyrefs}
+\usepackage{indentfirst} % Indent first paragraph in chapter
+\usepackage{multicol}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\T}{\textrm{T}}
+\newcommand{\I}{{-1}}
+
+\title{Class \#3}
+\author{Oleg Bulichev , Amer Al Badr}
+\date{}
+
+\usepackage{color}
+\newcommand{\adv}[0]{\textcolor{red}{*}}
+
+\makeatletter
+\pdfinfo{%some PDF metadate
+  /Title    (\@title)
+  /Author   (\@author)
+  /Subject  (Essentials of Analytical Geometry and Linear Algebra I)
+}
+\makeatother
+
+\begin{document}
+%\maketitle
+\section*{Essentials of Analytical Geometry and Linear Algebra~I, Class \#3}
+\noindent\textbf{Innopolis University, September 2022}
+\\
+
+\section{Operations with Matrices}
+\subsection{Introduction to matices}
+\begin{enumerate}
+\item Let $A=\begin{bmatrix} 3 & 1 \\ 5 & -2 \\ \end{bmatrix}$, $B=\begin{bmatrix} -2 & 1 \\ 3 & 4 \\ \end{bmatrix}$, $I=\begin{bmatrix} 1 & 0 \\ 0 & 1 \\ \end{bmatrix}$:
+\begin{enumerate}
+    \item Find $A+B$;
+    \item Find $2A-3B+I$;
+    \item Find $AB$ and $BA$ (make sure that, in general, $AB \neq BA$ for matrices);
+    \item Find $AI$ and $IA$.
+\end{enumerate}
+
+\item Let $A=\begin{bmatrix} 2 & -1 & -1\end{bmatrix}$ and $B=\begin{bmatrix} -2 \\ -1 \\ 3 \end{bmatrix}$:
+\begin{enumerate}
+    \item Find $AB$ and $BA$ if they exist;
+    \item Find $A^TB$ and $BA^T$ if they exist.
+\end{enumerate}
+
+\item If solution exists, what the dimension of the result matrix. There are several matrices:  $\underset{3\times3}{A}$, $\underset{2\times3}{B}$, $\underset{3\times2}{C}$, $\underset{3\times5}{D}$, $\underset{3\times5}{D}$, $\underset{1\times2}{E}$, $\underset{3\times1}{K}$.
+\begin{enumerate}
+    \item $ABC$;
+    \item $AB^TC^T$;
+    \item $EBAE$;
+    \item $K^T \times K^T C E^T$.
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Determinants}
+\begin{enumerate}
+\item
+Find the determinants of the following matrices:
+
+(a) $A=\begin{bmatrix}
+          5 & -2 \\
+          1 & 6 \\
+        \end{bmatrix}$;
+(b) $B=\begin{bmatrix}
+           1 & -3 & -1 \\
+           -2 & 7 & 2 \\
+           3 & 2 & -4 \\
+         \end{bmatrix}$.
+\item
+A triangle is constructed on vectors \textbf{a}=$\begin{bmatrix} 2 \\ 4 \\ -1  \end{bmatrix}$ and \textbf{b}=$\begin{bmatrix} -2\\ 1 \\ 1  \end{bmatrix}$.
+\begin{enumerate}
+    \item Find the area of this triangle.
+    \item Find the altitudes of this triangle.
+\end{enumerate}
+
+\item Find the matrix product $AB$ if $A=\begin{bmatrix}
+          1 & 2 & 5 \\
+          3 & 7 & x \\
+        \end{bmatrix}$, $B=\begin{bmatrix}
+           5 & -1 \\
+           x & 2 \\
+           -3 & -1 \\
+         \end{bmatrix}$.\\ Then find the largest possible value of $det(AB)$.
+         
+\item
+Let $\textbf{a}$, $\textbf{b}$, $\textbf{c}$ be three pairwise non-collinear vectors. Prove that $\textbf{a}\times\textbf{b}=\textbf{b}\times\textbf{c}=\textbf{c}\times\textbf{a}$ if and only if $\textbf{a}+\textbf{b}+\textbf{c}=\textbf{0}$.
+
+\end{enumerate}
+
+
+\section{Scalar Triple Product}
+\begin{enumerate}
+\item
+Find the scalar triple product of $\textbf{a}=\begin{bmatrix} 1 \\ 2 \\ -1  \end{bmatrix}$, $\textbf{b}=\begin{bmatrix} 7 \\ 3 \\ -5  \end{bmatrix}$, $\textbf{c}=\begin{bmatrix} 3 \\ 4 \\ -3  \end{bmatrix}$.
+
+\item
+Vectors $\textbf{a}$, $\textbf{b}$, $\textbf{c}$ are not coplanar. Find all values of $\theta$ such that vectors $\textbf{a}+2\textbf{b}+\theta\textbf{c}$, $4\textbf{a}+5\textbf{b}+6\textbf{c}$, $7\textbf{a}+8\textbf{b}+\theta^2\textbf{c}$ are coplanar.
+
+\end{enumerate}
+
+\section {Changing Basis and Coordinates}
+\begin{enumerate}
+\item
+Two bases are given in the plane: $\textbf{e}_1$, $\textbf{e}_2$ and $\textbf{e}'_1$, $\textbf{e}'_2$. The vectors of the second basis have coordinates $(-1;\,3)$ and $(2;-7)$ in the first basis.
+
+(a) Compose transition matrices from the old basis to the new and vice versa.
+
+(b) Find the coordinates of a vector in the old basis given that it has coordinates $\alpha'_1$, $\alpha'_2$ in the new basis.
+
+(c) Find the coordinates of a vector in the new basis given that it has coordinates $\alpha_1$, $\alpha_2$ in the old basis.
+
+\item
+Let us consider two coordinate systems in the plane: $O$, $\textbf{e}_1$, $\textbf{e}_2$ and $O'$, $\textbf{e}'_1$, $\textbf{e}'_2$. Point $O'$ has coordinates $(7;-2)$ in the old coordinate system, and vectors $\textbf{e}'_1$, $\textbf{e}'_2$ can be obtained from vectors $\textbf{e}_1$, $\textbf{e}_2$ by rotating them $60^{\circ}$ (a) clockwise; (b) counterclockwise. Find the old coordinates of a point $x$, $y$ given its new coordinates $x'$, $y'$.
+
+\end{enumerate}
+
+
+
+\end{document}
+
