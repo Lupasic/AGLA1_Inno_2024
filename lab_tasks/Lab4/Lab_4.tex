@@ -1,0 +1,101 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % Cyrillics!
+\usepackage{cmap} % Copypastable cyrillics!
+\usepackage{amsmath} % Multiline equations
+\usepackage{amssymb} % Cool symbols (like |R)
+\usepackage{mathtools} % Disable numbering equations by default
+\mathtoolsset{showonlyrefs}
+\usepackage{indentfirst} % Indent first paragraph in chapter
+\usepackage{multicol}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\T}{\textrm{T}}
+\newcommand{\I}{{-1}}
+
+\title{Class \#4}
+\author{Oleg Bulichev}
+\date{}
+
+\usepackage{color}
+\newcommand{\adv}[0]{\textcolor{red}{*}}
+
+\makeatletter
+% \pdfinfo{%some PDF metadate
+%   /Title    (\@title)
+%   /Author   (\@author)
+%   /Subject  (Essentials of Analytical Geometry and Linear Algebra I)
+% }
+\makeatother
+
+\begin{document}
+%\maketitle
+\section*{Essentials of Analytical Geometry and Linear Algebra~I, Class \#4}
+\noindent\textbf{Innopolis University, September 2022}
+\\
+
+
+\section{Inverse Matrix}
+\begin{enumerate}
+\item Find inverse matrices for the following matrices:
+\begin{enumerate}
+
+    \item $\begin{bmatrix}
+     3 & 5 \\
+     5 & 9 \\
+   \end{bmatrix}$;
+    \item $\begin{bmatrix}2&-1&0\\0&2&-1\\-1&-1&1\end{bmatrix}$;
+\end{enumerate}
+
+
+\item Solve matrix equations:
+\begin{enumerate}
+
+    \item $\begin{bmatrix}2&5\\1&3\end{bmatrix}X=\begin{bmatrix}2&1\\1&1\end{bmatrix}$;
+    \item  $X\begin{bmatrix}2&5\\1&3\end{bmatrix}=\begin{bmatrix}2&1\\1&1\end{bmatrix}$;
+\end{enumerate}
+
+\end{enumerate}
+
+\section{Matrix Rank}
+\begin{enumerate}
+\item Calculate the ranks of the following matrices:
+\begin{enumerate}
+    \item  $\begin{bmatrix}1&2&3\\2&3&4\\1&1&1\end{bmatrix}$.
+\end{enumerate}
+% \item Determine the ranks of the following matrices for all real values of parameter $\alpha$:
+% \begin{enumerate}
+
+%     \item $\begin{bmatrix}1&\alpha&-1&2\\2&-1&\alpha&5\\1&10&-6&1\end{bmatrix}$;
+%     \item $\begin{bmatrix}1&1&1\\1&\alpha&\alpha^2\\1&\alpha^2&\alpha\end{bmatrix}$;
+% \end{enumerate}
+
+\end{enumerate}
+
+\section{Changing Basis and Coordinates}
+\begin{enumerate}
+\item If vectors \textbf{a} and \textbf{b} form a basis (you should check it), it is needed to find coordinates $\textbf{c}$ and $\textbf{d}$ in the basis.\\\\
+$\textbf{a}=\begin{bmatrix} -5 \\ -1 \end{bmatrix}$, $\textbf{b}=\begin{bmatrix} -1 \\ 3\end{bmatrix}$, 
+$\textbf{c}=\begin{bmatrix} -1 \\ 2 \end{bmatrix}$, 
+$\textbf{d}=\begin{bmatrix} 2 \\ -6\end{bmatrix}$.
+\item There are to bases in $R^3$:
+
+$e_1=i,\ e_2=j,\ e_3=k$ and $e_1'=i+j+k,\ e_2'=i+j,\ e_3'=i$
+
+Find coordinates of $x=2i-3j+k$ in the basis $e_1',\ e_2',\ e_3'$.
+
+\item
+
+There are 4 vectors $f_1,\ f_2,\ f_3,\ x$ and the basis \\ $e_1=\begin{bmatrix}1\\0\\0\end{bmatrix},\ e_2=\begin{bmatrix}0\\1\\0\end{bmatrix},\ e_3=\begin{bmatrix}0\\0\\1\end{bmatrix}$. Find the coordinates of $x$ in the basis $(f_1,\ f_2,\ f_3)$, if $f_1=\begin{bmatrix}1\\1\\1\end{bmatrix},\ f_2=\begin{bmatrix}1\\2\\1\end{bmatrix},\ f_3=\begin{bmatrix}1\\2\\2\end{bmatrix},\ x=\begin{bmatrix}1\\1\\0\end{bmatrix}$
+\end{enumerate}
+
+\end{document}
