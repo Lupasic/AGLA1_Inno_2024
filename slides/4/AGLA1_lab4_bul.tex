@@ -361,6 +361,11 @@
     More info in Appendix \ref{pdf:myfile}
 \end{frame}
 
+\usebackgroundtemplate{}
+\setbeamercolor{background canvas}{bg=}
+\includepdf[pages=-,fitpaper, linktodoc=true, pagecommand={\section{two_bros}\label{pdf:two_bros}}]{two_bros_fig.pdf}
+\fbckg{fibeamer/figs/common.png}
+
 \begin{frame}[t]{Changing Basis}
     \framesubtitle{Task 3}
     \only<1>{If vectors \textbf{a} and \textbf{b} form a basis (you should check it), it is needed to find coordinates $\textbf{c}$ in the basis.\medskip
