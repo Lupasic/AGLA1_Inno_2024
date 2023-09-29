@@ -12,7 +12,7 @@
 %%
 %% These macros specify information about the presentation
 \title[AGLA1]{Analytical Geometry and Linear Algebra I, Lab 5} %% that will be typeset on the
-\subtitle{Matrix Rank \\ Test 1 Solutions \\ Q/A session   
+\subtitle{Test 1 Solutions \\ Matrix Rank \\ Q/A session   
          } %% title page.
 \author{Oleg Bulichev}
 %% These additional packages are used within the document:
@@ -135,24 +135,87 @@
     \end{multicols}
 \end{frame}
 
-\begin{frame}[t]{Projection (1)}
-    \framesubtitle{}
-    \begin{figure}[H]
-        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{AGLA2_for_slides_1.png}
-        % \caption{caption_name}
-        \label{fig:AGLA2_for_slides_1.png}
-    \end{figure}
+\begin{frame}[t]{Projection}
+    \framesubtitle{2D Case, Classical way \\ Project $\vec{b}$ on $\vec{a}_1$}
+    \vspace{-0.8cm}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.49\textwidth}
+            \begin{align*}
+                e = b -a_1x,\ \text{ $e$ --- error b/w similar vectors} \\
+                a_1 \cdot (b-a_1x)=0 \\
+                a_1^T(b-a_1x)=0 \\
+                a_1^Tb = a_1^Ta_1x \\
+                \dfrac{a_1^Tb}{a_1^Ta_1} = x \text{ --- Classical formula from school}
+                \end{align*}
+        \end{column}
+        \begin{column}{0.49\textwidth}
+            \vspace{-1.8cm}
+            \begin{figure}[H]
+                \centering\includegraphics[height=3cm,width=1\textwidth,keepaspectratio]{resources/fig1.png}
+                \label{fig:resources/fig1.png}
+            \end{figure}
+            \vspace{-1cm}
+            \textbf{Case study}
+            \begin{align*}
+            \dfrac{a_1^Tb}{a_1^Ta_1} = x \Rightarrow
+            \dfrac{\begin{bmatrix}4&0\end{bmatrix}\begin{bmatrix}3\\2\end{bmatrix}}{\begin{bmatrix}4&0\end{bmatrix}\begin{bmatrix}4\\0\end{bmatrix}}=\dfrac{3}{4} \\
+            \text{Projection } p=a_1x = \dfrac{3}{4} \begin{bmatrix}4\\0\end{bmatrix} = \begin{bmatrix}3\\0\end{bmatrix}
+            \end{align*}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}[t]{Projection}
+    \framesubtitle{2D Case, Projection matrix \\ \ }
+    \vspace{-0.8cm}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.49\textwidth}
+            \begin{align*}
+                \left.\begin{matrix}
+                Pb = xa_1 = a_1x \\
+                \dfrac{a_1^Tb}{a_1^Ta_1} = x \\
+                \end{matrix} \right\} P = \dfrac{a_1a_1^T}{a_1^Ta_1}
+                \end{align*}
+                Where $P$ --- projection matrix
+        \end{column}
+        \begin{column}{0.49\textwidth}
+            \vspace{-1.8cm}
+            \begin{figure}[H]
+                \centering\includegraphics[height=3cm,width=1\textwidth,keepaspectratio]{resources/fig1.png}
+                \label{fig:resources/fig1.png}
+            \end{figure}
+            \vspace{-1cm}
+            \textbf{Case study}
+            \begin{align*}
+                P = \dfrac{a_1a_1^T}{a_1^Ta_1} = \dfrac{\begin{bmatrix}4\\0\end{bmatrix}\begin{bmatrix}4&0\end{bmatrix}}{\begin{bmatrix}4&0\end{bmatrix}\begin{bmatrix}4\\0\end{bmatrix}} = \begin{bmatrix}1&0\\0&0\end{bmatrix}\\
+                p = Pb = \begin{bmatrix}1&0\\0&0\end{bmatrix}\begin{bmatrix}3\\2\end{bmatrix} = \begin{bmatrix}3\\0\end{bmatrix}
+                \end{align*}
+        \end{column}
+    \end{columns}
 \end{frame}
 
-\begin{frame}[t]{Projection (2)}
-    \framesubtitle{}
-    \begin{figure}[H]
-        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{AGLA2_for_slides_2.png}
-        % \caption{caption_name}
-        \label{fig:AGLA2_for_slides_2.png}
-    \end{figure}
-\end{frame}
+\begin{frame}[t]{Projection}
+    \framesubtitle{2D Case, Projection matrix \\ Project $\vec{b}$ on $\vec{a}_2$, which is perpendicular to $\vec{a}_1$ }
+    \vspace{-0.4cm}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.49\textwidth}
+            \begin{align*}
+                P_{d_1} = I - P = \begin{bmatrix}0&0\\0&1\end{bmatrix}
+                \end{align*}
+                Where $P=\begin{bmatrix}1&0\\0&0\end{bmatrix}$
+                
+                $P_{d_1}$ is an error between the whole space and current projection matrix.
+                
+                $p_{d_1} = P_{d_1}b = \begin{bmatrix}0\\2\end{bmatrix}$
+        \end{column}
+        \begin{column}{0.49\textwidth}
+            \begin{figure}[H]
+                \centering\includegraphics[height=3cm,width=1\textwidth,keepaspectratio]{resources/fig2.png}
+                \label{fig:resources/fig2.png}
+            \end{figure}
 
+        \end{column}
+    \end{columns}
+\end{frame}
 
 \begin{frame}[t]{Projection}
     \framesubtitle{Case study: Reinforcement Learning fitness function}
