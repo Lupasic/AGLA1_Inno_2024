@@ -12,12 +12,14 @@ This repository contains regularly updated course materials. You can use lab sli
 * [Lab 3 (Intro to matrices; Determinant; Scalar Triple Product)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/3/AGLA1_lab3_bul.pdf)
 * [Lab 4 (Inverse matrices; Change of Basis)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/4/AGLA1_lab4_bul.pdf)
 * [Lab 5 (Test 1 solutions; Matrix Rank)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/5/AGLA1_lab5_bul.pdf)
+* [Lab 6 (Line in plane)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/6/AGLA1_lab6_bul.pdf)
 
 # Lab tasks & solutions
 
 * [Lab 2](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab2)
 * [Lab 3](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab3)
 * [Lab 4](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab4)
+* [Lab 6](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab6)
 
 # For contributors
 
