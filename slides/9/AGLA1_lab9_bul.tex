@@ -1,5 +1,5 @@
-\documentclass[aspectratio=169,notes]{beamer}
-% \documentclass[aspectratio=169]{beamer}
+% \documentclass[aspectratio=169,notes]{beamer}
+\documentclass[aspectratio=169]{beamer}
 \usetheme[faculty=phil]{fibeamer}
 \usepackage{polyglossia}
 \setmainlanguage{english} %% main locale instead of `english`, you
@@ -60,6 +60,8 @@
 \vspace{1mm}
 \end{mdframed}
 }
+
+\newcommand{\shf}{\text{shift}}
 
 \begin{document}
 \setlength{\abovedisplayskip}{0pt}
@@ -195,6 +197,7 @@
     \end{columns}
 \end{frame}
 
+
 \begin{frame}[t]{Parabola}
 \framesubtitle{}
     \scriptsize
@@ -203,8 +206,8 @@
     \begin{column}{0.59\textwidth}
         \textit{Forms:} \\
 \begin{itemize}
-    \item \textbf{Canonical} $2py=x^2$
-    \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where either $A=0$ or $C=0$, not both
+    \item \textbf{Canonical} $(x-x_{\shf})^2=p(y-y_{\shf})$
+    \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where either $A=0$ or $C=0$, not both, if $B=0$
     \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = \sqrt{2}pt\\ y = pt^2\end{matrix*}\right.$
 \end{itemize}
     \end{column}
@@ -221,16 +224,16 @@
 \textit{Properties:}
 \begin{multicols}{3}
     \begin{itemize}
-        \item \textbf{Vertex} $\begin{pmatrix} 0\\0 \end{pmatrix}$
+        \item \textbf{Vertex} $\begin{pmatrix} 0\\0 \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
         \item \textbf{Center} Not defined
         \item \textbf{Eccentricity} $ecc = 1$
         \item \textbf{Linear Eccentricity} Not defined
-        \item \textbf{Foci} $F = \begin{pmatrix} 0\\\frac{p}{2} \end{pmatrix}$
-        \item \textbf{Latus Rectum} (length of chord) $2p$
+        \item \textbf{Foci} $F = \begin{pmatrix} 0\\\frac{p}{2} \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
+        \item \textbf{Latus Rectum} (length of chord) $|2p|$
         \item \textbf{Focal parameter}  $p$
         \item \textbf{Discriminant} $\mathfrak{D} = B^2 - 4AC = 0$
-        \item \textbf{Directrix eq.} $y = -\frac{p}{2}$
-        \item \textbf{Tangent eq.} $yy_{tangent} = p(x+x_{tangent})$
+        \item \textbf{Directrix eq.} $y = -\frac{p}{2} + x_{\shf}$
+        \item \textbf{Tangent eq.}  $x(x_{\text{tan}}-x_{\shf})=p(y-y_{\text{tan}})+x_{\text{tan}}(x_{\text{tan}}-x_{\shf})$
         \item $r = |\overline{FM}|=\sqrt{(x-\frac{p}{2})^2+y^2}$
         \item $\triangle MFD$ is isosceles, where $MD$ -- tangent to $M$
         \end{itemize}
@@ -272,11 +275,23 @@
     Find the equations of the tangent and normal to the parabola $y^2 = 4(x-1)$ at $(5, 4)$.}
     \only<2>{
         \alert{\Large Answer}
-        \begin{figure}[H]
-            \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{2ans.png}
-            % \caption{caption_name}
-            \label{fig:2ans.png}
-        \end{figure}
+        \vspace{-0.2cm}
+        \begin{columns}[T,onlytextwidth]
+            \begin{column}{0.64\textwidth}
+                \begin{figure}[H]
+                    \centering\includegraphics[height=5.5cm,width=1\textwidth,keepaspectratio]{2ans.png}
+                    % \caption{caption_name}
+                    \label{fig:2ans.png}
+                \end{figure}
+            \end{column}
+            \begin{column}{0.34\textwidth}
+                    \begin{figure}[H]
+                        \href{https://www.geogebra.org/calculator/npd7exdq}{
+                            \centering\includegraphics[height=5cm,width=1\textwidth,keepaspectratio]{2ans_1.png}}
+                        \label{fig:2ans_1.png}
+                    \end{figure}
+            \end{column}
+        \end{columns}
     }
 \end{frame}
 
@@ -297,7 +312,7 @@
 \begin{frame}[t]{Task 4}
     \framesubtitle{}
     \only<1>{
-        Find the equation of a parablola that has a line $x=8$ for a directrix and point $F(7;0)$ for a focus.
+        Find the equation of a parabola that has a line $x=8$ for a directrix and point $F(7;0)$ for a focus.
     }
     \only<2>{
         \alert{\Large Answer}
@@ -328,8 +343,8 @@
         \begin{column}{0.59\textwidth}
             \textit{Forms:} \\
             \begin{itemize}
-                \item \textbf{Canonical} $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$
-                \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where $AC > 0$
+                \item \textbf{Canonical} $\frac{(x-x_{\shf})^2}{a^2}+\frac{(y-y_{\shf})^2}{b^2}=1$
+                \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where $AC > 0$, if $B=0$
                 \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = a\cos(\alpha)\\ y = b\sin(\alpha) \end{matrix*}\right.$
             \end{itemize}
         \end{column}
@@ -345,21 +360,22 @@
     \end{columns}
     \vspace{-0.5cm}
     \textit{Properties:}
+    \vspace{-0.2cm}
     \begin{multicols}{3}
         \begin{itemize}
-            \item \textbf{Vertex} $\begin{pmatrix} \pm a\\0 \end{pmatrix}$ and $\begin{pmatrix} 0\\\pm b \end{pmatrix}$
-            \item \textbf{Center} $(0;0)$
-            \item \textbf{Eccentricity} $0 \leq ecc < 1$, $ecc = \sqrt{1 - \frac{b^2}{a^2}}$
+            \item \textbf{Vert} $\begin{pmatrix} \pm a\\0 \end{pmatrix}$\&$\begin{pmatrix} 0\\\pm b \end{pmatrix}$ $ + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
+            \item \textbf{Center} $(0;0) + (x_{\shf};y_{\shf})$
+            \item \textbf{Eccentricity} $0 \leq e < 1$, $e = \sqrt{1 - \frac{b^2}{a^2}}$
             \item \textbf{Linear Eccentricity} $c = \sqrt{a^2-b^2}$
-            \item \textbf{Foci} $F = \begin{pmatrix} \pm c\\ 0 \end{pmatrix} = \begin{pmatrix} \pm(ecc\ a)\\ 0 \end{pmatrix}$
+            \item \textbf{Foci} $F = \begin{pmatrix} \pm(c= e\ a)\\ 0 \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
             \item \textbf{Latus Rectum} (length of chord) $\frac{2b^2}{a}$
             \item \textbf{Focal parameter}  $\frac{b^2}{\sqrt{a^2-b^2}}$
             \item \textbf{Discriminant} $\mathfrak{D} = B^2 - 4AC < 0$
-            \item \textbf{Directrix eq.} $x = \pm \frac{a}{ecc}$
-            \item \textbf{Tangent eq.} $\dfrac{x_{tangent} x}{a^2}+\dfrac{y_{tangent} y}{b^2}=1$
+            \item \textbf{Directrix eq.} $x = \pm \frac{a}{e} + y_{\shf}$
+            \item \textbf{Tangent eq. (w/o shift)} $\dfrac{x_{tangent} x}{a^2}+\dfrac{y_{tangent} y}{b^2}=1$
             \item $r_1 + r_2 = 2a$
             \item $r_{1,2} = |\overline{F_{1,2}M}|=\sqrt{(x \pm c)^2+y^2}$
-            \item $\frac{r_1}{d_1}=ecc$
+            \item $\frac{r_1}{d_1}=e$
             \end{itemize}
     \end{multicols}
     \end{frame}
