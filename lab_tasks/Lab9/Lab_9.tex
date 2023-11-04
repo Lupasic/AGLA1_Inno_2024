@@ -1,0 +1,77 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % Cyrillics!
+\usepackage{cmap} % Copypastable cyrillics!
+\usepackage{amsmath} % Multiline equations
+\usepackage{amssymb} % Cool symbols (like |R)
+\usepackage{mathtools} % Disable numbering equations by default
+\mathtoolsset{showonlyrefs}
+\usepackage{indentfirst} % Indent first paragraph in chapter
+\usepackage{multicol}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\T}{\textrm{T}}
+\newcommand{\I}{{-1}}
+
+\title{Class \#9}
+\author{Anastasiya Puzankova}
+\date{}
+
+\usepackage{color}
+\newcommand{\adv}[0]{\textcolor{red}{*}}
+
+
+\begin{document}
+%\maketitle
+\section*{Analytical Geometry and Linear Algebra~I, Class \#9}
+\noindent\textbf{Innopolis University, October 2022}
+\\
+
+\begin{enumerate}
+
+\item %6.2 (i)
+Find the foci, latus rectum, vertices and directrices of the following parabola: 
+$y^2+4x-2y+3=0$.
+
+\item %6.3
+Find the equations of the tangent and normal to the parabola $y^2 = 4(x-1)$ at $(5, 4)$.
+
+\item %6.29
+An equilateral triangle is inscribed in the parabola $y^2 = 4ax$ one of whose vertices is at the vertex of the parabola. Find its side.
+
+\item %7.2 (i)
+Find the equation of the ellipse whose foci are $(4, 0)$ and $(-4, 0)$ and $e=1/3$
+
+\item %7.3 (i)
+Find the eccentricity, foci and the length of the latus rectum of the ellipse 
+$9x^2+4y^2=36$
+
+\item %7.5
+Find the equation of the normal to the ellipse $3x^2 + 2y^2 = 5$ at $(-1, 1)$.
+
+\item %7.14
+The equation $25(x^2 - 6x + 9) + 16y^2 = 400$ represents an ellipse. Find the centre and foci of the ellipse. How should the axis be transformed so that the ellipse is represented by the equation  $\frac{x^2}{25}+\frac{y^2}{16} = 1$?
+
+\item %7.24
+Find the locus of the poles with respect to the ellipse of the tangents to the parabola $y^2 = 4px$.
+ 
+\item Find the equation of a parablola that has a line $x=8$ for a directrix and point $F(7;0)$ for a focus.
+
+
+\item Find the eccentricity of an ellipse given that:\begin{enumerate}
+  \item its major axis subtends an angle of $120^\circ$ at the endpoints of its minor axis;
+  \item the segment between a focus and the farthest vertex subtends an angle of $90^{\circ}$ at the endpoints of its minor axis.
+\end{enumerate}
+\end{enumerate}
+
+
+\end{document}

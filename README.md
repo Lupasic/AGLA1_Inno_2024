@@ -14,6 +14,7 @@ This repository contains regularly updated course materials. You can use lab sli
 * [Lab 5 (Test 1 solutions; Matrix Rank)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/5/AGLA1_lab5_bul.pdf)
 * [Lab 6 (Line in plane)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/6/AGLA1_lab6_bul.pdf)
 * [Lab 7 (Plane; Line in space)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/7/AGLA1_lab7_bul.pdf)
+* [Lab 9 (Conic sections (2nd order curve equation): Parabola, Ellipse)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/9/AGLA1_lab9_bul.pdf)
 
 # Lab tasks & solutions
 
@@ -22,6 +23,7 @@ This repository contains regularly updated course materials. You can use lab sli
 * [Lab 4](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab4)
 * [Lab 6](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab6)
 * [Lab 7](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab7)
+* [Lab 9](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab9)
 # For contributors
 
 Pull requests with suggestions and improvements, however small or big, are welcome!
