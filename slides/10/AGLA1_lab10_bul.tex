@@ -38,6 +38,8 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 
+\newcommand{\shf}{\text{shift}}
+
 \graphicspath{{resources/}}
 \frenchspacing
 
@@ -165,91 +167,92 @@
 \end{frame}
 
 \begin{frame}[t]{Parabola}
-\framesubtitle{}
-    \scriptsize
-    \vspace{-0.4cm}
-\begin{columns}[T,onlytextwidth]
-    \begin{column}{0.59\textwidth}
-        \textit{Forms:} \\
-\begin{itemize}
-    \item \textbf{Canonical} $2py=x^2$
-    \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where either $A=0$ or $C=0$, not both
-    \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = \sqrt{2}pt\\ y = pt^2\end{matrix*}\right.$
-\end{itemize}
-    \end{column}
-    \begin{column}{0.39\textwidth}
-        \begin{figure}[H]
-            \centering\includegraphics[height=3cm,width=1\textwidth,keepaspectratio]{Parabola.png}
-            \vspace{-0.5cm}
-            \caption*{\scriptsize Parabola $y=x^2$, $p=\dfrac{1}{2}$}
-            \label{fig:Parabola.png}
-        \end{figure}
-    \end{column}
-\end{columns}
-\vspace{-0.6cm}
-\textit{Properties:}
-\begin{multicols}{3}
-    \begin{itemize}
-        \item \textbf{Vertex} $\begin{pmatrix} 0\\0 \end{pmatrix}$
-        \item \textbf{Center} Not defined
-        \item \textbf{Eccentricity} $ecc = 1$
-        \item \textbf{Linear Eccentricity} Not defined
-        \item \textbf{Foci} $F = \begin{pmatrix} 0\\\frac{p}{2} \end{pmatrix}$
-        \item \textbf{Latus Rectum} (length of chord) $2p$
-        \item \textbf{Focal parameter}  $p$
-        \item \textbf{Discriminant} $\mathfrak{D} = B^2 - 4AC = 0$
-        \item \textbf{Directrix eq.} $y = -\frac{p}{2}$
-        \item \textbf{Tangent eq.} $yy_{tangent} = p(x+x_{tangent})$
-        \item $r = |\overline{FM}|=\sqrt{(x-\frac{p}{2})^2+y^2}$
-        \item $\triangle MFD$ is isosceles, where $MD$ -- tangent to $M$
-        \end{itemize}
-\end{multicols}
-\end{frame}
-
-
-\begin{frame}[t]{Ellipse}
     \framesubtitle{}
         \scriptsize
         \vspace{-0.4cm}
     \begin{columns}[T,onlytextwidth]
         \begin{column}{0.59\textwidth}
             \textit{Forms:} \\
-            \begin{itemize}
-                \item \textbf{Canonical} $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$
-                \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where $AC > 0$
-                \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = a\cos(\alpha)\\ y = b \sin(\alpha) \end{matrix*}\right.$
-            \end{itemize}
+    \begin{itemize}
+        \item \textbf{Canonical} $(x-x_{\shf})^2=p(y-y_{\shf})$
+        \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where either $A=0$ or $C=0$, not both, if $B=0$
+        \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = \sqrt{2}pt\\ y = pt^2\end{matrix*}\right.$
+    \end{itemize}
         \end{column}
         \begin{column}{0.39\textwidth}
-            \vspace{-0.5cm}
             \begin{figure}[H]
-                \centering\includegraphics[height=3cm,width=1\textwidth,keepaspectratio]{Ellipse.png}
+                \centering\includegraphics[height=3cm,width=1\textwidth,keepaspectratio]{Parabola.png}
                 \vspace{-0.5cm}
-                \caption*{\scriptsize Ellipse $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$}
-                \label{fig:Ellipse.png}
+                \caption*{\scriptsize Parabola $y=x^2$, $p=\dfrac{1}{2}$}
+                \label{fig:Parabola.png}
             \end{figure}
         \end{column}
     \end{columns}
-    \vspace{-0.5cm}
+    \vspace{-0.6cm}
     \textit{Properties:}
     \begin{multicols}{3}
         \begin{itemize}
-            \item \textbf{Vertex} $\begin{pmatrix} \pm a\\0 \end{pmatrix}$ and $\begin{pmatrix} 0\\\pm b \end{pmatrix}$
-            \item \textbf{Center} $(0;0)$
-            \item \textbf{Eccentricity} $0 \leq ecc < 1$, $ecc = \sqrt{1 - \frac{b^2}{a^2}}$
-            \item \textbf{Linear Eccentricity} $c = \sqrt{a^2-b^2}$
-            \item \textbf{Foci} $F = \begin{pmatrix} \pm c\\ 0 \end{pmatrix} = \begin{pmatrix} \pm(ecc\ a)\\ 0 \end{pmatrix}$
-            \item \textbf{Latus Rectum} (length of chord) $\frac{2b^2}{a}$
-            \item \textbf{Focal parameter}  $\frac{b^2}{\sqrt{a^2-b^2}}$
-            \item \textbf{Discriminant} $\mathfrak{D} = B^2 - 4AC < 0$
-            \item \textbf{Directrix eq.} $x = \pm \frac{a}{ecc}$
-            \item \textbf{Tangent eq.} $\dfrac{x_{tangent} x}{a^2}+\dfrac{y_{tangent} y}{b^2}=1$
-            \item $r_1 + r_2 = 2a$
-            \item $r_{1,2} = |\overline{F_{1,2}M}|=\sqrt{(x \pm c)^2+y^2}$
-            \item $\frac{r_1}{d_1}=ecc$
+            \item \textbf{Vertex} $\begin{pmatrix} 0\\0 \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
+            \item \textbf{Center} Not defined
+            \item \textbf{Eccentricity} $e = 1$
+            \item \textbf{Linear Eccentricity} Not defined
+            \item \textbf{Foci} $F = \begin{pmatrix} 0\\\frac{p}{2} \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
+            \item \textbf{Latus Rectum} (length of chord) $|2p|$
+            \item \textbf{Focal parameter}  $p$
+            \item \textbf{Discriminant} $\mathfrak{D} = B^2 - 4AC = 0$
+            \item \textbf{Directrix eq.} $y = -\frac{p}{2} + y_{\shf}$
+            \item \textbf{Tangent eq.}  $x(x_{\text{tan}}-x_{\shf})=p(y-y_{\text{tan}})+x_{\text{tan}}(x_{\text{tan}}-x_{\shf})$
+            \item $r = |\overline{FM}|=\sqrt{(x-\frac{p}{2})^2+y^2}$
+            \item $\triangle MFD$ is isosceles, where $MD$ -- tangent to $M$
             \end{itemize}
     \end{multicols}
     \end{frame}
+
+
+    \begin{frame}[t]{Ellipse}
+        \framesubtitle{}
+            \scriptsize
+            \vspace{-0.4cm}
+        \begin{columns}[T,onlytextwidth]
+            \begin{column}{0.59\textwidth}
+                \textit{Forms:} \\
+                \begin{itemize}
+                    \item \textbf{Canonical} $\frac{(x-x_{\shf})^2}{a^2}+\frac{(y-y_{\shf})^2}{b^2}=1$
+                    \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where $AC > 0$, if $B=0$
+                    \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = a\cos(\alpha)\\ y = b\sin(\alpha) \end{matrix*}\right.$
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.39\textwidth}
+                \vspace{-0.5cm}
+                \begin{figure}[H]
+                    \centering\includegraphics[height=3cm,width=1\textwidth,keepaspectratio]{Ellipse.png}
+                    \vspace{-0.5cm}
+                    \caption*{\scriptsize Ellipse $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$}
+                    \label{fig:Ellipse.png}
+                \end{figure}
+            \end{column}
+        \end{columns}
+        \vspace{-0.5cm}
+        \textit{Properties:}
+        \vspace{-0.2cm}
+        \begin{multicols}{3}
+            \begin{itemize}
+                \item \textbf{Vert} $\begin{pmatrix} \pm a\\0 \end{pmatrix}$\&$\begin{pmatrix} 0\\\pm b \end{pmatrix}$ $ + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
+                \item \textbf{Center} $(0;0) + (x_{\shf};y_{\shf})$
+                \item \textbf{Eccentricity} $0 \leq e < 1$, $e = \sqrt{1 - \frac{b^2}{a^2}}$
+                \item \textbf{Linear Eccentricity} $c = \sqrt{a^2-b^2}$
+                \item \textbf{Foci} $F = \begin{pmatrix} \pm(c= e\ a)\\ 0 \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
+                \item \textbf{Latus Rectum} (length of chord) $\frac{2b^2}{a}$
+                \item \textbf{Focal parameter}  $\frac{b^2}{\sqrt{a^2-b^2}}$
+                \item \textbf{Discriminant} $\mathfrak{D} = B^2 - 4AC < 0$
+                \item \textbf{Directrix eq.} $x = \pm \frac{a}{e} + x_{\shf}$
+                \item \textbf{Tangent eq. (w/o shift)} $\dfrac{x_{tangent} x}{a^2}+\dfrac{y_{tangent} y}{b^2}=1$
+                \item $r_1 + r_2 = 2a$
+                \item $r_{1,2} = |\overline{F_{1,2}M}|=\sqrt{(x \pm c)^2+y^2}$
+                \item $\frac{r_1}{d_1}=e$
+                \end{itemize}
+        \end{multicols}
+        \end{frame}
 
     \begin{frame}[t]{Hyperbola}
         \framesubtitle{}
@@ -259,7 +262,7 @@
             \begin{column}{0.59\textwidth}
                 \textit{Forms:} \\
                 \begin{itemize}
-                    \item \textbf{Canonical} $\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$
+                    \item \textbf{Canonical} $\frac{(x-x_{\shf})^2}{a^2}-\frac{(y-y_{\shf}^2}{b^2}=1$
                     \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where $AC < 0$
                     \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = \dfrac{a}{\cos(\alpha)}\\ y = b\tan(\alpha) \end{matrix*}\right.$
                 \end{itemize}
@@ -274,23 +277,23 @@
                 \end{figure}
             \end{column}
         \end{columns}
-        \vspace{-0.5cm}
+        \vspace{-0.7cm}
         \textit{Properties:}
         \begin{multicols}{3}
             \begin{itemize}
-                \item \textbf{Vertex} $\begin{pmatrix} \pm a\\0 \end{pmatrix}$
-                \item \textbf{Center} $(0;0)$
-                \item \textbf{Eccentricity} $ecc > 1$, $ecc = \sqrt{1 + \frac{b^2}{a^2}}$
+                \item \textbf{Vertex} $\begin{pmatrix} \pm a\\0 \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$ 
+                \item \textbf{Center} $(0;0) + (x_{\shf};y_{\shf})$
+                \item \textbf{Eccentricity} $e > 1$, $e = \sqrt{1 + \frac{b^2}{a^2}}$
                 \item \textbf{Linear Eccentricity} $c = \sqrt{a^2+b^2}$
-                \item \textbf{Foci} $F = \begin{pmatrix} \pm c\\ 0 \end{pmatrix} = \begin{pmatrix} \pm(ecc\ a)\\ 0 \end{pmatrix}$
+                \item \textbf{Foci} $F = \begin{pmatrix} \pm c = \pm (e\ a)\\ 0 \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
                 \item \textbf{Latus Rectum} (length of chord) $\frac{2b^2}{a}$
                 \item \textbf{Focal parameter}  $\frac{b^2}{\sqrt{a^2+b^2}}$
                 \item \textbf{Discriminant} $\mathfrak{D} = B^2 - 4AC > 0$
-                \item \textbf{Directrix eq.} $x = \pm \frac{a}{ecc}$
-                \item \textbf{Asymptots eq.} $y = \pm \frac{b}{a}x$
+                \item \textbf{Directrix eq.} $x = \pm \frac{a}{e} + x_{\shf}$
+                \item \textbf{Asymptots eq.} $y = \pm \frac{b}{a}(x+x_{\shf}) + y_{\shf}$
                 \item \textbf{Tangent eq.} $\dfrac{x_{tangent} x}{a^2}-\dfrac{y_{tangent} y}{b^2}=1$
-                \item $r = |\overline{F_{closest}M}|=|x\ ecc - a|$
-                \item $\dfrac{r_1}{d_1}=ecc$
+                \item $r = |\overline{F_{closest}M}|=|x\ e - a|$
+                \item $\dfrac{r_1}{d_1}=e$
                 \end{itemize}
         \end{multicols}
         \end{frame}
@@ -377,7 +380,7 @@ $
 $
 \end{itemize}
 \column{0.52\textwidth}
-Using \textit{canonical form}, we can find $a,\ b,\ c,\ ecc$ for the curve, but not \textit{coordinate dependent properties (like vertex, directrix eq.)}.
+Using \textit{canonical form}, we can find $a,\ b,\ c,\ e$ for the curve, but not \textit{coordinate dependent properties (like vertex, directrix eq.)}.
 
 For this purpose, we need to find \textbf{angle} and \textbf{shift}.\\
 \textbf{Angle}: $(A-C)\sin(2\alpha) + B\cos(2\alpha) = 0; \rightarrow \alpha = ...$
