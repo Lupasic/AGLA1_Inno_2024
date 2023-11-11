@@ -1,0 +1,82 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % Cyrillics!
+\usepackage{cmap} % Copypastable cyrillics!
+\usepackage{amsmath} % Multiline equations
+\usepackage{amssymb} % Cool symbols (like |R)
+\usepackage{mathtools} % Disable numbering equations by default
+\mathtoolsset{showonlyrefs}
+\usepackage{indentfirst} % Indent first paragraph in chapter
+\usepackage{multicol}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\T}{\textrm{T}}
+\newcommand{\I}{{-1}}
+
+\title{Class \#10}
+\author{Oleg Bulichev}
+\date{}
+
+\usepackage{color}
+\newcommand{\adv}[0]{\textcolor{red}{*}}
+
+
+\begin{document}
+%\maketitle
+\section*{Analytical Geometry and Linear Algebra~I, Class \#10}
+\noindent\textbf{Innopolis University, October 2022}
+\\
+\begin{enumerate}
+\item Determine types of curves given by the following equations\footnote{In all problems in this section the coordinate system is considered to be Cartesian.}. For each of the curves, find its canonical coordinate system (i.e. indicate the coordinates of origin and new basis vectors in the initial coordinate system) and its canonical equation.
+    
+(a) $9x^2-16y^2-6x+8y-144=0$;
+
+(b) $9x^2+4y^2+6x-4y-2=0$;
+
+(c) $12x^2-12x-32y-29=0$;
+
+(d) $xy+2x+y=0$;
+
+(e) $5x^2+12xy+10y^2-6x+4y-1=0$;
+
+(f) $8x^2+34xy+8y^2+18x-18y-17=0$;
+
+(g) $25x^2-30xy+9y^2+68x+19=0$;
+
+(h) $x^2+2xy+y^2-5x-5y+4=0$.
+
+\item Prove that a curve given by $34x^2+24xy+41y^2-44x+58y+1=0$ is an ellipse. Find the major and minor axes of this ellipse, its eccentricity, coordinates of its center and foci. Find the equations of axes and directrices of this ellipse.
+    
+\item Prove that a curve given by $7x^2+48xy-7y^2-62x-34y+98=0$ is a hyperbola. Find the eccentricity of this hyperbola, coordinates of its center and foci. Find the equations of axes, asymptotes and directrices of this hyperbola.
+    
+\item Prove that a curve given by $x^2+2xy+y^2+x=0$ is a parabola. Find the coordinates of its vertex and focus. Find the equations of axis and directrix of this parabola.
+    
+\item Find the equations of lines tangent to curve $6xy+8y^2-12x-26y+11=0$ that are 
+
+(a) parallel to line $6x+17y-4=0$;
+
+(b) perpendicular to line $41x-24y+3=0$;
+
+(c) parallel to line $y=2$.
+    
+\item Find the equations of lines tangent to curve $5x^2+6xy+5y^2-16x-16y-16=0$ that pass through
+
+(a) point $(3;\,3)$;
+
+(b) point $(0;-\frac45)$;
+
+(c) point $(0;\,1)$.
+\end{enumerate}
+
+
+
+\end{document} 
