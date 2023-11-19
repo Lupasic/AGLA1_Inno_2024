@@ -54,6 +54,7 @@
 \newcommand{\oleg}[2][] {\todo[color=red, #1] {OLEG:\\ #2}}
 \newcommand{\fbckg}[1]{\usebackgroundtemplate{\includegraphics[width=\paperwidth]{#1}}}%frame background
 
+\usetikzlibrary{backgrounds}
 \usepackage[framemethod=TikZ]{mdframed}
 \newcommand{\dbox}[1]{
 \begin{mdframed}[roundcorner=3pt, backgroundcolor=yellow, linewidth=0]
@@ -202,7 +203,7 @@
             \item \textbf{Discriminant} $\mathfrak{D} = B^2 - 4AC = 0$
             \item \textbf{Directrix eq.} $y = -\frac{p}{2} + y_{\shf}$
             \item \textbf{Tangent eq.}  $x(x_{\text{tan}}-x_{\shf})=p(y-y_{\text{tan}})+x_{\text{tan}}(x_{\text{tan}}-x_{\shf})$
-            \item $r = |\overline{FM}|=\sqrt{(x-\frac{p}{2})^2+y^2}$
+            \item $r = |\overline{FM}|=\sqrt{(y-\frac{p}{2})^2+x^2}$
             \item $\triangle MFD$ is isosceles, where $MD$ -- tangent to $M$
             \end{itemize}
     \end{multicols}
@@ -254,6 +255,7 @@
         \end{multicols}
         \end{frame}
 
+
     \begin{frame}[t]{Hyperbola}
         \framesubtitle{}
             \scriptsize
@@ -298,6 +300,7 @@
         \end{multicols}
         \end{frame}
 
+        
 \begin{frame}[t]{Task 1}
     \framesubtitle{}
     \only<1>{
@@ -335,7 +338,7 @@
         \begin{enumerate}
             \item Find angle of rotation, using $(A-C)\sin(2\alpha) + B\cos(2\alpha)=0$. If bad angle, try to do the following: \medskip
 
-             $\cot(2\alpha)=\dfrac{A-C}{B}$; $\cos(2\alpha)=\cos(\operatorname{arccot}(2\alpha))=\dfrac{A-C}{\sqrt{(A-C)^2+B^2}}$ $\rightarrow$ $\left\{\begin{matrix*}[l] \cos(\alpha)=\frac{\sqrt{2}}{2}\sqrt{1+\cos(2\alpha)}
+             $\cot(2\alpha)=\dfrac{A-C}{B}$; $\cos(2\alpha)=\dfrac{A-C}{\sqrt{(A-C)^2+B^2}}$ $\rightarrow$ $\left\{\begin{matrix*}[l] \cos(\alpha)=\frac{\sqrt{2}}{2}\sqrt{1+\cos(2\alpha)}
             \\ \sin(\alpha)=\frac{\sqrt{2}}{2}\sqrt{1-\cos(2\alpha)}
             \end{matrix*}\right.$
             \item Using roration matrix, write down a transformation from $\begin{bmatrix}x\\y\end{bmatrix} \rightarrow \begin{bmatrix}x'\\y'\end{bmatrix}$; $\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}
@@ -363,7 +366,7 @@
 \vspace{-0.3cm}
 \textbf{Problem}\\
 In some cases it's quite tough to convert from general form to canonical using classical method from the class (bad numbers).\\
-\textbf{Solution} \smallskip
+\textbf{Solution} (\href{https://colab.research.google.com/drive/1onK5b0n44GPuDY2NHEWbcl5ZuBcLu5z2?usp=sharing}{Link to code in Collab}) \smallskip
 \begin{columns}[onlytextwidth]
 \column{0.47\textwidth}
 $f = Ax^{2}+Bxy+Cy^{2}+Dx+Ey+F=0$ \\
@@ -395,8 +398,8 @@ Using this transformation, we can find original coordinates, knowing the new one
 x_A\\ y_A \\1
 \end{bmatrix} = 
 \begin{bmatrix}
-\cos(\alpha) & -\sin(\alpha) & x_c \\ \sin(\alpha) & \cos(\alpha) & y_c \\ 0 & 0 & 1
-\end{bmatrix} \begin{bmatrix}
+\cos(\alpha) & \sin(\alpha) & -x_c\cos(\alpha)-y_c\sin(\alpha) \\ -\sin(\alpha) & \cos(\alpha) & x_c\sin(\alpha)-y_c\cos(\alpha) \\ 0 & 0 & 1
+\end{bmatrix}^{-1} \begin{bmatrix}
 {x}_A''\\{y}_A''\\1
 \end{bmatrix}
 \end{equation*}
