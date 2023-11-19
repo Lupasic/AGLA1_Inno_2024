@@ -22,7 +22,7 @@
 \newcommand{\T}{\textrm{T}}
 \newcommand{\I}{{-1}}
 
-\title{Class \#11}
+\title{Class \#12}
 \author{Oleg Bulichev}
 \date{}
 
@@ -32,109 +32,20 @@
 
 \begin{document}
 %\maketitle
-\section*{Analytical Geometry and Linear Algebra~I, Class \#11}
-\noindent\textbf{Innopolis University, October 2022}
+\section*{Analytical Geometry and Linear Algebra~I, Class \#12}
+\noindent\textbf{Innopolis University, November 2022}
+\section{Polar coordinates}
 \begin{enumerate}
-\item Linear transformation of a real axis is given by $f(x)=ax+b$. (a) Find all fixed points of this transformation. (b) Find the transformation that is inverse for $f$.
 
-\textcolor{magenta}{\textbf{Answer.} (a) If $a\neq1$ then there is one fixed point $x=\frac b{1-a}$; if $a=1$ and $b=0$ then all points are fixed; if $a=1$ and $b\neq0$ then there are no fixed points. (b) It exists only if $a\neq0$: $f^{-1}(y)=\frac{y-b}a$.}
-    
-\item Two linear transformations of a real axis $f$ and $g$ are given by $f(x)=ax+b$, $g(x)=cx+d$. Find compositions of transformations $fg$ and $gf$. What are the necessary and sufficient conditions for $fg$ to be equal to $gf$?
-    
-\textcolor{magenta}{\textbf{Answer.} $(fg)(x)=acx+ad+b$; $(gf)(x)=acx+bc+d$; $fg=gf\Leftrightarrow d(a-1)=b(c-1)$.}    
-    
-\item Transformation of a plane is given by $x*=x^2-y^2$, $y*=2xy$. Is this transformation an (a) injection; (b) surjection; (c) bijection? (d) Find the preimage of point $(x*;y*)$ by this transformation.
-    
-\item Find the image of an arbitrary point $M$ which has position vector $\textbf{r}$ by the following transformations:
+\item Find the equation of the line joining the points $\begin{bmatrix} 2 \\ \dfrac{\pi}{3} \end{bmatrix}$ and $\begin{bmatrix} 3 \\ \dfrac{\pi}{6} \end{bmatrix}$. It should deduce that this line also passes through the point $\begin{bmatrix} \dfrac{6}{3\sqrt{3}-2} \\ \dfrac{\pi}{2} \end{bmatrix}$.
 
-(a) homothety with center $M_0(\textbf{r}_0)$ and ratio $\lambda\neq0$;
+\item Find the equation of the line perpendicular to $\dfrac{l}{r}=\cos(\theta-\alpha)+e\ \cos(\theta) $ and passing through the point $\begin{bmatrix} r_1 \\ \theta_1\end{bmatrix}$.
 
-(b) reflection across point $M_0(\textbf{r}_0)$;
+% \textit{Ans}: $\dfrac{r_1 \sin(\theta_1 - \alpha) + e\ \sin(\theta_1)}{r}= \sin(\theta - \alpha) + e\ \sin(\theta)$
 
-(c) translation by vector $\textbf{a}$;
+\item Show that the feet of the perpendiculars from the origin on the sides of the triangle formed by the points with vectorial angles $\alpha,\ \beta,\ \gamma$ and which lie on the circle $r = 2a \cos(\theta)$ lie on the straight line $2a\ \cos(\alpha) \cos(\beta) \cos (\gamma) = r\ \cos(\pi - \alpha - \beta - \gamma)$.
 
-(d) orthogonal projection onto the line $\textbf{r}=\textbf{r}_0+\textbf{a}t$;
+\item A focal chord $SP$ of an ellipse is inclined at an angle $\alpha$ to the major axis. Prove that the perpendicular from the focus on the tangent at $P$ makes with the axis an angle $\arctan(\dfrac{\sin(\alpha)}{e+\cos(\alpha)})$
 
-(e) reflection across the line $\textbf{r}=\textbf{r}_0+\textbf{a}t$; 
-
-(f) dilation of factor $\lambda>0$ from the line $\textbf{r}=\textbf{r}_0+\textbf{a}t$.
-
-\textcolor{magenta}{\textbf{Answer.} (a) $\textbf{r}*=\textbf{r}_0+\lambda(\textbf{r}-\textbf{r}_0)$; (b) $\textbf{r}*=-\textbf{r}+2\textbf{r}_0$; (c) $\textbf{r}*=\textbf{r}+\textbf{a}$; (d) $\textbf{r}*=\textbf{r}_0+\frac{\left(\textbf{r}-\textbf{r}_0\right)\cdot\textbf{a}}{|\textbf{a}|^2}\textbf{a}$; (e) $\textbf{r}*=2\textbf{r}_0-\textbf{r}+2\frac{\left(\textbf{r}-\textbf{r}_0\right)\cdot\textbf{a}}{|\textbf{a}|^2}\textbf{a}$; (f) $\textbf{r}*=\lambda\textbf{r}+(1-\lambda)\textbf{r}_0+(1-\lambda) \frac{\left(\textbf{r}-\textbf{r}_0\right)\cdot\textbf{a}}{|\textbf{a}|^2}\textbf{a}$.}
-
-\item Images of vertices $A$, $B$, $C$ of a triangle $ABC$ by some affine transformation are midpoints $K$, $L$, $M$ of their opposite sides. Find the images by this transformation of points $K$, $L$, $M$ and centroid $O$ of triangle $ABC$. What type of transformation is it?
-
-\textcolor{magenta}{\textbf{Answer.} Homothety with center $O$ and ratio $-0{.}5$.}
-
-\item Prove that:
-
-(a) if $A$ and $B$ are two fixed points of an affine transformation then all points of line $AB$ are fixed;
-
-(b) if an affine transformation has a single fixed point then all invariant lines of this transformation pass through this point;
-
-(c) intersection point of two invariant lines of an affine transformation is a fixed point.
-
-\item Prove that two lines tangent to the ellipse are parallel if and only if the touching points and the center of the ellipse are collinear.
-    
-\item An ellipse is inscribed into a parallelogram $ABCD$ and it touches its side $AD$ at its midpoint $M$. Prove that this ellipse touches the other sides of a parallelogram in their midpoints.
-    
-\item An ellipse with center $O$ is inscribed into a quadrilateral $ABCD$. Prove that\footnote{$A$ means area.} $A_{\triangle OAB}+A_{\triangle OCD}=A_{\triangle OBC}+A_{\triangle OAD}$.
-    
-\item An affine transformation is given by $x*=3x+2y-6$, $y*=4x-3y+1$. Find the images of (a) point $M(-1;\,5)$; (b) line $2x+3y=7$.
-    
-\textcolor{magenta}{\textbf{Answer.} (a) $(1;-18)$; (b) $18x-5y-6=0$.}    
-
-\item An affine transformation is given by $x*=2x+3y-1$, $y*=-3x-4y+2$. Find the preimages of (a) point $M(4;-5)$; (b) line $x+y=1$.
-    
-\textcolor{magenta}{\textbf{Answer.} (a) $(1;\,1)$; (b) $x+y=0$.}    
-    
-\item Find formulas for an affine mapping that transforms
-
-(a) points $A(\frac37;\,1)$, $B(1;\frac14)$, $C(2;-1)$ into points $A*(-4;\,2)$, $B*(-1;\,6)$, $C*(4;\,13)$ respectively;
-
-(b) points $A(0;\,0)$, $B(-1;\,2)$, $C(1;-2)$ into points $A*(-1;-1)$, $B*(0;\,0)$, $C*(1;\,1)$ respectively;
-
-(c) points $A(2;\,0)$, $B(3;-1)$, $C(4;-2)$ into points $A*(2;\,1)$, $B*(-2;-1)$, $C*(-6;-3)$ respectively;
-
-(d) points $A(-2;\,0)$, $B(2;-1)$, $C(0;\,4)$ into points $A*(-2;\,1)$, $B*(2;\,1)$, $C*(0;\,1)$ respectively.
-
-\textcolor{magenta}{\textbf{Answer.} (a) $x*=-4y$, $y*=7x-1$; (b) no solutions; (c) $x*=px+(p+4)y+2-2p$, $y*=qx+(q+2)y+1-2q$, where $p$ and $q$ are any real numbers; (d) no solutions (there exists a linear transformation that is not affine).}
-
-\item Find all fixed point of an affine transformation given by
-
-(a) $x*=2x-y+3$, $y*=-2x+2y-6$;
-
-(b) $x*=4x+3y-1$, $y*=-3x-2y+1$.
-
-\textcolor{magenta}{\textbf{Answer.} (a) $(-3;\,0)$; (b) all points that belong to a line $3x+3y-1=0$.}
-
-\item Find all invariant lines of an affine transformation given by
-
-(a) $x*=y$, $y*=1-x$;
-
-(b) $x*=2x+y-3$, $y*=-3x-y$;
-
-(c) $x*=5x+3y+1$, $y*=-3x-y$.
-
-\textcolor{magenta}{\textbf{Answer.} (a) no solutions; (b) $x+y-3=0$, $2x-y+p=0$, where $p$ can be any real number; (c) $x+y+1=0$.}
-
-\item Find formulas for an affine mapping that transforms lines $x-y+1=0$ and $x+y-1=0$ into lines $3x+2y-3=0$ and $2x+3y+1=0$ respectively and point $A(1;\,1)$ into point $B(-1;-2)$.
-    
-\textcolor{magenta}{\textbf{Answer.} $x*=-\frac{16}5x+\frac{44}5y-\frac{33}5$, $y*=-\frac15x-\frac{41}5y+\frac{32}5$.}    
-    
-\item Find formulas for an affine transformation such that hyperbola $\frac{x^2}5-\frac{y^2}4=1$ is invariant under this transformation and image of $A(5;\,4)$ is $B(\sqrt5;\,0)$.
-
-\textcolor{magenta}{\textbf{Answer.} $x*=\sqrt5(x-y)$, $y*=\pm\sqrt5\left(\frac{4x}5-y\right)$.}
-
-\item Find formulas for the following affine transformations:
-
-(a) orthogonal projection onto line $x-3y+1=0$;
-
-(b) reflection across line $3x+4y-1=0$;
-
-(c) dilation from line $x+y-2=0$ of factor $\frac13$;
-
-(d) dilation from line $2x-y+5=0$ of factor 2.   
-
-\textcolor{magenta}{\textbf{Answer.} (a) $x*=\frac{9x+3y-1}{10}$, $y*=\frac{3x+y+3}{10}$; (b) $x*=\frac{7x-24y+6}{25}$, $y*={-24x-7y+8}{25}$; (c) $x*=\frac{2x-y+2}3$, $y*=\frac{-x+2y+2}3$; (d) $x*=\frac{9x-2y+10}5$, $y*=\frac{-2x+6y-5}5$.}
-\end{enumerate}    
+\end{enumerate}
 \end{document} 
