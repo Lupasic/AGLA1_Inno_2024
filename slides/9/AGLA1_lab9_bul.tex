@@ -94,6 +94,8 @@
         \item Объяснить general алгоритм для задач: 1) General -> canonical (так как мы только в каноникал знаем формулы) 2) Используя читшит все решаем
         \item Цель изучения коников по мнению Иванова - расширение нейронов. Так же подготовка к изучению advance тем как сложные поверхности итп
         \item Поиск тангента к кривым. Используем формулы без шифта, а потом берез 2 координаты на прямой и сдвигаем их с помощью шифта. Находим новую прямую. Так проще, чем формулу выражать.
+        \item Каноничное уравнение --- без шифта.
+        \item У нас есть form dependent (eccentricity, latus rectum) и coord dependent (focus, vertex). Они по разному ищутся.
     \end{enumerate}
 }
 
@@ -200,45 +202,59 @@
 
 
 \begin{frame}[t]{Parabola}
-\framesubtitle{}
-    \scriptsize
-    \vspace{-0.4cm}
-\begin{columns}[T,onlytextwidth]
-    \begin{column}{0.59\textwidth}
-        \textit{Forms:} \\
-\begin{itemize}
-    \item \textbf{Canonical} $(x-x_{\shf})^2=2p(y-y_{\shf})$
-    \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where either $A=0$ or $C=0$, not both, if $B=0$
-    \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = \sqrt{2}pt\\ y = pt^2\end{matrix*}\right.$
-\end{itemize}
-    \end{column}
-    \begin{column}{0.39\textwidth}
-        \begin{figure}[H]
-            \centering\includegraphics[height=3cm,width=1\textwidth,keepaspectratio]{Parabola.png}
-            \vspace{-0.5cm}
-            \caption*{\scriptsize Parabola $y=x^2$, $p=\dfrac{1}{2}$}
-            \label{fig:Parabola.png}
-        \end{figure}
-    \end{column}
-\end{columns}
-\vspace{-0.6cm}
-\textit{Properties:}
-\begin{multicols}{3}
+    \framesubtitle{}
+        \scriptsize
+        \vspace{-0.4cm}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.59\textwidth}
+            \textit{Forms:} \\
     \begin{itemize}
-        \item \textbf{Vertex} $\begin{pmatrix} 0\\0 \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
-        \item \textbf{Center} Not defined
-        \item \textbf{Eccentricity} $e = 1$
-        \item \textbf{Linear Eccentricity} Not defined
-        \item \textbf{Foci} $F = \begin{pmatrix} 0\\\frac{p}{2} \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
-        \item \textbf{Latus Rectum} (length of chord) $|2p|$
-        \item \textbf{Focal parameter}  $p$
-        \item \textbf{Discriminant} $\mathfrak{D} = B^2 - 4AC = 0$
-        \item \textbf{Directrix eq.} $y = -\frac{p}{2} + y_{\shf}$
-        \item \textbf{Tangent eq.}  $x(x_{\text{tan}}-x_{\shf})=p(y-y_{\text{tan}})+x_{\text{tan}}(x_{\text{tan}}-x_{\shf})$
-        \item $r = |\overline{FM}|=\sqrt{(x-\frac{p}{2})^2+y^2}$
-        \item $\triangle MFD$ is isosceles, where $MD$ -- tangent to $M$
-        \end{itemize}
-\end{multicols}
+        \item \textbf{Canonical (should be w/o shift)} $(x-x_{\shf})^2=2p(y-y_{\shf})$
+        \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where either $A=0$ or $C=0$, not both, if $B=0$
+        \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = \sqrt{2}pt\\ y = pt^2\end{matrix*}\right.$
+    \end{itemize}
+        \end{column}
+        \begin{column}{0.39\textwidth}
+            \begin{figure}[H]
+                \centering\includegraphics[height=3cm,width=1\textwidth,keepaspectratio]{Parabola.png}
+                \vspace{-0.5cm}
+                \caption*{\scriptsize Parabola $y=x^2$, $p=\dfrac{1}{2}$}
+                \label{fig:Parabola.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    \vspace{-0.6cm}
+    \textit{Properties:}
+    \begin{multicols}{3}
+        \begin{itemize}
+            \item \textbf{Vertex} $\begin{pmatrix} 0\\0 \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
+            \item \textbf{Center} Not defined
+            \item \textbf{Eccentricity} $e = 1$
+            \item \textbf{Linear Eccentricity} Not defined
+            \item \textbf{Foci} $F = \begin{pmatrix} 0\\\frac{p}{2} \end{pmatrix} + \begin{pmatrix} x_{\shf}\\y_{\shf} \end{pmatrix}$
+            \item \textbf{Latus Rectum} (length of chord) $|2p|$
+            \item \textbf{Focal parameter}  $p$
+            \item \textbf{Discriminant} $\mathfrak{D} = B^2 - 4AC = 0$
+            \item \textbf{Directrix eq.} $y = -\frac{p}{2} + y_{\shf}$
+            \item \textbf{Tangent eq.}  $x(x_{\text{tan}}-x_{\shf})=p(y-y_{\text{tan}})+x_{\text{tan}}(x_{\text{tan}}-x_{\shf})$
+            \item $r = |\overline{FM}|=\sqrt{(y-\frac{p}{2})^2+x^2}$
+            \item $\triangle MFD$ is isosceles, where $MD$ -- tangent to $M$
+            \end{itemize}
+    \end{multicols}
+    \end{frame}
+
+\begin{frame}[t]{Some words about definitions}
+    \begin{exampleblock}{General equation}
+        On my slides --- there are no $2$ near to components $B,\ D$ etc. I put it inside of parameters. All future formulas took it into account. It's OK, to use lecturer's notation with $2$ in formulas.
+    \end{exampleblock}
+    \begin{alertblock}{Focal parameter}
+        In different books or sources, there are different formulas and definitions.\\
+        \textbf{My slides}. \textit{It is the distance from the focus to the directrix}. \href{https://en.wikipedia.org/wiki/Conic_section}{Wiki}, \href{https://www.calculatoratoz.com/en/focal-parameter-of-ellipse-calculator/Calc-836}{Calc}.\\
+        \textbf{Lecture slides}. \textit{It is a semi latus rectum}. \href{https://onlinemschool.com/math/formula/ellipse/}{OnlineMathSchool}, Lectures, \href{https://ru.wikipedia.org/wiki/Эллипс}{Rus Wiki}.
+    \end{alertblock}
+    \medskip
+
+    \centering\textit{ It's a good practice to define definitions before using them.}
 \end{frame}
 
 \begin{frame}[t]{From general to canonical form}
@@ -270,6 +286,26 @@
         \end{figure}
     }
 \end{frame}
+
+\begin{frame}[t]{Tangent line to parabola/ellipse/hyperbola}
+\framesubtitle{}
+    There are 3 methods how to do it:
+    \begin{enumerate}
+        \item Use a formula for canonical form, but you should correctly shift the line.
+        \item Take a derivative of the equation. It works, because in this case we will find a slope.
+        \item Derive a formula, which will includes shifting (I did it only for parabola).
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Tangent line to parabola/ellipse/hyperbola}
+\framesubtitle{Case study}
+    \vspace{-0.6cm}
+    \begin{figure}[H]
+        \centering\includegraphics[height=6cm,width=1\textwidth,keepaspectratio]{tangent.png}
+        \label{fig:tangent.png}
+    \end{figure}
+\end{frame}
+
 \begin{frame}[t]{Task 2}
     \framesubtitle{}
     \only<1>{
@@ -344,7 +380,7 @@
         \begin{column}{0.59\textwidth}
             \textit{Forms:} \\
             \begin{itemize}
-                \item \textbf{Canonical} $\frac{(x-x_{\shf})^2}{a^2}+\frac{(y-y_{\shf})^2}{b^2}=1$
+                \item \textbf{Canonical (should be w/o shift)} $\frac{(x-x_{\shf})^2}{a^2}+\frac{(y-y_{\shf})^2}{b^2}=1$
                 \item \textbf{General} $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, where $AC > 0$, if $B=0$
                 \item \textbf{Parametric} $\left\{\begin{matrix*}[l] x = a\cos(\alpha)\\ y = b\sin(\alpha) \end{matrix*}\right.$
             \end{itemize}

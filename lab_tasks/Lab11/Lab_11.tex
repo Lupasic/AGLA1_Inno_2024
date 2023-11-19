@@ -1,0 +1,51 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % Cyrillics!
+\usepackage{cmap} % Copypastable cyrillics!
+\usepackage{amsmath} % Multiline equations
+\usepackage{amssymb} % Cool symbols (like |R)
+\usepackage{mathtools} % Disable numbering equations by default
+\mathtoolsset{showonlyrefs}
+\usepackage{indentfirst} % Indent first paragraph in chapter
+\usepackage{multicol}
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\T}{\textrm{T}}
+\newcommand{\I}{{-1}}
+
+\title{Class \#12}
+\author{Oleg Bulichev}
+\date{}
+
+\usepackage{color}
+\newcommand{\adv}[0]{\textcolor{red}{*}}
+
+
+\begin{document}
+%\maketitle
+\section*{Analytical Geometry and Linear Algebra~I, Class \#12}
+\noindent\textbf{Innopolis University, November 2022}
+\section{Polar coordinates}
+\begin{enumerate}
+
+\item Find the equation of the line joining the points $\begin{bmatrix} 2 \\ \dfrac{\pi}{3} \end{bmatrix}$ and $\begin{bmatrix} 3 \\ \dfrac{\pi}{6} \end{bmatrix}$. It should deduce that this line also passes through the point $\begin{bmatrix} \dfrac{6}{3\sqrt{3}-2} \\ \dfrac{\pi}{2} \end{bmatrix}$.
+
+\item Find the equation of the line perpendicular to $\dfrac{l}{r}=\cos(\theta-\alpha)+e\ \cos(\theta) $ and passing through the point $\begin{bmatrix} r_1 \\ \theta_1\end{bmatrix}$.
+
+% \textit{Ans}: $\dfrac{r_1 \sin(\theta_1 - \alpha) + e\ \sin(\theta_1)}{r}= \sin(\theta - \alpha) + e\ \sin(\theta)$
+
+\item Show that the feet of the perpendiculars from the origin on the sides of the triangle formed by the points with vectorial angles $\alpha,\ \beta,\ \gamma$ and which lie on the circle $r = 2a \cos(\theta)$ lie on the straight line $2a\ \cos(\alpha) \cos(\beta) \cos (\gamma) = r\ \cos(\pi - \alpha - \beta - \gamma)$.
+
+\item A focal chord $SP$ of an ellipse is inclined at an angle $\alpha$ to the major axis. Prove that the perpendicular from the focus on the tangent at $P$ makes with the axis an angle $\arctan(\dfrac{\sin(\alpha)}{e+\cos(\alpha)})$
+
+\end{enumerate}
+\end{document} 
