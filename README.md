@@ -18,6 +18,7 @@ This repository contains regularly updated course materials. You can use lab sli
 * [Lab 10 (Conic sections (2nd order curve equation): Hyperbola; From general to canonical form)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/10/AGLA1_lab10_bul.pdf)
 * [Lab 11 (Test 2; Polar coordinates)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/11/AGLA1_lab11_bul.pdf)
 * [Lab 12 (Affine Transformation; Bijection, Injection Subjection)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/12/AGLA1_lab12_bul.pdf)
+* [Lab 13 (How to determine a type of surface; Sphere)](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/slides/13/AGLA1_lab13_bul.pdf)
 
 # Lab tasks & solutions
 
@@ -30,6 +31,7 @@ This repository contains regularly updated course materials. You can use lab sli
 * [Lab 10](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab10)
 * [Lab 11](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab11)
 * [Lab 12](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab12)
+* [Lab 13](https://github.com/Lupasic/AGLA1_Inno_2023/blob/pub_2023/lab_tasks/Lab13)
 # For contributors
 
 Pull requests with suggestions and improvements, however small or big, are welcome!
