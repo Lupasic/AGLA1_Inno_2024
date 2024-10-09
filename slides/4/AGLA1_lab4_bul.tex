@@ -35,7 +35,7 @@
 \usepackage{wrapfig}
 \usepackage{animate}
 \usepackage{booktabs}
-\usepackage{multirow}
+\usepackage{multirow,bigdelim}
 
 \graphicspath{{resources/}}
 \frenchspacing
@@ -500,11 +500,33 @@
 
 \begin{frame}[t]{Changing Basis}
     \framesubtitle{Task 6}
+    \only<1>{
     There are to bases in $R^3$:
 
     $e_1=i,\ e_2=j,\ e_3=k$ and $e_1'=i+j+k,\ e_2'=i+j,\ e_3'=i$
 
     Find coordinates of $x=2i-3j+k$ in the basis $e_1',\ e_2',\ e_3'$.
+    }
+    \only<2>{
+        \alert{\Large Answer}
+
+        1. We can represent $E=\begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\ 
+        0 & 0  & 1 
+        \end{bmatrix}$. Hence $E' = EA$, $ A = \begin{array}{cccccc}
+             && e'_1 & e'_2 & e'_3 & \\
+          e_1 &\ldelim[{3}{0.5em}& 1 & 1 & 1 & \rdelim]{3}{0.5em} \\
+          e_2 && 1 & 1 & 0 & \\
+          e_3 && 1 & 0 & 0 & \\
+          \end{array}$
+
+          2. $E\begin{bmatrix} 2\\ -3\\ 1 \end{bmatrix} = A \vec{x} \rightarrow A^{-1}E \begin{bmatrix} 2\\ -3\\ 1 \end{bmatrix} = \vec{x} \rightarrow \begin{bmatrix}
+          0 & 0 & 1 \\
+          0 & 1 & -1 \\ 
+          1 & -1  & 0 
+          \end{bmatrix}  \begin{bmatrix} 2\\ -3\\ 1 \end{bmatrix}= \begin{bmatrix} 1\\ -4\\ 5 \end{bmatrix}$
+    }
 \end{frame}
 
 
